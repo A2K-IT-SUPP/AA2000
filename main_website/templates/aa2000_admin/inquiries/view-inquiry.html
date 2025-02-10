@@ -1,0 +1,311 @@
+{% extends 'admin_base.html' %}
+{% load static %}
+
+{% block title %}
+    Inquiries
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'js/admin_inquiries.js' %}"></script>
+{% endblock %}
+
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/admin_inquiries.css' %}">
+{% endblock %}
+
+{% block content %}
+<div id="view-new-inquiry-container" class="mt-3 p-2 bg-white rounded-5 shadow-lg mh-50 overflow-y-auto overflow-x-hidden">
+    <div class="text=start m-3 px-2">
+        <a href="/admin/inquiries" class="btn btn-outline-secondary"><i class="bi bi-chevron-left"></i> Back</a>
+    </div>
+        <div class="row justify-content-center align-items-start pt-3">
+
+            <div class="col-10 row mx-3 my-3 text-center justify-content-center align-items-center">
+                <div class="col-10 col-xl-5 text-center mx-3 my-3">
+                    <h2>Ticket ID: <span class="fw-medium text-outline-primary px-5 py-3">{{ inquiry.ticket }}</span></h2>
+                </div>
+                <div class="col-10 col-xl-5 text-center mx-3 my-3">
+                    <h2>Status: <span class="fw-medium text-outline-primary px-5 py-3 rounded-4 {{ inquiry.status }}">{{ inquiry.status }}</span></h2>
+                </div>
+            </div>
+
+
+            <div class="col-10 mx-3 my-3 text-center">
+                <h2 class="display-6 fw-bold text-primary text-uppercase">Contact Details</h2>
+                <hr>
+            </div>
+
+            <div class="col-xl-5 col-12 mx-3 my-3">
+                <div id="name-area" id="form-group">
+                    <div class="mx-1" id="fname-area">
+                        <label for="fname" class="form-label fs-6 fw-medium">First Name</label>
+                        <div class="input-group">
+                            <span class="input-group-text" id="fname-addon"><i class="bi bi-person"></i></span>
+                            <input type="text" name="fname" id="fname" value="{{ inquiry_details.fname }}" class="fw-medium fs-4 form-control" aria-label="fname"  aria-describedby="fname-addon" disabled>
+                        </div>
+                    </div>
+                    <div class="mx-1" id="lname-area">
+                        <label for="lname" class="form-label fs-6 fw-medium">Last Name</label>
+                        <div class="input-group">
+                            <span class="input-group-text" id="lname-addon"><i class="bi bi-person"></i></span>
+                            <input type="text" name="lname" id="lname" value="{{ inquiry_details.lname }}" class="fw-medium fs-4 form-control" aria-label="lname" aria-describedby="lname-addon" disabled>
+                        </div>
+                    </div>
+                    <div class="mx-1" id="email-area">
+                        <label for="email" class="form-label fs-6 fw-medium">Email</label>
+                        <div class="input-group">
+                            <span class="input-group-text" id="email-addon"><i class="bi bi-envelope"></i></span>
+                            <input type="email" name="email" id="email" value="{{ inquiry_details.email }}" class="fw-medium fs-4 form-control" aria-label="email" aria-describedby="email-addon" disabled>
+                        </div>
+                    </div>
+                    <div class="mx-1" id="contact-num-area">
+                        <label for="contact-num" class="form-label fs-6 fw-medium">Contact Number</label>
+                        <div class="input-group">
+                            <span class="input-group-text" id="contact-num-addon"><i class="bi bi-telephone"></i></span>
+                            <input type="text" name="contact-num" id="contact-num" value="{{ inquiry_details.contact_num }}" class="fw-medium fs-4 form-control" aria-label="contact-num" aria-describedby="contact-num-addon" disabled>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-xl-5 col-12 mx-3 my-3">
+                <div id="preferred-contact-area" id="form-group">
+                    <label for="preferred-contact" class="form-label fs-6 fw-medium">Preferred Contact Method</label>
+                    <select name="preferred-contact" id="preferred-contact" class="fw-medium fs-3 form-select" disabled>
+                        <option value="EMAIL" {% if inquiry_details.preferred_contact_method == 'EMAIL' %}selected{% endif %}>Email</option>
+                        <option value="PHONE" {% if inquiry_details.preferred_contact_method == 'PHONE' %}selected{% endif %}>Phone</option>
+                    </select>
+                </div>
+
+                <div id="preferred-time-area" id="form-group">
+                    <label for="preferred-time" class="form-label fs-6 fw-medium">Preferred Contact Time</label>
+                    <select name="preferred-time" id="preferred-time" class="fw-medium fs-3 form-select" disabled>
+                        <option value="MORNING" {% if inquiry_details.preferred_contact_time == 'MORNING' %}selected{% endif %}>Morning</option>
+                        <option value="AFTERNOON" {% if inquiry_details.preferred_contact_time == 'AFTERNOON' %}selected{% endif %}>Afternoon</option>
+                        <option value="EVENING" {% if inquiry_details.preferred_contact_time == 'EVENING' %}selected{% endif %}>Evening</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-10 mx-3 my-3 text-center">
+                <h2 class="display-6 fw-bold text-primary text-uppercase">Inqury Details</h2>
+                <hr>
+            </div>
+
+            <div class="col-xl-5 col-12 mx-3 my-3">
+                <div id="concern-type-area" id="form-group">
+                    <label for="concern-type" class="form-label fs-6 fw-medium">Type of Concern</label>
+                    <select name="concern-type" id="concern-type" class="fw-medium fs-3 form-select" disabled>
+                        <option value="1" {% if inquiry_details.concern_category_id == 1 %}selected{% endif %}>Request for Quotation</option>
+                        <option value="2" {% if inquiry_details.concern_category_id == 2 %}selected{% endif %}>Product Inquiry</option>
+                        <option value="3" {% if inquiry_details.concern_category_id == 3 %}selected{% endif %}>Service Inquiry</option>
+                        <option value="4" {% if inquiry_details.concern_category_id == 4 %}selected{% endif %}>Technical Support</option>
+                        <option value="5" {% if inquiry_details.concern_category_id == 5 %}selected{% endif %}>General Question</option>
+                        <option value="6" {% if inquiry_details.concern_category_id == 6 %}selected{% endif %}>Others</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-xl-5 col-12 mx-3 my-3">
+                <div id="inquiry-area" id="form-group">
+                    <label for="inquiry" class="form-label fs-3 fw-medium">Inquiry</label>
+                    <hr>
+                    {% comment %} <textarea name="inquiry" id="inquiry" class="form-control" rows="10" disabled></textarea> {% endcomment %}
+                    <div class="">{{ inquiry_details.details|safe }}</div>
+                </div>
+            </div>
+
+
+
+            
+            {% if inquiry_details.concern_category_id == 1 %}
+            <div class="col-10 mx-3 my-3 text-center">
+                <h2 class="display-6 fw-bold text-primary text-uppercase">Project Details</h2>
+                <hr>
+            </div>
+
+            <div class="col-xl-5 col-12 mx-3 my-3">
+                <div class="mx-1" id="project-name-area">
+                    <label for="project-name" class="form-label fs-6 fw-medium">Project Name</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="project-name-addon"><i class="bi bi-star"></i></span>
+                        <input type="text" name="project-name" id="project-name" value="{{ rfq.project_name }}" class="fw-medium fs-3 form-control" aria-label="project-name" aria-describedby="project-name-addon" disabled>
+                    </div>
+                </div>
+
+                <div class="mx-1" id="project-name-area">
+                    <label for="project-location" class="form-label fs-6 fw-medium">Project Location</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="project-location-addon"><i class="bi bi-geo-alt"></i></span>
+                        <input type="text" name="project-location" id="project-location" value="{{ rfq.project_location }}" class="fw-medium fs-3 form-control" aria-label="project-location" aria-describedby="project-location-addon" disabled>
+                    </div>
+                </div>
+
+                <div class="mx-1" id="estimated-budget-area">
+                    <label for="estimated-budget" class="form-label fs-6 fw-medium">Estimated Budget</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="estimated-budget-addon"><i class="bi bi-wallet2"></i></span>
+                        <input type="number" name="estimated-budget" id="estimated-budget" value="{{ rfq.estimated_budget }}" class="fw-medium fs-3 form-control" aria-label="estimated-budget" aria-describedby="estimated-budget-addon" disabled>
+                    </div>
+                </div>
+
+                <div class="mx-1" id="project-timeline-area">
+                    <label for="project-timeline" class="form-label fs-6 fw-medium">Project Timeline</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="project-timeline-addon"><i class="bi bi-calendar"></i></span>
+                        <input type="text" name="project-timeline" id="project-timeline" value="{{ rfq.timeline }}" class="fw-medium fs-3 form-control" aria-label="project-timeline" aria-describedby="project-timeline-addon" disabled>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-5 col-12 mx-3 my-3">
+                <div id="additional-details-area" id="form-group">
+                    <label for="additional-details" class="form-label fs-3 fw-medium">Additional Details</label>
+                    {% comment %} <textarea name="additional-details" id="additional-details" class="form-control" rows="10" disabled></textarea> {% endcomment %}
+                    <hr>
+                    <div class="">{{ rfq.additional_details|safe }}</div>
+                </div>
+            </div>
+            {% endif %}
+                
+
+
+            
+            {% if replies %}
+            <div class="col-10 mx-3 my-3 text-center">
+                <h2 class="display-6 fw-bold text-primary text-uppercase">Your Replies</h2>
+                <hr>
+            </div>
+
+            <div class="col-10 mx-3 my-3 overflow-y-auto" style="height: 500px;">
+                
+                {% for reply in replies %}
+                <hr>
+                <div class="admin_details d-flex justify-content-start align-items-start">
+                    <div class="admin_photo rounded-circle mx-1">
+                        <img src="/media/{{ reply.admin.admin_photo }}" class="admin_img rounded-circle" alt="Admin Photo">
+                    </div>
+                    <div class="admin_name">
+                        <h5 class="fw-bold">{{ reply.admin.admin_fname }} {{ reply.admin.admin_lname }}</h5>
+                        <p class="text-muted">{{ reply.modified_at }}</p>
+                    </div>
+                </div>
+                <div class="my-reply-area form-group">
+                    {{ reply.reply|safe }}
+                    <br>
+            
+                    <!-- Displaying attachments -->
+                {% if reply.inquiry_reply_attachment.exists %}
+                    <div class="attachments">
+                        <p class="fw-bold">Attachments:</p>
+                        <ul>
+                            {% for attachment in reply.inquiry_reply_attachment.all %}
+                                <li><a href="{{ attachment.inquiry_attachment.url }}" target="_blank">{{ attachment.inquiry_attachment.name }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
+                </div>
+            {% endfor %}
+            
+                    
+            </div>
+            {% endif %}
+                
+
+            <div class="col-10 mx-3 my-3 text-center">
+                <h2 class="display-6 fw-bold text-primary text-uppercase">Reply Now</h2>
+                <hr>
+            </div>
+
+            <form action="" id="reply_inquiry" method="POST" class="py-2 col-10 mx-3 my-3" enctype="multipart/form-data">
+                {% csrf_token %}
+                
+                <!-- Reply Section -->
+                <div>
+                    <div id="reply-area" class="form-group">
+                        <label for="reply" class="form-label fs-3 fw-medium">My Reply</label>
+                        <textarea name="reply" id="reply" class="text-area form-control" rows="10"></textarea>
+                    </div>
+                </div>
+            
+                <!-- File Upload Section -->
+                <div class="my-3">
+                    <label for="files" class="form-label fs-3 fw-medium">Attach Files (PDFs, Photos, etc.)</label>
+                    <div class="file-upload-area p-4 border border-primary rounded-3">
+                        <input type="file" name="files" id="files" class="form-control" multiple>
+                        <div class="text-center text-muted mt-2">
+                            <small>Drag & Drop your files here or click to select files</small>
+                        </div>
+                        <div id="file-preview" class="mt-3"></div>
+                    </div>
+                </div>
+            
+                <div class="border-top py-3">
+                    <div class="d-flex justify-content-center align-items-center mx-auto">
+                        <button type="submit" class="btn btn-primary fs-5 py-2 px-3 rounded-3 mx-2">Reply</button>
+                        <a href="/admin/inquiries" class="btn btn-secondary fs-5 py-2 px-3 rounded-3 mx-2">Cancel</a>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+
+</div>
+
+
+
+<div class="modal fade" id="loaderModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="loaderModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered p-3">
+        <div class="modal-content text-center">
+            <div class="modal-body">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <p class="mt-2">Please wait while we process your request...</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="successLoaderModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="successLoaderModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered p-3">
+        <div class="modal-content text-center">
+            <div class="modal-body">
+                <div class="text-success fs-1">
+                    <i class="bi bi-check-circle-fill"></i> <!-- Bootstrap icon for success -->
+                </div>
+                <p class="mt-2">Your request was processed successfully!</p>
+                <hr>
+                {% comment %} <p class="fw-medium fs-4 text-outline-primary rounded-3 px-5 py-3">Your Ticket Number is: <span id="ticket_area"></span></p>
+                <p>Please make sure to save the ticket, and check your email to check the status. Thank You!</p>  {% endcomment %}
+                <button type="button" class="btn btn-success mt-3" data-bs-dismiss="modal" aria-label="Close" onclick="window.location.reload();">
+                  Close
+                </button>
+              </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="errorLoaderModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="errorLoaderModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered p-3">
+      <div class="modal-content text-center">
+          <div class="modal-body">
+              <div class="text-danger fs-1">
+                  <i class="bi bi-x-circle-fill"></i> <!-- Bootstrap icon for error -->
+              </div>
+              <p class="mt-2">There was an error processing your request.</p>
+              <hr>
+              {% comment %} <p>Please try again or contact support if the problem persists.</p> {% endcomment %}
+              <button type="button" class="btn btn-success mt-3" data-bs-dismiss="modal" aria-label="Close">
+                Close
+            </button>
+          </div>
+      </div>
+  </div>
+</div>
+{% endblock %}

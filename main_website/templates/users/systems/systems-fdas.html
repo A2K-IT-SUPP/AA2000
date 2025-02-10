@@ -1,0 +1,368 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Fire Detection and Alarm Systems
+{% endblock %}
+
+
+
+{% block scripts %}
+    <script src="{% static 'js/systems-selected.js' %}"></script>
+{% endblock %}
+
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/systems-selected.css' %}">
+{% endblock %}
+
+
+
+
+{% block content %}
+    <section id="banner-area">
+        
+    </section>
+
+    <section id="hero-banner">
+        <div class="container-fluid">
+            <div class="row justify-content-center align-items-center mx-3 my-5 px-xl-5">
+                <div class="col-lg-5 text-center text-xl-start">
+                    <h4 class="text-uppercase">Integrating System</h4>
+                    <h1 class="fw-bolder display-2 text-primary text-uppercase">Fire Detection and Alarm Systems</h1>
+                </div>
+                <div class="col-lg-5 fs-lg-5 d-none d-xl-block text-center text-xl-start">
+                    <p class="text-justify">FDAS (Fire Detection and Alarm System) Brand is a trusted name in fire safety, offering advanced solutions to protect lives, assets, and properties. Known for its reliability and innovation, FDAS integrates cutting-edge technology with user-friendly designs to ensure quick detection of fire hazards and prompt alerts for effective action. From commercial establishments to residential properties, FDAS provides scalable and customizable solutions tailored to various needs. The brand’s commitment to excellence and adherence to international safety standards make it a preferred choice for fire detection and alarm systems worldwide.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="systems-overview">
+        <div class="container-fluid my-5" id="systems-overview-banner">
+
+            <div class="row justify-content-center align-items-start mx-5 px-xl-5 mt-xl-5 px-1 mt-3 mb-5">
+                <div class="col-xl-4 mx-lg-5 mx-1 mt-lg-5 mt-1 d-none d-lg-block text-xl-end">
+                    <img src="{% static 'images/picture8.png' %}" class="mt-3" alt="">
+                    <img src="{% static 'images/picture24.png' %}" class="mt-3" alt="">
+                </div>
+                <div class="col-xl-5 mx-lg-5 mx-1 mt-lg-5 mt-1 text-justify text-xl-start">
+                    <h2 class="display-5 mb-3">What is Fire Detection and Alarm Systems (FDAS)?</h2>
+                    <p class="text-justify">A Fire Detection and Alarm System (FDAS) is an essential safety solution designed to identify signs of fire early and alert occupants or emergency responders. This system typically consists of components such as smoke detectors, heat sensors, manual call points, control panels, and alarm devices like bells or sirens. FDAS plays a crucial role in minimizing fire-related damage and saving lives by providing timely warnings that allow occupants to evacuate safely and fire personnel to respond quickly.</p>
+                    <p class="text-justify">FDAS systems come in various configurations, from simple standalone setups for small spaces to complex networked systems for large facilities. They can be tailored to meet specific requirements, including zoning to monitor different areas of a building, integration with suppression systems, or advanced features like voice evacuation. These systems are vital for compliance with safety regulations and ensuring peace of mind for property owners and occupants alike.</p>
+                </div>
+            </div>
+            <div class="px-xl-5 mt-xl-5 px-1 mt-3 mb-5 text-justify text-xl-start mx-3 mx-xl-5">
+                <p class="text-justify"> The FDAS Brand stands as a leader in fire safety solutions, combining advanced technology, superior reliability, and customizable designs to meet diverse fire detection needs. Whether for small offices, large industrial complexes, or multi-story buildings, FDAS ensures comprehensive protection against fire risks. With a strong focus on safety, innovation, and quality, FDAS continues to set the standard for modern fire detection and alarm systems, helping organizations and individuals create safer environments.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="systems-products">
+        <div class="container-fluid my-5" id="systems-products-banner">
+            <h3 class="text-center mt-3 mb-5 pt-5 mx-3">
+                <div class="display-lg-2 display-6 mb-1 fw-bold">FDAS Products</div>
+                <p class="lead text-muted  fs-6 fs-lg-2">Comprehensive Fire Detection and Alarm Systems for Enhanced Safety</p>
+            </h3>
+
+            <div id="systems-products-slider" class="position-relative d-flex flex-nowrap justify-content-center align-items-center mx-xl-5 px-xl-5 my-2">
+                <button id="products-btn-prev" class="slider-btn btn-prev border-0">
+                    <i class="bi bi-chevron-left fs-3"></i>
+                </button>
+
+                <div id="slider-container" class="lcl-systems row d-flex flex-nowrap justify-content-start align-items-center overflow-x-auto px-xl-5 mx-xl-5 px-1 mx-1" >
+
+                    <div class="col-8 col-md-4 col-xl-3 p-xl-3 p-2">
+                        <a href="/products?search_product=&sort_by=name-up&category=1">
+                            <div class="card p-3 rounded-5 mx-2">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/aa2000_icon.png' %}" alt="Brand 1" class="img-fluid">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-6 mt-3">Fire Alarm Control Panel</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+
+                    <div class="col-6 col-xl-3 p-3">
+                        <a href="/products?search_product=&sort_by=name-up&category=2">
+                            <div class="card p-3 rounded-5 mx-2">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/aa2000_icon.png' %}" alt="Brand 1">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-6 mt-3">Smoke Detectors</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-6 col-xl-3 p-3">
+                        <a href="/products?search_product=&sort_by=name-up&category=3">
+                            <div class="card p-3 rounded-5 mx-2">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/aa2000_icon.png' %}" alt="Brand 1">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-6 mt-3">Heat Detectors</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-6 col-xl-3 p-3">
+                        <a href="/products?search_product=&sort_by=name-up&category=4">
+                            <div class="card p-3 rounded-5 mx-2">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/pro1.png' %}" alt="Brand 1">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-6 mt-3">Manual Pull Stations</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-6 col-xl-3 p-3">
+                        <a href="/products?search_product=&sort_by=name-up&category=5">
+                            <div class="card p-3 rounded-5 mx-2">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/pro2.png' %}" alt="Brand 1">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-6 mt-3">Manual Call Points</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-6 col-xl-3 p-3">
+                        <a href="/products?search_product=&sort_by=name-up&category=6">
+                            <div class="card p-3 rounded-5 mx-2">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/pro3.png' %}" alt="Brand 1">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-6 mt-3">Alarm Bells</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-6 col-xl-3 p-3">
+                        <a href="/products?search_product=&sort_by=name-up&category=7">
+                            <div class="card p-3 rounded-5 mx-2">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/pro4.png' %}" alt="Brand 1">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-6 mt-3">Signaling Line Circuit</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-6 col-xl-3 p-3">
+                        <a href="/products?search_product=&sort_by=name-up&category=8">
+                            <div class="card p-3 rounded-5 mx-2">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/pro5.png' %}" alt="Brand 1">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-6 mt-3">Isolator Modules</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-6 col-xl-3 p-3">
+                        <a href="/products?search_product=&sort_by=name-up&category=9">
+                            <div class="card p-3 rounded-5 mx-2">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/pro6.png' %}" alt="Brand 1">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-6 mt-3">Power Supply Battery</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-6 col-xl-3 p-3">
+                        <a href="/products?search_product=&sort_by=name-up&category=10">
+                            <div class="card p-3 rounded-5 mx-2">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/pro1.png' %}" alt="Brand 1">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-6 mt-3">Relays Output Modules</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+
+                </div>
+
+                <button id="products-btn-next" class="slider-btn btn-next border-0">
+                    <i class="bi bi-chevron-right fs-3"></i>
+                </button>
+
+            </div>
+
+            <div class="justify-content-center align-items-center text-center mt-5 ">
+                <a href="/products?system=fdas" class="btn btn-primary rounded-3 p-3">View all FDAS Products</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="systems-services">
+        <div class="container-fluid my-5" id="systems-services-banner">
+
+            <div class="row justify-content-center align-items-start">
+                <div class="col-xl-4">
+                    <img src="{% static 'images/picture23.png' %}" alt="">
+                </div>
+                <div class="col-xl-5">
+                    <h3 class="text-start mt-3 mb-5 mx-3">
+                        <div class="display-lg-2 display-6 mb-1 fw-bold">Our FDAS Services</div>
+                        <p class="lead text-muted  fs-6 fs-lg-2">Reliable Fire Detection and Alarm Systems for Every Need</p>
+                    </h3>
+
+                    <div id="systems-services-container" class="row lcl-systems justify-content-center align-items-center">
+
+                        <div class="col-xl-5 col-5 m-1">
+                            <a href="/services/supply" class="text-decoration-none">
+                                <div class="card rounded-4 shadow">
+                                    <div class="card-body d-flex fs-1 justify-content-start align-items-center pl-3">
+                                        <i class="bi bi-cart-fill mx-xl-3"></i>
+                                        <p class="fs-6 mt-3 fs-3 display-3 mx-1 mx-xl-3 ">Supply</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="col-xl-5 col-5 m-1">
+                            <a href="/services/installation" class="text-decoration-none">
+                                <div class="card rounded-4 shadow">
+                                    <div class="card-body d-flex fs-1 justify-content-start align-items-center pl-3">
+                                        <i class="bi bi-tools mx-xl-3"></i>
+                                        <p class="fs-6 mt-3 fs-3 display-3 mx-1 mx-xl-3 ">Installation</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="col-xl-5 col-5 m-1">
+                            <a href="/services/maintenance" class="text-decoration-none">
+                                <div class="card rounded-4 shadow">
+                                    <div class="card-body d-flex fs-1 justify-content-start align-items-center pl-3">
+                                        <i class="bi bi-battery-half  mx-xl-3"></i>
+                                        <p class="fs-6 mt-3 fs-3 display-3 mx-1 mx-xl-3 ">Maintenance</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+
+                        <div class="col-xl-5 col-5 m-1">
+                            <a href="/services/troubleshooting" class="text-decoration-none">
+                                <div class="card rounded-4 shadow">
+                                    <div class="card-body d-flex fs-1 justify-content-start align-items-center pl-3">
+                                        <i class="bi bi-gear-fill mx-xl-3"></i>
+                                        <p class="fs-4 mt-3 mx-1 mx-xl-3 ">Troubleshooting</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+
+                        <div class="col-xl-5 col-5 m-1">
+                            <a href="/services/design" class="text-decoration-none">
+                                <div class="card rounded-4 shadow">
+                                    <div class="card-body d-flex fs-1 justify-content-start align-items-center pl-3">
+                                        <i class="bi bi-rulers mx-xl-3"></i>
+                                        <p class="fs-6 mt-3 fs-3 display-3 mx-1 mx-xl-3 ">Design</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+
+                        <div class="col-xl-5 col-5 m-1">
+                            <a href="/services/inspection" class="text-decoration-none">
+                                <div class="card rounded-4 shadow">
+                                    <div class="card-body d-flex fs-1 justify-content-start align-items-center pl-3">
+                                        <i class="bi bi-search mx-xl-3"></i>
+                                        <p class="fs-6 mt-3 fs-3 display-3 mx-1 mx-xl-3 ">Inspection</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+
+                        <div class="col-xl-5 col-5 m-1">
+                            <a href="/services/consultation" class="text-decoration-none">
+                                <div class="card rounded-4 shadow">
+                                    <div class="card-body d-flex fs-1 justify-content-start align-items-center pl-3">
+                                        <i class="bi bi-chat-left-quote-fill mx-xl-3"></i>
+                                        <p class="fs-6 mt-3 fs-3 display-3 mx-xl-3 mx-1 ">Consultation</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+
+                        <div class="col-xl-5 col-5 m-1">
+                            <a href="/services/training" class="text-decoration-none">
+                                <div class="card rounded-4 shadow">
+                                    <div class="card-body d-flex fs-1 justify-content-start align-items-center pl-3">
+                                        <i class="bi bi-bar-chart-fill mx-xl-3"></i>
+                                        <p class="fs-6 mt-3 fs-3 display-3 mx-xl-3 mx-1 ">Training</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="systems-brands">
+        <div class="container-fluid my-5" id="systems-brands-banner">
+            <h3 class="text-center mt-3 mb-5 pt-5 mx-3">
+                <div class="display-lg-2 display-6 mb-1 fw-bold">FDAS Brands</div>
+                <p class="lead text-muted  fs-6 fs-lg-2">Innovative FDAS Solutions for a Safer Tomorrow</p>
+            </h3>
+
+            {% if brands %}
+            <div id="system-brands-container" class="row justify-content-center align-items-center">
+                
+                {% for brand in brands %}
+                <div class="col-xl-1 col-4">
+                    <a href="{% url 'users:brands_overview' brand.brand_slug%}">
+                        <card class="p-1 rounded-5">
+                            <div class="card-body text-center p-1">
+                                <div class="card-title">
+                                    <img src="/media/{{ brand.brand_logo }}" alt="">
+                                </div>
+                            </div>
+                        </card>
+                    </a>
+                </div>
+                {% endfor %}
+                
+            </div>
+            {% else %}
+            <p class="text-center fs-6 fs-lg-2">No brands available</p
+            {% endif %}
+        </div>
+    </section>
+{% endblock %}
+    

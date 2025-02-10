@@ -1,0 +1,188 @@
+{% load static %}
+
+<section id="navbar-area">
+    <div class="container-fluid" id="navbar-container">
+        <div class="row justify-content-between align-items-center bg-white shadow-lg rounded-5 py-3 px-5">
+            <div class="col-xl-4 col-lg-4 col-5">
+                {% comment %} <h1 class="d-flex align-items-center"><img src="{% static 'images/aa2000_icon.png' %}" id="navbar-icon" class="mx-1 d-block d-xl-none" alt="">    {% block header %} {% endblock %}</h1> {% endcomment %}
+                <h1 class="d-flex align-items-center">
+                    <img src="{% static 'images/aa2000_icon.png' %}" id="navbar-icon" class="mx-1 d-block d-xl-none" alt="">
+                    {{ nav_title }}
+                </h1>
+                <p>{{ current_time|date:"l, F d, Y | g:i A" }}</p>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-3 d-flex justify-content-end align-items-center">
+                <div class="navbar navbar-expand-sm navbar-light">
+                    <ul class=" navbar-nav d-flex justify-content-center align-items-center w-100">
+                        <!-- Notification Bell Button -->
+                        <li class="nav-item mx-2">
+                            <button class="btn rounded-circle px-3 py-2 border-0 bg-white shadow-sm" type="button" data-bs-toggle="offcanvas" data-bs-target="#notif-offcanvas" aria-controls="notif-offcanvas">
+                                <i class="bi bi-bell fs-4"></i>
+                            </button>
+                        </li>
+                        
+                        <!-- Profile Image and Admin Details -->
+                        <li class="nav-item mx-2 w-100">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <!-- Image and Toggler for Small Screens -->
+                                <div class="d-flex d-xxl-none align-items-center">
+                                    <button class="btn p-0 rounded-circle border-0 bg-white shadow-sm" type="button" data-bs-toggle="collapse" data-bs-target="#menu-navbar" aria-controls="menu-navbar" aria-expanded="false" aria-label="Toggle navigation">
+                                        <img src="/media/{{ session_admin.admin_photo }}" alt="Notification Icon" class="circle-img">
+                                    </button>
+                                    <div class="ms-3 d-none d-md-block d-xl-none">
+                                        <h2 class="fs-5 fw-medium mb-0">{{ session_admin.admin_fname }}  {{ session_admin.admin_lname }}</h2>
+                                        <h6 class="text-muted fw-light fs-6 mb-0">{{ session_admin.level.admin_level_name }}</h6>
+                                    </div>
+                                </div>
+
+                                <!-- Profile for Large Screens -->
+                                <div class="d-none d-xl-flex align-items-center">
+                                    <img src="/media/{{ session_admin.admin_photo }}" class="circle-img rounded-circle border-0 bg-white shadow-sm" alt="Notification Icon">
+                                    <div class="ms-3">
+                                        <h2 class="fs-5 fw-medium mb-0">{{ session_admin.admin_fname }}  {{ session_admin.admin_lname }}</h2>
+                                        <h6 class="text-muted fw-light fs-6 mb-0">{{ session_admin.level.admin_level_name }}</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>  
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="notif-offcanvas" aria-labelledby="notif-offcanvas-label">
+    <div class="offcanvas-header">
+        <h3 class="offcanvas-title" id="notif-off-canvas-label">Activities</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body mt-2">
+        <div>
+            Displayed here are the activities done recently by all of the admins
+        </div>
+
+        {% if session_admin.level.admin_level_name != 'DEFAULT' and session_admin.level.admin_level_name != 'MANAGER' %}
+            {% if activities %}
+            <ul class="list-group mt-3">
+                {% comment %} <li class="list-group-item">activity 1</li> {% endcomment %}
+                
+                {% for activity in activities  %}
+                    <li class="list-group-item"> {{ activity.admin.admin_fname }} {{ activity.admin.admin_lname }} [{{ activity.admin.level.admin_level_name }}]<br> {{ activity.notes }} <br> <span class="fs-6 text-muted">{{ activity.modified_at }}</span></li>
+                {% endfor %}
+                
+            </ul >
+            {% else %}
+            <p class="mt-5">No recent Activity</p>
+            {% endif %}
+        {% else %}
+            <p class="mt-5">You are not authorized to this access</p>
+        {% endif %}
+        {% if session_admin.level.admin_level_name != 'DEFAULT' and session_admin.level.admin_level_name != 'MANAGER' %}
+        <div class="">
+            <a href="/admin/logs" class="btn btn-primary mt-5 col-12 py-2">View all Activities</a>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<div class="collapse navbar-collapse justify-content-end align-center bg-white rounded-5 p-3" id="menu-navbar">
+    <ul class="navbar-nav">
+        <li class="nav-item p-1 rounded-2">
+            <a href="/admin/home" class="nav-link fs-6" role="button">
+                <i class="bi bi-house-door mx-2 fs-5"></i>
+                Dashboard
+            </a>
+        </li>
+        
+        {% if session_admin.level.admin_level_name != 'DEFAULT' %}
+        <li class="nav-item p-1 rounded-2">
+            <a href="/admin/inquiries" class="nav-link f-6" role="button">
+                <i class="bi bi-chat-left-dots mx-2 fs-5"></i>
+                Inquiries
+            </a>
+        </li>
+        {% endif %} 
+        <li class="nav-item dropdown p-1 rounded-2">
+            <a href="/admin/brands" class="nav-link dropdown-toggle fs-6" id="brandDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-bookmark mx-2 fs-5"></i>
+                Brands
+            </a>
+            <ul class="dropdown-menu border-0" aria-labelledby="brandDropdown">
+                <li class="mx-1"><a href="/admin/brands" class="dropdown-item py-2 rounded-3"><i class="bi bi-tag mx-1"></i> Manage Brands</a></li>
+                {% if session_admin.level.admin_level_name != 'DEFAULT' %}
+                <li class="mx-1"><a href="/admin/brands/add" class="dropdown-item py-2 rounded-3"><i class="bi bi-bookmark-plus mx-1"></i> Add New Brand</a></li>
+                {% endif %}
+            </ul>
+        </li>
+        <li class="nav-item dropdown p-1 rounded-2">
+            <a href="/admin/product" class="nav-link dropdown-toggle fs-6" id="productDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-cart mx-2 fs-5"></i>
+                Products
+            </a>
+            <ul class="dropdown-menu border-0" aria-labelledby="productDropdown">
+                <li class="mx-1"><a href="/admin/products" class="dropdown-item py-2 rounded-3"><i class="bi bi-cart-check mx-1"></i> Manage Products</a></li>
+                {% if session_admin.level.admin_level_name != 'DEFAULT' %}
+                <li class="mx-1"><a href="/admin/products/add" class="dropdown-item py-2 rounded-3"><i class="bi bi-cart-plus mx-1"></i> Add New Product</a></li>
+                {% endif %}
+            </ul>
+        </li>
+        <li class="nav-item dropdown p-1 rounded-2">
+            <a href="/admin/articles" class="nav-link dropdown-toggle fs-6" id="articleDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-send mx-2 fs-5"></i>
+                Articles
+            </a>
+            <ul class="dropdown-menu border-0" aria-labelledby="articleDropdown">
+                <li class="mx-1"><a href="/admin/articles" class="dropdown-item py-2 rounded-3"><i class="bi bi-send-check mx-1"></i> Manage Articles</a></li>
+                <li class="mx-1"><a href="/admin/articles/add" class="dropdown-item py-2 rounded-3"><i class="bi bi-send-plus mx-1"></i> Add New Article</a></li>
+                {% comment %} <li class="mx-1"><a href="/admin/authors" class="dropdown-item py-2 rounded-5"><i class="bi bi-person mx-1"></i> Manage Authors</a></li>
+                <li class="mx-1"><a href="/admin/authors/add" class="dropdown-item py-2 rounded-5"><i class="bi bi-person-plus mx-1"></i> Add New Author</a></li> {% endcomment %}
+            </ul>
+        </li>
+        {% if session_admin.level.admin_level_name == 'SUPERADMIN' or admin.level.admin_level_name == 'TECHADMIN' %}
+        <li class="nav-item dropdown p-1 rounded-2">
+            <a href="/admin/jobs" class="nav-link dropdown-toggle fs-6" id="jobDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-suitcase-lg mx-2 fs-5"></i>
+                Jobs
+            </a>
+            <ul class="dropdown-menu border-0" aria-labelledby="jobDropdown">
+                <li class="mx-1"><a href="/admin/jobs" class="dropdown-item py-2 rounded-3"><i class="bi bi-suitcase-lg mx-1"></i> Manage Jobs</a></li>
+                <li class="mx-1"><a href="/admin/jobs/add" class="dropdown-item py-2 rounded-3"><i class="bi bi-suitcase-lg mx-1"></i> Add New Job</a></li>
+            </ul>
+        </li>
+        
+        <li class="nav-item dropdown p-1 rounded-2">
+            <a href="/admin/admins" class="nav-link dropdown-toggle fs-6" id="adminDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-person-gear mx-2 fs-5"></i>
+                Admins
+            </a>
+            <ul class="dropdown-menu border-0" aria-labelledby="adminDropdown">
+                <li class="mx-1"><a href="/admin/admins" class="dropdown-item py-2 rounded-3"><i class="bi bi-person-check mx-1"></i> Manage Admins</a></li>
+                <li class="mx-1"><a href="/admin/admins/add" class="dropdown-item py-2 rounded-3"><i class="bi bi-person-add mx-1"></i> Add New Admin</a></li>
+            </ul>
+        </li>
+        {% endif %}
+        <li class="nav-item p-1 rounded-2">
+            <a href="/admin/reports" class="nav-link fs-6" role="button">
+                <i class="bi bi-file-earmark-bar-graph mx-2 fs-5"></i>
+                Reports
+            </a>
+        </li>
+        {% if session_admin.level.admin_level_name == 'SUPERADMIN' or admin.level.admin_level_name == 'TECHADMIN' %}
+        <li class="nav-item p-1 rounded-2">
+            <a href="/admin/logs" class="nav-link fs-6" role="button">
+                <i class="bi bi-activity mx-2 fs-5"></i>
+                Activity Logs
+            </a>
+        </li>
+        {% endif %}
+        <li class="nav-item p-1 rounded-2">
+            <a href="/admin/settings" class="nav-link fs-6" role="button">
+                <i class="bi bi-gear mx-2 fs-5"></i>
+                Settings
+            </a>
+        </li>
+    </ul>
+</div>

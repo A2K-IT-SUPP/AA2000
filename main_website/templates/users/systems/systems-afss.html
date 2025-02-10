@@ -1,0 +1,372 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Automatic Fire Suppression Systems
+{% endblock %}
+
+
+
+{% block scripts %}
+    <script src="{% static 'js/systems-selected.js' %}"></script>
+{% endblock %}
+
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/systems-selected.css' %}">
+{% endblock %}
+
+
+
+
+{% block content %}
+    <section id="banner-area">
+        
+    </section>
+
+    <section id="hero-banner">
+        <div class="container-fluid">
+            <div class="row justify-content-center align-items-center mx-3 my-5 px-xl-5">
+                <div class="col-lg-5 text-center text-xl-start">
+                    <h4 class="text-uppercase">Integrating System</h4>
+                    <h1 class="fw-bolder display-2 text-primary text-uppercase">Automatic Fire Suppression Systems</h1>
+                </div>
+                <div class="col-lg-5 fs-lg-5 d-none d-xl-block text-center text-xl-start">
+                    <p class="text-justify"> AFSS (Automatic Fire Suppression System) Brand is a leading provider of innovative fire suppression solutions designed to offer rapid and effective fire control. Engineered with precision and built to meet global safety standards, AFSS ensures maximum protection for critical assets, facilities, and personnel. The brand specializes in automatic systems that detect and suppress fires at their earliest stages, minimizing damage and downtime. Trusted across industries, AFSS delivers reliable and efficient fire suppression systems tailored to meet the unique needs of commercial, industrial, and residential environments. </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="systems-overview">
+        <div class="container-fluid my-5" id="systems-overview-banner">
+
+            <div class="row justify-content-center align-items-start mx-5 px-xl-5 mt-xl-5 px-1 mt-3 mb-5">
+                <div class="col-xl-4 mx-lg-5 mx-1 mt-lg-5 mt-1 d-none d-lg-block text-xl-end">
+                    <img src="{% static 'images/picture25.png' %}" class="mt-3" alt="">
+                    <img src="{% static 'images/picture26.png' %}" class="mt-3" alt="">
+                </div>
+                <div class="col-xl-5 mx-lg-5 mx-1 mt-lg-5 mt-1 text-justify text-xl-start">
+                    <h2 class="display-5 mb-3">What is Automatic Fire Suppression Systems (AFSS)?</h2>
+                    <p class="text-justify">An Automatic Fire Suppression System (AFSS) is a state-of-the-art safety solution designed to detect and extinguish fires quickly and efficiently without requiring human intervention. AFSS utilizes advanced detection mechanisms, such as heat or smoke sensors, to identify potential fire hazards. Once triggered, the system automatically releases an extinguishing agent—such as water, foam, gas, or dry chemicals—directly to the affected area, stopping the fire in its early stages.</p>
+                    <p class="text-justify">These systems are widely used in environments where rapid response is critical, such as data centers, industrial facilities, kitchens, and vehicles. AFSS is particularly valuable in protecting areas where traditional firefighting methods may cause additional damage, like sensitive electronics or machinery. With customizable configurations, these systems can be tailored to meet specific requirements, providing an ideal solution for ensuring safety and reducing fire-related risks.</p>
+                </div>
+            </div>
+            <div class="px-xl-5 mt-xl-5 px-1 mt-3 mb-5 text-justify text-xl-start mx-3 mx-xl-5">
+                <p class="text-justify">The AFSS Brand is synonymous with advanced fire suppression technology, offering dependable and efficient solutions to safeguard people, assets, and operations. With a focus on innovation, quality, and adaptability, AFSS ensures that its systems provide superior fire protection while meeting the highest safety standards. Whether for industrial, commercial, or residential applications, AFSS continues to lead the way in creating safer environments through its reliable and automatic fire suppression systems.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="systems-products">
+        <div class="container-fluid my-5" id="systems-products-banner">
+            <h3 class="text-center mt-3 mb-5 pt-5 mx-3">
+                <div class="display-lg-2 display-6 mb-1 fw-bold">AFSS Products</div>
+                <p class="lead text-muted  fs-6 fs-lg-2">Top-Quality AFSS Products for Enhanced Fire Protection</p>
+            </h3>
+
+            <div id="systems-products-slider" class="position-relative d-flex flex-nowrap justify-content-center align-items-center mx-xl-5 px-xl-5 my-2">
+                <button id="products-btn-prev" class="slider-btn btn-prev border-0">
+                    <i class="bi bi-chevron-left fs-3"></i>
+                </button>
+
+                <div id="slider-container" class="lcl-systems row d-flex flex-nowrap justify-content-start align-items-center overflow-x-auto px-xl-5 mx-xl-5 px-1 mx-1" >
+
+                    <div class="col-8 col-md-4 col-xl-3 p-xl-3 p-2">
+                        <a href="//products?search_product=&sort_by=name-up&category=11">
+                            <div class="card p-3 rounded-5 mx-2">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/aa2000_icon.png' %}" alt="Brand 1" class="img-fluid">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-6 mt-3">Control Panel</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+
+                    <div class="col-6 col-xl-3 p-3">
+                        <a href="/products?search_product=&sort_by=name-up&category=12">
+                            <div class="card p-3 rounded-5 mx-2">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/aa2000_icon.png' %}" alt="Brand 1">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-6 mt-3">Gas Suppression Agent</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-6 col-xl-3 p-3">
+                        <a href="/products?search_product=&sort_by=name-up&category=13">
+                            <div class="card p-3 rounded-5 mx-2">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/aa2000_icon.png' %}" alt="Brand 1">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-6 mt-3">Cylinder Assembly</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-6 col-xl-3 p-3">
+                        <a href="/products?search_product=&sort_by=name-up&category=14">
+                            <div class="card p-3 rounded-5 mx-2">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/pro1.png' %}" alt="Brand 1">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-6 mt-3">Manual Release Stations</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-6 col-xl-3 p-3">
+                        <a href="/products?search_product=&sort_by=name-up&category=15">
+                            <div class="card p-3 rounded-5 mx-2">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/pro7.png' %}" alt="Brand 1">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-6 mt-3">Nozzles</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-6 col-xl-3 p-3">
+                        <a href="/products?search_product=&sort_by=name-up&category=16">
+                            <div class="card p-3 rounded-5 mx-2">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/pro8.png' %}" alt="Brand 1">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-6 mt-3">Pipe Network</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-6 col-xl-3 p-3">
+                        <a href="/products?search_product=&sort_by=name-up&category=17">
+                            <div class="card p-3 rounded-5 mx-2">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/pro9.png' %}" alt="Brand 1">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-6 mt-3">Pressure Gauges</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-6 col-xl-3 p-3">
+                        <a href="/products?search_product=&sort_by=name-up&category=18">
+                            <div class="card p-3 rounded-5 mx-2">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/pro10.png' %}" alt="Brand 1">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-6 mt-3">Automatic Release Mechanism</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-6 col-xl-3 p-3">
+                        <a href="/products?search_product=&sort_by=name-up&category=19">
+                            <div class="card p-3 rounded-5 mx-2">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/pro11.png' %}" alt="Brand 1">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-6 mt-3">Discharge Pressure Switch</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-6 col-xl-3 p-3">
+                        <a href="/products?search_product=&sort_by=name-up&category=20">
+                            <div class="card p-3 rounded-5 mx-2">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/pro12.png' %}" alt="Brand 1">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-6 mt-3">Alarm Alert System</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+
+                </div>
+
+                <button id="products-btn-next" class="slider-btn btn-next border-0">
+                    <i class="bi bi-chevron-right fs-3"></i>
+                </button>
+
+            </div>
+
+            <div class="justify-content-center align-items-center text-center mt-5 ">
+                <a href="/products?system=afss" class="btn btn-primary rounded-3 p-3">View all AFSS Products</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="systems-services">
+        <div class="container-fluid my-5" id="systems-services-banner">
+
+            <div class="row justify-content-center align-items-start">
+                <div class="col-xl-4">
+                    <img src="{% static 'images/picture27.png' %}" alt="">
+                </div>
+                <div class="col-xl-5">
+                    <h3 class="text-start mt-3 mb-5 mx-3">
+                        <div class="display-lg-2 display-6 mb-1 fw-bold">Our AFSS Services</div>
+                        <p class="lead text-muted  fs-6 fs-lg-2"> Ensuring Safety with Advanced Fire Detection Services</p>
+                    </h3>
+
+                    <div id="systems-services-container" class="row lcl-systems justify-content-center align-items-center">
+
+                        <div class="col-xl-5 col-5 m-1">
+                            <a href="/services/supply" class="text-decoration-none">
+                                <div class="card rounded-4 shadow">
+                                    <div class="card-body d-flex fs-1 justify-content-start align-items-center pl-3">
+                                        <i class="bi bi-cart-fill mx-xl-3"></i>
+                                        <p class="fs-6 mt-3 fs-3 display-3 mx-1 mx-xl-3 ">Supply</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="col-xl-5 col-5 m-1">
+                            <a href="/services/installation" class="text-decoration-none">
+                                <div class="card rounded-4 shadow">
+                                    <div class="card-body d-flex fs-1 justify-content-start align-items-center pl-3">
+                                        <i class="bi bi-tools mx-xl-3"></i>
+                                        <p class="fs-6 mt-3 fs-3 display-3 mx-1 mx-xl-3 ">Installation</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="col-xl-5 col-5 m-1">
+                            <a href="/services/maintenance" class="text-decoration-none">
+                                <div class="card rounded-4 shadow">
+                                    <div class="card-body d-flex fs-1 justify-content-start align-items-center pl-3">
+                                        <i class="bi bi-battery-half  mx-xl-3"></i>
+                                        <p class="fs-6 mt-3 fs-3 display-3 mx-1 mx-xl-3 ">Maintenance</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+
+                        <div class="col-xl-5 col-5 m-1">
+                            <a href="/services/troublshooting" class="text-decoration-none">
+                                <div class="card rounded-4 shadow">
+                                    <div class="card-body d-flex fs-1 justify-content-start align-items-center pl-3">
+                                        <i class="bi bi-gear-fill mx-xl-3"></i>
+                                        <p class="fs-4 mt-3 mx-1 mx-xl-3 ">Troubleshooting</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+
+                        <div class="col-xl-5 col-5 m-1">
+                            <a href="/services/design" class="text-decoration-none">
+                                <div class="card rounded-4 shadow">
+                                    <div class="card-body d-flex fs-1 justify-content-start align-items-center pl-3">
+                                        <i class="bi bi-rulers mx-xl-3"></i>
+                                        <p class="fs-6 mt-3 fs-3 display-3 mx-1 mx-xl-3 ">Design</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+
+                        <div class="col-xl-5 col-5 m-1">
+                            <a href="/services/inspection" class="text-decoration-none">
+                                <div class="card rounded-4 shadow">
+                                    <div class="card-body d-flex fs-1 justify-content-start align-items-center pl-3">
+                                        <i class="bi bi-search mx-xl-3"></i>
+                                        <p class="fs-6 mt-3 fs-3 display-3 mx-1 mx-xl-3 ">Inspection</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+
+                        <div class="col-xl-5 col-5 m-1">
+                            <a href="/services/consultation" class="text-decoration-none">
+                                <div class="card rounded-4 shadow">
+                                    <div class="card-body d-flex fs-1 justify-content-start align-items-center pl-3">
+                                        <i class="bi bi-chat-left-quote-fill mx-xl-3"></i>
+                                        <p class="fs-6 mt-3 fs-3 display-3 mx-xl-3 mx-1 ">Consultation</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+
+                        <div class="col-xl-5 col-5 m-1">
+                            <a href="/services/training" class="text-decoration-none">
+                                <div class="card rounded-4 shadow">
+                                    <div class="card-body d-flex fs-1 justify-content-start align-items-center pl-3">
+                                        <i class="bi bi-bar-chart-fill mx-xl-3"></i>
+                                        <p class="fs-6 mt-3 fs-3 display-3 mx-xl-3 mx-1 ">Training</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="systems-brands">
+        <div class="container-fluid my-5" id="systems-brands-banner">
+            <h3 class="text-center mt-3 mb-5 pt-5 mx-3">
+                <div class="display-lg-2 display-6 mb-1 fw-bold">AFSS Brands</div>
+                <p class="lead text-muted  fs-6 fs-lg-2">Premium AFSS Brands You Can Count On</p>
+            </h3>
+
+            
+            {% if brands %}
+                
+            <div id="system-brands-container" class="row justify-content-center align-items-center">
+
+                
+                {% for brand in brands %}
+                <div class="col-xl-1 col-4">
+                    <a href="{% url 'users:brands_overview' brand.brand_slug %}">
+                        <card class="p-1 rounded-5">
+                            <div class="card-body text-center p-1">
+                                <div class="card-title">
+                                    <img src="{% static 'images/aa2000_icon.png' %}" alt="">
+                                </div>
+                            </div>
+                        </card>
+                    </a>
+                </div>
+                {% endfor %}
+
+            </div>
+            {% else %}
+            <p>No brands available</p>
+            {% endif %}
+        </div>
+    </section>
+{% endblock %}
+    

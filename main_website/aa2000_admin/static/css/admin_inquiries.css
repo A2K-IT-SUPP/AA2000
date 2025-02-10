@@ -1,0 +1,119 @@
+
+:root {
+    --primary-color: #4c7df9; 
+    --secondary-color: #6c757d; 
+    --light-bg: #f8f9fa;
+    --dark-bg: #343a40;
+    --hover-bg: rgba(0, 123, 255, 0.1);
+    --hover-color: #0056b3; 
+
+
+    --main-bg: #ecf2ff;
+    --light-blue: #4c7df9;
+    --black: #202020;
+    --mid-blue: #1f4cff;
+    --dark-blue: #0a2fbf;
+    --gray: #d6d6d8;
+    --img-bg-blue: rgba(58, 120, 253, 0.65);
+    --gradient-bg: linear-gradient(to bottom, var(--light-blue) 0%, var(--mid-blue) 100%);
+
+    --NEW: #eee8a9;
+    --PENDING: #ff72b2;
+    --IN_PROGRESS: #4c7df9;
+    --DONE: #22c197;
+
+
+    --system1: #f9f871;
+    --system2: #ffc861;
+    --system3: #ff9580;
+    --system4: #ff72b2;
+    --system5: #d970e2;
+    --system6: #22c197;
+}
+
+#view-new-inquiry-container {
+    max-height: 80vh; /* Sets max height relative to viewport */
+    overflow-y: auto; /* Enables scrolling if content exceeds the max height */
+}
+
+
+.admin_photo {
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+}
+
+.admin_img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+
+
+
+.NEW {
+    background-color: var(--NEW);
+}
+.PENDING {
+    background-color: var(--PENDING);
+}
+.IN_PROGRESS {
+    background-color: var(--IN_PROGRESS);
+}
+.DONE {
+    background-color: var(--DONE);
+}
+
+
+
+.RFQ {
+    background-color: var(--system1);
+}
+
+.PRODUCT_INQUIRY {
+    background-color: var(--system2);
+}
+
+.SERVICE_INQUIRY {
+    background-color: var(--system3);
+}
+
+.TECHNICAL_SUPPORT {
+    background-color: var(--system4);
+}
+
+.GENERAL {
+    background-color: var(--system5);
+}
+
+.OTHERS {
+    background-color: var(--system6);
+}
+
+
+.file-upload-area {
+    position: relative;
+    cursor: pointer;
+}
+.file-item {
+    display: flex;
+    align-items: center;
+    background-color: #f8f9fa;
+    padding: 5px;
+    margin-top: 5px;
+    border-radius: 5px;
+}
+.file-item img {
+    max-width: 50px;
+    max-height: 50px;
+    margin-right: 10px;
+}
+.file-item .remove-file {
+    margin-left: 10px;
+    cursor: pointer;
+    color: red;
+}
+
+
+

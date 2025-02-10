@@ -1,0 +1,159 @@
+{% extends 'admin_base.html' %}
+{% load static %}
+
+{% block title %}
+    Admins
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'js/admin_manage_admin.js' %}"></script>
+{% endblock %}
+
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/admin_manage_admin.css' %}">
+{% endblock %}
+
+
+
+{% block content %}
+<div class="mt-3 p-2 bg-white rounded-5 shadow-lg">
+    <div class="row justify-content-between align-items-center pt-2">
+        <div class="col-xl-3">
+            <h2 class="text-lg-start text-center mx-xl-5 fs-3 fw-medium text-dark">All Admins</h2>
+        </div>
+        <div class="col-xl-8 d-flex justify-content-center align-items-end">
+            <div class="add-new-brand-area mx-2">
+                <a href="/admin/admins/add" class="btn btn-primary px-3 py-2">Add new admin</a>
+            </div>
+            <form method="GET" action="{% url 'aa2000_admin:admins' %}" class="d-flex align-items-center">
+                <div class="sort-area mx-2">
+                    <h6 class="text-muted fs-6 fw-light">Sort by:</h6>
+                    <select class="form-select px-1" id="sort-by" name="sort_by">
+                        <option value="id-up" {% if sort_by == 'id-up' %}selected{% endif %}>ID Up</option>
+                        <option value="id-down" {% if sort_by == 'id-down' %}selected{% endif %}>ID Down</option>
+                        <option value="name-up" {% if sort_by == 'name-up' %}selected{% endif %}>Name Ascending</option>
+                        <option value="name-down" {% if sort_by == 'name-down' %}selected{% endif %}>Name Descending</option>
+                        <option value="date-modified-up" {% if sort_by == 'date-modified-up' %}selected{% endif %}>Date Modified Ascending</option>
+                        <option value="date-modified-down" {% if sort_by == 'date-modified-down' %}selected{% endif %}>Date Modified Descending</option>
+                    </select>
+                </div>
+                <div class="filter-area mx-2">
+                    <h6 class="text-muted fs-6 fw-light">Filter Search by:</h6>
+                    <select class="form-select px-1" id="filter-search-by" name="filter_search_by">
+                        <option value="id" {% if filter_search_by == 'id' %}selected{% endif %}>ID</option>
+                        <option value="name" {% if filter_search_by == 'name' %}selected{% endif %}>Name</option>
+                        <option value="level" {% if filter_search_by == 'level' %}selected{% endif %}>Level</option>
+                        <option value="date-modified" {% if filter_search_by == 'date-modified' %}selected{% endif %}>Date Modified</option>
+                    </select>
+                </div>
+                <div class="search-area mx-2">
+                    <h6 class="text-muted fs-6 fw-light">Search:</h6>
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="search" id="search" placeholder="search" aria-label="search-area" value="{{ search_query }}" aria-describedby="search-addon">
+                        <span class="input-group-text" id="search-addon"><i class="bi bi-search"></i></span>
+                    </div>
+                </div>
+                <div class="mx-2">
+                    <button type="submit" class="btn btn-primary">Apply</button>
+                </div>
+            </form>
+        </div>
+        
+    </div>
+    {% if page_obj %}
+    <div class="col-12 mt-5 px-4" style="max-height: 65vh; overflow-y: auto">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Level</th>
+                        <th>Last Modified</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+    {% comment %} 
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Admin Name 1</td>
+                        <td>
+                            <span>SuperUser</span>
+                        </td>
+                        <td class="text-muted fs-6 fw-light">10/25/2024 10:00:00AM</td>
+                        <td>
+                            <a href="/admin/admins/view" class="btn btn-primary rounded-5 px-4 py-1">view</a>
+                        </td>
+                    </tr> {% endcomment %}
+
+
+                    {% for admin in page_obj %}
+                    <tr>
+                        <th scope="row">{{ admin.id }}</th>
+                        <td>{{ admin.admin_fname }} {{ admin.admin_lname }} </td>
+                        <td>
+                            <span class="{{ admin.level.admin_level_name }} admin-level">{{ admin.level.admin_level_name }}</span>
+                        </td>
+                        <td class="text-muted fs-6 fw-light">{{ admin.modified_at }}</td>
+                        <td>
+                            <a href="{% url 'aa2000_admin:view_admin' admin.id %}" class="btn btn-primary rounded-5 px-4 py-1">view</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- <div aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            {% if page_obj.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo; Previous</span>
+                    </a>
+                </li>
+            {% else %}
+                <li class="page-item disabled">
+                    <a class="page-link">Previous</a>
+                </li>
+            {% endif %}
+    
+            {% for num in page_obj.paginator.page_range %}
+                {% if page_obj.number == num %}
+                    <li class="page-item active" aria-current="page">
+                        <a class="page-link">{{ num }}</a>
+                    </li>
+                {% else %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+    
+            {% if page_obj.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+                        <span aria-hidden="true">Next &raquo;</span>
+                    </a>
+                </li>
+            {% else %}
+                <li class="page-item disabled">
+                    <a class="page-link">Next</a>
+                </li>
+            {% endif %}
+        </ul>
+    </div> -->
+    {% else %}
+    <div class="col-10">
+        <hr>
+        <p class="mx-5">No admins found.</p>
+    </div>
+    {% endif %}
+
+</div>
+
+
+{% endblock %}

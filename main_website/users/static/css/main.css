@@ -1,0 +1,428 @@
+
+:root {
+    --primary-color: #4c7df9; 
+    --secondary-color: #6c757d; 
+    --light-bg: #f8f9fa;
+    --dark-bg: #343a40;
+
+    --main-bg: #ecf2ff;
+    --light-blue: #4c7df9;
+    --black: #202020;
+    --mid-blue: #1f4cff;
+    --dark-blue: #0a2fbf;
+    --gray: #d6d6d8;
+    --img-bg-blue: rgba(58, 120, 253, 0.65);
+    --gradient-bg: linear-gradient(to bottom, var(--light-blue) 0%, var(--mid-blue) 100%);
+
+    --system1: #f9f871;
+    --system2: #ffc861;
+    --system3: #ff9580;
+    --system4: #ff72b2;
+    --system5: #d970e2;
+    --system6: #22c197;
+    --system7: #796fe5;
+    --system8: #b0b5ed;
+    --system9: #eee8a9;
+    --system10: #3a7371;
+    --system11: #dbefee;
+    --system12: #6dfacd;
+}
+
+/* --------------------------------------------------------------------------------------- */
+#underConstructionModal {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.modal-header {
+    font-family: 'Poppins', sans-serif;
+}
+
+.modal-body p {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+}
+
+.modal-footer .btn {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.modal-footer .btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromRight {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+#intro {
+    position: relative;
+    top: 0px;
+    background-image: url('../images/main-bg-1.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 85vh;
+    display: flex; 
+    align-items: center;
+    color: var(--main-bg); 
+    padding: 0 20px;
+    overflow: hidden;
+}
+
+#intro::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--img-bg-blue); /* Blue overlay */
+    opacity: 0.5; /* Adjust the overlay opacity here */
+    z-index: 0;
+}
+
+#intro > * {
+    position: relative;
+    z-index: 1; /* Bring content above overlay */
+}
+
+/* Hero title */
+.hero-banner-title {
+    color: var(--main-bg);
+    text-shadow: 5px 5px 2px var(--dark-bg);
+    opacity: 0; /* Hidden initially */
+    animation: slideInFromLeft 1s ease-out forwards;
+}
+
+/* Hero paragraph */
+.hero-banner-p {
+    color: var(--main-bg);
+    opacity: 0; /* Hidden initially */
+    animation: fadeIn 1.5s ease-in forwards;
+    animation-delay: 0.5s; /* Delay for smooth sequence */
+}
+
+/* Button */
+.btn-primary {
+    opacity: 0; /* Hidden initially */
+    animation: fadeIn 2s ease-in forwards;
+    animation-delay: 1s; /* Delayed fade-in for button */
+}
+
+/* Hero image */
+.hero-banner-img {
+    margin-top: 100px;
+    transform: scale(1.15);
+    opacity: 0; /* Hidden initially */
+    animation: slideInFromRight 1s ease-out forwards;
+    animation-delay: 1.5s; /* Delayed for image */
+}
+
+
+#systems {
+    position: relative;
+}
+
+.card {
+    height: 100%;
+    border-radius: 0.5;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.card-title {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    height: 100px; /
+}
+
+.card-subtitle {
+    min-height: 70px; 
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    text-align: center;
+}
+
+.card img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+.lcl-systems a{
+    text-decoration: none;
+    color: var(--black)
+}
+
+.lcl-systems a:hover .card {
+    background: var(--gradient-bg);
+    color: var(--main-bg);
+    border: none;
+}
+
+
+#services {
+    position: relative;
+}
+
+#services img {
+    /* max-height:30%; */
+    height: auto;
+    width: 70%;
+}
+
+#services .btn {
+    margin-top: auto; /* Ensures the button is pushed to the bottom of the flex container */
+}
+
+.lcl-services-items a{
+    text-decoration: none;
+    color: var(--black);
+}
+
+
+
+#in-aa2000 {
+    position: relative;
+    top:0px;
+    background-image: url('../images/picture2.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 85vh;
+    display: flex; 
+    align-items: center;
+    color: var(--main-bg); 
+    padding: 0 20px;
+    overflow: hidden; 
+}
+
+#in-aa2000::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--img-bg-blue);   
+    z-index: 0; 
+}
+
+#in-aa2000 > * {
+    position: relative;
+    z-index: 1;
+}
+
+#in-aa2000 #banner {
+    height: 800px;
+    position: relative;
+}
+
+#in-aa2000 img {
+    max-width: 100%; 
+    height: auto; 
+    border-radius: 10px; 
+}
+
+#text-banner {
+    position: absolute;
+    bottom: 0px;
+    background: var(--mid-blue); 
+    color: white; 
+    padding: 15px; 
+    border-radius: 5px;
+}
+
+#text-banner span {
+    background-color: var(--main-bg);
+    color: var(--black);
+}
+
+
+#why-choose-us #banner{
+    background-color: var(--mid-blue);
+    color: var(--main-bg);
+}
+
+
+#why-choose-us .card {
+    box-shadow: 5px 5px 2px var(--main-bg);
+}
+
+
+#brand-slider-container, #clients-slider-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+
+  }
+
+#brand-slider-container::-webkit-scrollbar, #clients-slider-container::-webkit-scrollbar {
+    display: none; /* Hide scrollbar */
+}
+
+#brand-slider-container .card, #clients-slider-container .card {
+    flex: 0 0 auto;
+    width: 8rem; /* Set card width */
+    height: 8rem; /* Set card height */
+    margin-right: 15px;
+    border-radius: 50%; /* Make the card itself circular */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 50px;
+}
+
+#brand-slider-container .card img, #clients-slider-container .card img {
+    width: 100%;
+    height: 100%;
+    /* object-fit: cover; Ensures the image fills the card without stretching */
+    /* border-radius: 50%; Keeps the image circular */
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+#brand-card-slider  .slider-btn, #clients-card-slider .slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+  }
+
+#brandCardSlider.btn-prev, #clientsCardSlider.btn-prev {
+    left: 10px;
+  }
+
+#brandCardSlider.btn-next, #clientsCardSlider.btn-next {
+    right: 10px;
+  }
+
+#featured-clients {
+    background-color: var(--light-blue);
+    color: var(--main-bg);
+}
+
+#featured-clients .lcl-white-btn {
+    background-color: var(--light-blue);
+    color: var(--main-bg);
+}
+
+
+#featured-clients .lcl-text-white {
+    color: var(--main-bg);
+}
+
+
+/* 
+.lcl-blog-card-body {
+    background-color: var(--light-blue);
+    color: var(--main-bg);
+} */
+
+
+#cta {
+    position: relative;
+    top: 0px;
+    background-image: url('../images/picture6.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 50vh;
+    display: flex; 
+    align-items: center;
+    color: var(--main-bg); 
+    padding: 0 20px;
+    overflow: hidden; 
+    z-index: 1; /* Add z-index to the CTA section */
+}
+
+#cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--img-bg-blue);   
+    z-index: 0; /* Ensure this is lower than the text container */
+}
+
+#cta .row {
+    position: relative; /* Add relative positioning to the text container */
+    z-index: 2; /* Bring text above the overlay */
+}
+
+
+/* 
+.featured_client_logo_area {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--main-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */

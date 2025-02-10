@@ -1,0 +1,115 @@
+{% load static %}
+
+<section id="sidebar" class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+    <div id="sidebar-area" class="col-12 navbar p-3 d-flex flex-column justify-content-between rounded-5 shadow-lg bg-white" style="width: 300px;">
+        <div class="">
+            <a href="">
+                <img src="{% static 'images/aa2000.png' %}" alt="">
+            </a>
+        </div>
+        <div class="col-12 ">
+            <ul class="navbar-nav">
+                <li class="nav-item p-1 rounded-2">
+                    <a href="/admin/home" class="nav-link fs-6" role="button">
+                        <i class="bi bi-house-door mx-2 fs-5"></i>
+                        Dashboard
+                    </a>
+                </li>
+                
+                {% if session_admin.level.admin_level_name != 'DEFAULT' %}
+                <li class="nav-item p-1 rounded-2">
+                    <a href="/admin/inquiries" class="nav-link f-6" role="button">
+                        <i class="bi bi-chat-left-dots mx-2 fs-5"></i>
+                        Inquiries
+                    </a>
+                </li>
+                {% endif %} 
+                <li class="nav-item dropdown p-1 rounded-2">
+                    <a href="/admin/brands" class="nav-link dropdown-toggle fs-6" id="brandDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-bookmark mx-2 fs-5"></i>
+                        Brands
+                    </a>
+                    <ul class="dropdown-menu border-0" aria-labelledby="brandDropdown">
+                        <li class="mx-1"><a href="/admin/brands" class="dropdown-item py-2 rounded-3"><i class="bi bi-tag mx-1"></i> Manage Brands</a></li>
+                        {% if session_admin.level.admin_level_name != 'DEFAULT' %}
+                        <li class="mx-1"><a href="/admin/brands/add" class="dropdown-item py-2 rounded-3"><i class="bi bi-bookmark-plus mx-1"></i> Add New Brand</a></li>
+                        {% endif %}
+                    </ul>
+                </li>
+                <li class="nav-item dropdown p-1 rounded-2">
+                    <a href="/admin/product" class="nav-link dropdown-toggle fs-6" id="productDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-cart mx-2 fs-5"></i>
+                        Products
+                    </a>
+                    <ul class="dropdown-menu border-0" aria-labelledby="productDropdown">
+                        <li class="mx-1"><a href="/admin/products" class="dropdown-item py-2 rounded-3"><i class="bi bi-cart-check mx-1"></i> Manage Products</a></li>
+                        {% if session_admin.level.admin_level_name != 'DEFAULT' %}
+                        <li class="mx-1"><a href="/admin/products/add" class="dropdown-item py-2 rounded-3"><i class="bi bi-cart-plus mx-1"></i> Add New Product</a></li>
+                        {% endif %}
+                    </ul>
+                </li>
+                <li class="nav-item dropdown p-1 rounded-2">
+                    <a href="/admin/articles" class="nav-link dropdown-toggle fs-6" id="articleDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-send mx-2 fs-5"></i>
+                        Articles
+                    </a>
+                    <ul class="dropdown-menu border-0" aria-labelledby="articleDropdown">
+                        <li class="mx-1"><a href="/admin/articles" class="dropdown-item py-2 rounded-3"><i class="bi bi-send-check mx-1"></i> Manage Articles</a></li>
+                        <li class="mx-1"><a href="/admin/articles/add" class="dropdown-item py-2 rounded-3"><i class="bi bi-send-plus mx-1"></i> Add New Article</a></li>
+                        {% comment %} <li class="mx-1"><a href="/admin/authors" class="dropdown-item py-2 rounded-5"><i class="bi bi-person mx-1"></i> Manage Authors</a></li>
+                        <li class="mx-1"><a href="/admin/authors/add" class="dropdown-item py-2 rounded-5"><i class="bi bi-person-plus mx-1"></i> Add New Author</a></li> {% endcomment %}
+                    </ul>
+                </li>
+                {% if session_admin.level.admin_level_name == 'SUPERADMIN' or admin.level.admin_level_name == 'TECHADMIN' %}
+                <li class="nav-item dropdown p-1 rounded-2">
+                    <a href="/admin/jobs" class="nav-link dropdown-toggle fs-6" id="jobDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-suitcase-lg mx-2 fs-5"></i>
+                        Jobs
+                    </a>
+                    <ul class="dropdown-menu border-0" aria-labelledby="jobDropdown">
+                        <li class="mx-1"><a href="/admin/jobs" class="dropdown-item py-2 rounded-3"><i class="bi bi-suitcase-lg mx-1"></i> Manage Jobs</a></li>
+                        <li class="mx-1"><a href="/admin/jobs/add" class="dropdown-item py-2 rounded-3"><i class="bi bi-suitcase-lg mx-1"></i> Add New Job</a></li>
+                    </ul>
+                </li>
+                
+                <li class="nav-item dropdown p-1 rounded-2">
+                    <a href="/admin/admins" class="nav-link dropdown-toggle fs-6" id="adminDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-person-gear mx-2 fs-5"></i>
+                        Admins
+                    </a>
+                    <ul class="dropdown-menu border-0" aria-labelledby="adminDropdown">
+                        <li class="mx-1"><a href="/admin/admins" class="dropdown-item py-2 rounded-3"><i class="bi bi-person-check mx-1"></i> Manage Admins</a></li>
+                        <li class="mx-1"><a href="/admin/admins/add" class="dropdown-item py-2 rounded-3"><i class="bi bi-person-add mx-1"></i> Add New Admin</a></li>
+                    </ul>
+                </li>
+                {% endif %}
+                <li class="nav-item p-1 rounded-2">
+                    <a href="/admin/reports" class="nav-link fs-6" role="button">
+                        <i class="bi bi-file-earmark-bar-graph mx-2 fs-5"></i>
+                        Reports
+                    </a>
+                </li>
+                {% if session_admin.level.admin_level_name == 'SUPERADMIN' or admin.level.admin_level_name == 'TECHADMIN' %}
+                <li class="nav-item p-1 rounded-2">
+                    <a href="/admin/logs" class="nav-link fs-6" role="button">
+                        <i class="bi bi-activity mx-2 fs-5"></i>
+                        Activity Logs
+                    </a>
+                </li>
+                {% endif %}
+                <li class="nav-item p-1 rounded-2">
+                    <a href="/admin/settings" class="nav-link fs-6" role="button">
+                        <i class="bi bi-gear mx-2 fs-5"></i>
+                        Settings
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class="">
+            <a href="/admin/logout" class="btn btn-outline-primary rounded-4 px-5 py-3">Logout</a>
+        </div>
+    </div>
+</section>

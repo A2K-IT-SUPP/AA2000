@@ -1,0 +1,23 @@
+# Ignore the virtual environment folder
+venv/
+
+# Ignore Python cache files
+__pycache__/
+*.py[cod]
+
+# Ignore Django secret key and settings (if applicable)
+.env
+
+# Ignore database files if any (like SQLite)
+*.sqlite3
+
+# Ignore VSCode or other editor-specific files
+.vscode/
+.idea/
+
+# Ignore compiled files and logs
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pyd

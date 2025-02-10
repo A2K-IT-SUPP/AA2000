@@ -1,0 +1,250 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Contact
+{% endblock %}
+
+
+
+{% block scripts %}
+    <script src="{% static 'js/contact.js' %}"></script>
+{% endblock %}
+
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/contact.css' %}">
+{% endblock %}
+
+
+{% block content %}
+    <section id="contact">
+        <div id="contact-banner" class="container-fluid my-5">
+            <div class="row justify-content-center align-items-center">
+                
+                <div class="col-lg-5 text-start d-xl-block d-none">
+                    <img class="hero-banner-img" src="{% static 'images/aa2000-model-1.png' %}" alt="">
+                </div>
+
+                <div id="contact-info-container" class="col-lg-4 justify-content-center card p-5 rounded-5 shadow">
+                    <h4 class="fw-bolder display-6">Your Number 1 System Integrator in the Philippines</h4>
+                    <h6 class="fs-4 lead">AA2000 Security and Technology Solutions Inc</h6>
+                    <hr>
+                    <div class="row justify-content-center align-items-center my-3">
+                        <div class="d-flex align-items-center my-2"><i class="bi bi-geo-alt-fill display-6"></i><p class="fs-6 px-3">Unit 2C Norkis Building 11 ​Calbayog Street Cor. ​DMG ​Streets, Mandaluyong City</p></div>
+                        <div class="d-flex align-items-center my-2"><i class="bi bi-phone-fill display-6"></i><p class="fs-6 px-3">09171585060</p></div>
+                        <div class="d-flex align-items-center my-2"><i class="bi bi-telephone-fill display-6"></i><p class="fs-6 px-3">(02)8-571-5693 / ​(02)7-215-5060</p></div>
+                        <div class="d-flex align-items-center my-2"><i class="bi bi-envelope-fill display-6"></i><p class="fs-6 px-3">aa2000marketingdept@gmail.com ​/ aa2000ent@gmail.com</p></div>
+                    </div>
+                    <hr>
+                    <h6 class="fs-5 text-center lead">Check us at</h6>
+                    <div class="d-flex justify-content-between align-items-center mx-5 px-3 mt-3">
+                        <a href="" class="display-5 text-muted fw-bolder text-decoration-none">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="" class="display-5 text-muted fw-bolder text-decoration-none">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="" class="display-5 text-muted fw-bolder text-decoration-none">
+                            <i class="bi bi-tiktok"></i>
+                        </a>
+                        <a href="" class="display-5 text-muted fw-bolder text-decoration-none">
+                            <i class="bi bi-linkedin"></i>
+                        </a>
+                    </div>
+                      <a href="#inquire" class="col-12 mt-5 py-3 btn btn-primary">Inquire Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="inquire">
+        <div id="inquire-banner" class="container-fluid my-5">
+            <div class="row justify-content-center align-items-center">
+
+                <div id="inquire-container" class="col-lg-5 card p-5 rounded-5 shadow">
+                    <h4 class="fw-bolder display-6">Inquire Now</h4>
+                    <p class="text-justify">Please fill out the form below, and one of our specialist will contact you shortly</p>
+                    
+                    <form id="inquire-form">
+                      {% csrf_token %}
+                        <!-- First Name and Last Name in one line -->
+                        <div class="d-flex justify-content-between">
+                          <div class="mb-3 me-2 flex-grow-1">
+                            <label for="firstName" class="form-label">First Name</label>
+                            <input type="text" class="form-control" id="firstName" placeholder="Enter your first name" required>
+                          </div>
+                          
+                          <div class="mb-3 flex-grow-1">
+                            <label for="lastName" class="form-label">Last Name</label>
+                            <input type="text" class="form-control" id="lastName" placeholder="Enter your last name" required>
+                          </div>
+                        </div>
+                      
+                        <!-- Email and Contact Number in one line -->
+                        <div class="d-flex justify-content-between">
+                          <div class="mb-3 me-2 flex-grow-1">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                          </div>
+                          
+                          <div class="mb-3 flex-grow-1">
+                            <label for="contactNumber" class="form-label">Contact Number</label>
+                            <input type="tel" class="form-control" id="contactNumber" 
+                                   placeholder="09XX XXX XXXX" 
+                                   pattern="^(09\d{9}|(\+639)\d{9})$" 
+                                   maxlength="11"
+                                   title="Please enter a valid Philippine contact number (e.g., 09XXXXXXXXX or +639XXXXXXXXX)" 
+                                   required>
+                          </div>
+                          
+                        </div>
+                      
+                        <!-- Type of Concern -->
+                        <div class="mb-3">
+                          <label for="typeOfConcern" class="form-label">Type of Concern</label>
+                          <select class="form-select" id="typeOfConcern" required>
+                            <option selected disabled>Choose an option</option>
+                            <option value="1">Request for Quotation (RFQ)</option>
+                            <option value="2">Product Inquiry</option>
+                            <option value="3">Service Inquiry</option>
+                            <option value="4">Technical Support</option>
+                            <option value="5">General Question</option>
+                            <option value="6">Others</option>
+                          </select>
+                        </div>
+                      
+                        <!-- Inquiry Details -->
+                        <div class="mb-3">
+                          <label for="inquiry" class="form-label">Inquiry Details</label>
+                          <textarea class="form-control" id="inquiry" rows="4" placeholder="Enter your inquiry" required></textarea>
+                        </div>
+                      
+                        <!-- Additional Project Details for RFQ -->
+                        <div class="mb-3" id="projectDetails" style="display: none;">
+                          <h5>Project Details (for RFQ)</h5>
+                          
+                          <div class="mb-3">
+                            <label for="projectName" class="form-label">Project Name</label>
+                            <input type="text" class="form-control" id="projectName" placeholder="Enter project name">
+                          </div>
+                      
+                          <div class="mb-3">
+                            <label for="projectLocation" class="form-label">Project Location</label>
+                            <input type="text" class="form-control" id="projectLocation" placeholder="Enter project location">
+                          </div>
+                      
+                          <div class="mb-3">
+                            <label for="estimatedBudget" class="form-label">Estimated Budget (Optional)</label>
+                            <input type="number" class="form-control" id="estimatedBudget" placeholder="Enter estimated budget">
+                          </div>
+                      
+                          <div class="mb-3">
+                            <label for="timeline" class="form-label">Number of Days (Optional)</label>
+                            <input type="number" class="form-control" id="timeline" placeholder="Enter timeline">
+                          </div>
+                      
+                          <div class="mb-3">
+                            <label for="additionalDetails" class="form-label">Additional Details</label>
+                            <textarea class="form-control" id="additionalDetails" rows="3" placeholder="Provide specific requirements"></textarea>
+                          </div>
+                        </div>
+                      
+                        <!-- Preferred Contact Method and Preferred Contact Time in one line -->
+                        <div class="d-flex justify-content-between">
+                          <div class="mb-3 me-2 flex-grow-1">
+                            <label for="preferredContactMethod" class="form-label">Preferred Contact Method</label>
+                            <select class="form-select" id="preferredContactMethod">
+                              <option selected disabled>Choose an option</option>
+                              <option value="EMAIL">Email</option>
+                              <option value="PHONE">Phone</option>
+                            </select>
+                          </div>
+                          
+                          <div class="mb-3 flex-grow-1">
+                            <label for="preferredContactTime" class="form-label">Preferred Contact Time</label>
+                            <select class="form-select" id="preferredContactTime">
+                              <option selected disabled>Choose a time</option>
+                              <option value="MORNING">Morning</option>
+                              <option value="AFTERNOON">Afternoon</option>
+                              <option value="EVENING">Evening</option>
+                            </select>
+                          </div>
+                        </div>
+                      
+                        <!-- Submit Button -->
+                        <div style="width: 100%" class="text-center">                        
+                          <button type="submit" class="btn btn-primary mt-3 py-3 px-5 fs-5">Submit</button>
+                        </div>
+                      </form>
+
+                        <div class="text-center">
+                          <hr>
+                          <p>Already submitted an Inquiry? <p>
+                          <a class="btn btn-outline-primary px-5 py-3 fs-5" href="{% url 'users:ticket' %}">Check Ticket Status</a>
+                        </div>
+                      
+                      
+                </div>
+
+                <div class="col-lg-4 text-start d-xl-block d-none">
+                    <img class="hero-banner-img" src="{% static 'images/aa2000-model-2.png' %}" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="modal fade" id="loaderModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="loaderModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered p-3">
+          <div class="modal-content text-center">
+              <div class="modal-body">
+                  <div class="spinner-border text-primary" role="status">
+                      <span class="visually-hidden">Loading...</span>
+                  </div>
+                  <p class="mt-2">Please wait while we process your request...</p>
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+  <div class="modal fade" id="successLoaderModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="successLoaderModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered p-3">
+        <div class="modal-content text-center">
+            <div class="modal-body">
+                <div class="text-success fs-1">
+                    <i class="bi bi-check-circle-fill"></i> <!-- Bootstrap icon for success -->
+                </div>
+                <p class="mt-2">Your request was processed successfully!</p>
+                <hr>
+                <p class="fw-medium fs-4 text-outline-primary rounded-3 px-5 py-3">Your Ticket Number is: <span id="ticket_area"></span></p>
+                <p>Please make sure to save the ticket, and check your email to check the status. Thank You!</p> 
+                <button type="button" class="btn btn-success mt-3" data-bs-dismiss="modal" aria-label="Close" onclick="window.location.reload();">
+                  Close
+                </button>
+              </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="errorLoaderModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="errorLoaderModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered p-3">
+      <div class="modal-content text-center">
+          <div class="modal-body">
+              <div class="text-danger fs-1">
+                  <i class="bi bi-x-circle-fill"></i> <!-- Bootstrap icon for error -->
+              </div>
+              <p class="mt-2">There was an error processing your request.</p>
+              <hr>
+              <p>Please try again or contact support if the problem persists.</p>
+              <button type="button" class="btn btn-success mt-3" data-bs-dismiss="modal" aria-label="Close">
+                Close
+            </button>
+          </div>
+      </div>
+  </div>
+</div>
+
+{% endblock %}

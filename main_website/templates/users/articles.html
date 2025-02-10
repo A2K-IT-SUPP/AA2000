@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Articles
+{% endblock %}
+
+
+
+{% block scripts %}
+    <script src="{% static 'js/articles.js' %}"></script>
+{% endblock %}
+
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/articles.css' %}">
+{% endblock %}
+
+
+{% block content %}
+    <section id="banner-area">
+        <div class="justify-content-start align-items-start">
+            <img src="{% static 'images/jack1.png' %}" alt="" style="transform: scale(0.9) translate(0,60px);">
+        </div>
+
+    </section>
+
+    <section id="hero-banner">
+        <div class="container-fluid">
+            <div class="row justify-content-center align-items-center mx-3 my-5 px-xl-5">
+                <div class="col-lg-5 text-center text-xl-start">
+                    <h4 class="text-uppercase">Our Articles</h4>
+                    <h1 class="fw-bolder display-2 text-primary text-uppercase">AA2000 Blogs and Articles</h1>
+                </div>
+                <div class="col-lg-5 fs-lg-5 d-none d-xl-block text-center text-xl-start">
+                    <p class="text-justify">Welcome to the AA2000 Security and Technology Solutions Inc. Blog—your go-to source for insights on cutting-edge security, technology, and engineering solutions. Our articles cover a wide range of topics, from the latest advancements in surveillance, access control, and fire safety systems to expert advice on building management, energy optimization, and infrastructure solutions. Whether you're looking for industry trends, product guides, or professional tips, our blogs are designed to keep you informed and help you make smarter security and technology decisions. Stay updated with AA2000 as we explore innovations that enhance safety, efficiency, and reliability in every project.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="blogs-testimonies">
+        <div class="container-fluid my-5" id="blogs-testimonies-banner">
+        
+            <h3 class="text-center mt-3 mb-5 pt-5 mx-3">
+                <div class="display-lg-2 display-6 mb-1 fw-bold">Blogs and Articles</div>
+                <p class="lead text-muted fs-6 fs-lg-2">Expert insights on security, technology, and engineering solutions to enhance safety, efficiency, and innovation.</p>
+            </h3>
+
+
+            
+            {% if articles %}
+            <div class="row justify-content-center mx-3">
+                
+                {% for article in articles %}
+                    <div class="card lcl-blog-card-body col-3 mx-2 mt-3 py-3" style="width: 20rem;">
+                        <img src="/media/{{ article.article_cover }}" class="card-img-top" alt="...">
+                        <div class="card-body mt-4">
+                            
+                            <h3 class="card-subtitle text-align-start fw-bold">{{ article.article_title }}</h3>
+                            <h6 class="fst-italic fw-lighter">Written by: {{ article.article_author.author_name }}</h6>
+                            <h6 class="fw-light px-3 py-1 rounded-5 bg-primary text-white my-3">Tags: {{ article.keywords }}</h6>
+                            {% comment %} <p class="card-text">{{ article.article_content.content|safe|slice:":20" }}</p> {% endcomment %}
+                            <h6 class="fst-italic fw-lighter text-muted my-2">{{ article.modified_at }}</h6>
+                            <a href="{% url 'users:articles_view' article.article_slug %}" class="btn btn-primary mt-4">Read Now</a>
+                        </div>
+                    </div>
+                {% endfor %}
+                    
+
+
+
+            </div>
+            <div class="text-center mt-5">
+                <a href="/articles/all" class="btn btn-primary rounded-4 px-5 py-3">View all blogs and articles</a>
+            </div>
+            {% else %}
+            <div class="text-center mt-5">
+                <p>No articles found.</p>
+            </div>
+            {% endif %}
+                
+
+        </div>
+    </section>
+
+    <section id="policies-faqs">
+        <div class="container-fluid my-5" id="policies-faqs-banner">
+            <hr>
+            <div class="row justify-content-center align-items-center mt-5">
+                <div class="col-lg-4 col-8 m-2 text-center my-3">
+                    <h5 class="display-6 fw-bold text-center">Policies</h5>
+                    <p class="text-justify mt-3">At AA2000 Security and Technology Solutions Inc., we are committed to delivering high-quality products and services while maintaining transparency, integrity, and customer satisfaction. Our policies cover warranties, returns, data privacy, and service commitments to ensure a smooth and secure experience for all clients. We prioritize compliance with industry standards and regulations, guaranteeing reliability in every solution we offer.</p>
+                    <a href="/policy" class="btn btn-primary px-5 py-3">read AA2000 Policies</a>
+                </div>
+                <div class="col-lg-4 col-8 m-2 text-center my-3">
+                    <h5 class="display-6 fw-bold text-center">Frequently Asked Questions</h5>
+                    <p class="text-justify mt-3">Have questions about our products and services? Our FAQ section provides quick answers to common inquiries regarding security systems, installation processes, maintenance services, warranties, and technical support. Whether you need guidance on choosing the right solution or troubleshooting assistance, we’ve got you covered with expert insights and practical information.</p>
+                    <a href="/faqs" class="btn btn-primary px-5 py-3">read AA2000 General FAQs</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

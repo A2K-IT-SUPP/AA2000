@@ -1,0 +1,341 @@
+{% extends 'admin_base.html' %}
+{% load static %}
+
+{% block title %}
+    Reports
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'js/admin_reports.js' %}"></script>
+{% endblock %}
+
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/admin_reports.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div id="reports_container" class="row justify-content-center align-items-center bg-white rounded-5 shadow-lg mh-50 overflow-y-auto mt-3 px-5 py-3">
+
+    {% comment %} products area {% endcomment %}
+    <div class="col-lg-12 col-12 pt-3">
+        <h2 class="fw-medium text-primary fs-2">Products Reports</h2>
+    </div>
+
+    {% comment %} <div class="col-lg-8 col-12 pt-3 text-end d-none">
+        <button disabled type="button" class="btn btn-primary rounded-3"><i class="bi bi-printer"></i> Print Product Report</button>
+        <button disabled type="button" class="btn btn-primary rounded-3"><i class="bi bi-printer"></i> Print Product List</button>
+    </div> {% endcomment %}
+
+    <hr>
+
+    <div class="col-lg-4 col-12">
+        <div class="card border-0">
+            <div class="card-body">
+                <h3 class="d-flex justify-content-center align-items-center">
+                    <span id="total_products" class="display-1 fw-bold text-primary"></span>
+                    <i class="bi bi-cart display-5 mx-3"></i>
+                </h3>
+                <p class="text-center fs-3">Total Products Added</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-8 col-12">
+        <div class="card border-0">
+            <div class="card-body">
+                <div class="text-center">
+                    <h2>Number of Products per System</h2>
+                    <canvas id="product_system_container" width="400" height="400"></canvas>
+                </div>
+            </div>    
+        </div>
+    </div>
+
+    <div class="col-lg-12 col-12 mt-3">
+        <div class="card border-0">
+            <div class="card-body">
+                <div class="nav nav-tabs justify-content-center" id="product_system_tab_panel_area" role="tablist"></div>
+                <div class="tab-content text-center py-1" id="tab_content_area"></div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-8 col-12 mt-3">
+        <div class="card border-0">
+            <div class="card-body">
+                <div class="nav nav-tabs justify-content-center" id="product_views_tabs">
+                    <button class="nav-link active" type="button" id="nav-product-views-today-tab" data-bs-toggle="tab" data-bs-target="#nav-product-views-today" role="tab" aria-controls="nav-product-views-today" aria-selected="true">Product Views Today</button>
+                    <button class="nav-link" type="button" id="nav-product-views-week-tab" data-bs-toggle="tab" data-bs-target="#nav-product-views-week" role="tab" aria-controls="nav-product-views-week" aria-selected="false">Product Views this Week</button>
+                    <button class="nav-link" type="button" id="nav-product-views-month-tab" data-bs-toggle="tab" data-bs-target="#nav-product-views-month" role="tab" aria-controls="nav-product-views-month" aria-selected="false">Product Views this Month</button>
+                    <button class="nav-link" type="button" id="nav-product-views-year-tab" data-bs-toggle="tab" data-bs-target="#nav-product-views-year" role="tab" aria-controls="nav-product-views-year" aria-selected="false">Product Views this year</button>
+                </div>
+                <div class="tab-content text-center py-1" id="product_views_content">
+                    <div class="tab-pane fade show active px-1" id="nav-product-views-today" role="tabpanel" aria-labelledby="nav-product-views-today-tab">
+                        <div class="text-center py-1">
+                            <h4 class="fs-2">Number of Product Views this Day</h4>
+                            <canvas id="product_views_today_container" width="400" height="400"></canvas>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade px-1" id="nav-product-views-week" role="tabpanel" aria-labelledby="nav-product-views-week-tab">
+                        <div class="text-center py-1">
+                            <h4 class="fs-2">Number of Product Views this Week</h4>
+                            <canvas id="product_views_week_container" width="400" height="400"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade px-1" id="nav-product-views-month" role="tabpanel" aria-labelledby="nav-product-views-month-tab">
+                        <div class="text-center py-1">
+                            <h4 class="fs-2">Number of Product Views this Month</h4>
+                            <canvas id="product_views_month_container" width="400" height="400"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade px-1" id="nav-product-views-year" role="tabpanel" aria-labelledby="nav-product-views-year-tab">
+                        <div class="text-center py-1">
+                            <h4 class="fs-2">Number of Product Views this Year</h4>
+                            <canvas id="product_views_year_container" width="400" height="400"></canvas>
+                        </div>
+                    </div>
+
+          
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 col-12 mt-3">
+        <div class="card border-0">
+            <div class="card-body">
+                <div class="">
+                    <h4 class="fs-3">Recently Added Products</h4>
+                    <ul class="list-group" id="recently_added_product">
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    {% comment %} brands area {% endcomment %}
+    <div class="col-lg-12 col-12 pt-3 mt-5">
+        <h2 class="fw-medium text-primary fs-2">Brands Reports</h2>
+    </div>
+
+    {% comment %} <div class="col-lg-8 col-12 pt-3 mt-5 text-end d-none">
+        <button type="button" class="btn btn-primary rounded-3"><i class="bi bi-printer"></i> Print Brands Report</button>
+        <button type="button" class="btn btn-primary rounded-3"><i class="bi bi-printer"></i> Print Brands List</button>
+    </div> {% endcomment %}
+
+    <hr>
+
+    <div class="col-lg-4 col-12">
+        <div class="card border-0">
+            <div class="card-body">
+                <h3 class="d-flex justify-content-center align-items-center">
+                    <span id="total_brands" class="display-1 fw-bold text-primary"></span>
+                    <i class="bi bi-bookmark"></i>
+                </h3>
+                <p class="text-center fs-3">Total Brands Added</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-8 col-12">
+        <div class="card border-0">
+            <div class="card-body">
+                <div class="text-center">
+                    <h2>Number of Brands per System</h2>
+                    <canvas id="brands_system_container" width="400" height="400"></canvas>
+                </div>
+            </div>    
+        </div>
+    </div>
+
+
+    <div class="col-lg-8 col-12 mt-3">
+        <div class="card border-0">
+            <div class="card-body">
+                <div class="nav nav-tabs justify-content-center" id="brand_views_tabs">
+                    <button class="nav-link active" type="button" id="nav-brand-views-today-tab" data-bs-toggle="tab" data-bs-target="#nav-brand-views-today" role="tab" aria-controls="nav-brand-views-today" aria-selected="true">Brand Views Today</button>
+                    <button class="nav-link" type="button" id="nav-brand-views-week-tab" data-bs-toggle="tab" data-bs-target="#nav-brand-views-week" role="tab" aria-controls="nav-brand-views-week" aria-selected="false">Brand Views this Week</button>
+                    <button class="nav-link" type="button" id="nav-brand-views-month-tab" data-bs-toggle="tab" data-bs-target="#nav-brand-views-month" role="tab" aria-controls="nav-brand-views-month" aria-selected="false">Brand Views this Month</button>
+                    <button class="nav-link" type="button" id="nav-brand-views-year-tab" data-bs-toggle="tab" data-bs-target="#nav-brand-views-year" role="tab" aria-controls="nav-brand-views-year" aria-selected="false">Brand Views this year</button>
+                </div>
+                <div class="tab-content text-center py-1" id="brand_views_content">
+                    <div class="tab-pane fade show active px-1" id="nav-brand-views-today" role="tabpanel" aria-labelledby="nav-brand-views-today-tab">
+                        <div class="text-center py-1">
+                            <h4 class="fs-2">Number of Brand Views this Day</h4>
+                            <canvas id="brand_views_today_container" width="400" height="400"></canvas>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade px-1" id="nav-brand-views-week" role="tabpanel" aria-labelledby="nav-brand-views-week-tab">
+                        <div class="text-center py-1">
+                            <h4 class="fs-2">Number of Brand Views this Week</h4>
+                            <canvas id="brand_views_week_container" width="400" height="400"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade px-1" id="nav-brand-views-month" role="tabpanel" aria-labelledby="nav-brand-views-month-tab">
+                        <div class="text-center py-1">
+                            <h4 class="fs-2">Number of Brand Views this Month</h4>
+                            <canvas id="brand_views_month_container" width="400" height="400"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade px-1" id="nav-brand-views-year" role="tabpanel" aria-labelledby="nav-brand-views-year-tab">
+                        <div class="text-center py-1">
+                            <h4 class="fs-2">Number of Brand Views this Year</h4>
+                            <canvas id="brand_views_year_container" width="400" height="400"></canvas>
+                        </div>
+                    </div>
+
+          
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 col-12 mt-3">
+        <div class="card border-0">
+            <div class="card-body">
+                <div class="">
+                    <h4 class="fs-3">Recently Added Brands</h4>
+                    <ul class="list-group" id="recently_added_brand">
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    {% comment %} inquiries area {% endcomment %}
+    <div class="col-lg-12 col-12 pt-3 mt-5">
+        <h2 class="fw-medium text-primary fs-2">Inquiries Reports</h2>
+    </div>
+
+    {% comment %} <div class="col-lg-8 col-12 pt-3 mt-5 text-end d-none">
+        <button type="button" class="btn btn-primary rounded-3"><i class="bi bi-printer"></i> Print Inquiries Report</button>
+        <button type="button" class="btn btn-primary rounded-3"><i class="bi bi-printer"></i> Print Inquiries Summary</button>
+    </div> {% endcomment %}
+
+    <hr>
+
+    <div class="col-lg-4 col-12">
+        <div class="card border-0">
+            <div class="card-body">
+                <h3 class="d-flex justify-content-center align-items-center">
+                    <span id="total_inquiries" class="display-1 fw-bold text-primary"></span>
+                    <i class="bi bi-chat-left-dots"></i>
+                </h3>
+                <p class="text-center fs-3">Total Inquiries Received</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-8 col-12">
+        <div class="card border-0">
+            <div class="card-body">
+                <div class="nav nav-tabs justify-content-center" id="inquiry_count_tab_panel_area" role="tablist"></div>
+                <div class="tab-content text-center py-2" id="inquiry_tab_content_area"></div>
+            </div>    
+        </div>
+    </div>
+
+
+    <div class="col-lg-6 col-12 mt-3">
+        <div class="card border-0">
+            <div class="card-body">
+                <div class="">
+                    <h4 class="fs-2">Types of Inquiry Concerns</h4>
+                    <canvas id="inquiries_count_concerns" width="400" height="400" ></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-6 col-12 mt-3">
+        <div class="card border-0">
+            <div class="card-body">
+                <div class="">
+                    <h4 class="fs-2">Inquiries Status</h4>
+                    <canvas id="inquiries_count_status" width="400" height="400" ></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        {% comment %} articles area {% endcomment %}
+        <div class="col-lg-12 col-12 pt-3 mt-5">
+            <h2 class="fw-medium text-primary fs-2">Articles Reports</h2>
+        </div>
+    
+        {% comment %} <div class="col-lg-8 col-12 pt-3 mt-5 text-end d-none">
+            <button type="button" class="btn btn-primary rounded-3"><i class="bi bi-printer"></i> Print Articles Report</button>
+            <button type="button" class="btn btn-primary rounded-3"><i class="bi bi-printer"></i> Print Articles Summary</button>
+        </div> {% endcomment %}
+    
+        <hr>
+    
+        <div class="col-lg-4 col-12">
+            <div class="card border-0">
+                <div class="card-body">
+                    <h3 class="d-flex justify-content-center align-items-center">
+                        <span id="total_articles" class="display-1 fw-bold text-primary"></span>
+                        <i class="bi bi-send"></i>
+                    </h3>
+                    <p class="text-center fs-3">Total Artciles Posted</p>
+                </div>
+            </div>
+        </div>
+    
+        <div class="col-lg-8 col-12">
+            <div class="card border-0">
+                <div class="card-body">
+                    <div class="">
+                        <h6 class="fs-5">Top 10 Most Viewed Articles</h6>
+                        <hr>
+                        <ul class="list-group" id="top_ten_articles">
+
+                        </ul>
+                    </div>
+                </div>    
+            </div>
+        </div>
+    
+    
+        <div class="col-lg-12 col-12 mt-3">
+            <div class="card border-0">
+                <div class="card-body">
+                    <div class="text-center">
+                        <h4 class="fs-2">Number of Articles per Keywords posted</h4>
+                        <canvas id="article_keyword_count_container" width="100%" height="400" ></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,158 @@
+{% extends 'admin_base.html' %}
+{% load static %}
+
+{% block title %}
+    Admins
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'js/admin_manage_admin.js' %}"></script>
+{% endblock %}
+
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/admin_manage_admin.css' %}">
+{% endblock %}
+
+
+{% block content %}
+<div id="add-new-admin-container" class="mt-3 p-2 bg-white rounded-5 shadow-lg mh-50 overflow-y-auto overflow-x-hidden">
+        <div class="text=start m-3 px-2">
+            <a href="/admin/admins" class="btn btn-outline-secondary"><i class="bi bi-chevron-left"></i> Back</a>
+        </div>
+    <form action="" id="add_admin" method="POST" enctype="multipart/form-data" class="py-2">
+        {% csrf_token %}
+        <div class="row justify-content-center align-items-start pt-3">
+            <div class="col-10 mx-3 my-3 text-center">
+                <h2 class="display-6 fw-bold text-primary text-uppercase">Admin Details</h2>
+                <hr>
+            </div>
+        
+            <div class="col-xl-5 col-12 mx-3 my-3">
+                <div class="admin-first-name-area">
+                    <label for="adminFirstName" class="form-label fs-3 fw-medium">First Name</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="admin-first-name-addon"><i class="bi bi-person-gear"></i></span>
+                        <input type="text" name="adminFirstName" id="adminFirstName" class="form-control" placeholder="Enter First Name" aria-label="admin-first-name" aria-describedby="admin-first-name-addon" value="{{ adminFirstName|default:'' }}" required>
+                    </div>
+                </div>
+                <div class="admin-last-name-area mt-3">
+                    <label for="adminLastName" class="form-label fs-3 fw-medium">Last Name</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="admin-last-name-addon"><i class="bi bi-person-gear"></i></span>
+                        <input type="text" name="adminLastName" id="adminLastName" class="form-control" placeholder="Enter Last Name" aria-label="admin-last-name" aria-describedby="admin-last-name-addon" value="{{ adminLastName|default:'' }}" required>
+                    </div>
+                </div>
+                <div class="admin-email-name-area mt-3">
+                    <label for="adminEmail" class="form-label fs-3 fw-medium">Email Address</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="admin-email-addon"><i class="bi bi-envelope"></i></span>
+                        <input type="email" name="adminEmail" id="adminEmail" class="form-control" placeholder="Enter Email Address" aria-label="admin-email" aria-describedby="admin-email-addon" value="{{ adminEmail|default:'' }}" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-5 col-12 mx-3 mb-3">
+                <div class="form-group">
+                    <label for="adminImgUpload" class="form-label fs-3 fw-medium">Admin Photo</label>
+                    <input type="file" name="adminImgUpload" id="adminImgUpload" class="form-control" accept="image/">
+                    <div class="form-text mx-2" id="admin-photo-help">Please upload a photo in png,jpg,gif format only, preferred height is 300px</div>
+                </div>
+                <div id="adminImgPreviewContainer" class="d-none">
+                    <div class="card">
+                        <img id="adminImgPreview" alt="Image Preview">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-10 mx-3 my-3 text-center">
+                <h2 class="display-6 fw-bold text-primary text-uppercase">Admin Level</h2>
+                <hr>
+            </div>
+
+
+            <div class="col-10 mx-3 my-3 text-center">
+                <div id="admin-level" class="form-group">
+                    <label for="adminLevel" class="form-label fs-3 fw-medium">Admin Level</label>
+                    <select name="adminLevel" id="adminLevel" class="form-select">
+                        <option value="4" {% if raw_data.adminLevel == "4" %}selected{% endif %} selected>Default</option>
+                        <option value="3" {% if raw_data.adminLevel == "3" %}selected{% endif %} >Manager</option>
+                        <option value="2" {% if raw_data.adminLevel == "2" %}selected{% endif %} >Tech Admin</option>
+                        <option value="1" {% if raw_data.adminLevel == "1" %}selected{% endif %} >Super Admin</option>
+                    </select>
+                    <div class="form-text mx-2" id="admin-level-help">Choose which level does the Admin can access</div>
+                </div>
+            </div>
+
+            
+            <div class="col-10 mx-3 my-3 text-center">
+                <h2 class="display-6 fw-bold text-primary text-uppercase">Admin Credentials</h2>
+                <hr>
+            </div>
+
+            <div class="col-xl-5 col-12 mx-3 my-3">
+                <div class="admin-username-area">
+                    <label for="adminUsername" class="form-label fs-3 fw-medium">Username</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="admin-username-addon"><i class="bi bi-person-gear"></i></span>
+                        <input type="text" name="adminUsername" id="adminUsername" class="form-control" placeholder="Enter Username" aria-label="admin-username" aria-describedby="admin-username-addon" required>
+                    </div>
+                </div>
+                <div class="admin-password-area mt-3">
+                    <label for="adminPassword" class="form-label fs-3 fw-medium">Password</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="admin-password-addon"><i class="bi bi-person-gear"></i></span>
+                        <input type="password" name="adminPassword" id="adminPassword" class="form-control" placeholder="Enter Password" aria-label="admin-password" aria-describedby="admin-password-addon" required>
+                    </div>
+                </div>
+                <div class="admin-password-2-area mt-3">
+                    <label for="adminPassword2" class="form-label fs-3 fw-medium">Enter Password Again</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="admin-password-addon"><i class="bi bi-key"></i></span>
+                        <input type="password" name="adminPassword2" id="adminPassword2" class="form-control" placeholder="Enter Password again" aria-label="admin-password-2" aria-describedby="admin-password-2-addon" required>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="col-10 mx-3 my-3 text-center">
+                <h2 class="display-6 fw-bold text-primary text-uppercase">Admin Security Code</h2>
+                <hr>
+            </div>
+
+            <div class="col-xl-5 col-12 mx-3 my-3">
+                <div class="admin-security-code-area mt-3">
+                    {% comment %} <label for="adminSecurityCode" class="form-label fs-3 fw-medium">Security Code</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="admin-security-code-addon"><i class="bi bi-key"></i></span>
+                        <input type="password" name="adminAccessCode" id="adminAccessCode" maxlength="6" class="form-control" placeholder="Enter Security Code" aria-label="admin-security-code" aria-describedby="admin-security-code-addon" required>
+                    </div>
+                    <div class="form-text mx-2" id="access-code-help">Please enter a six digit code</div> {% endcomment %}
+                    <label for="adminSecurityCode" class="form-label fs-3 fw-medium">Security Code</label>
+                    <div class="input-group">
+                        <div class="access-code-area d-flex justify-content-between gap-2 my-3">
+                            <input type="password" id="current_digit1" name="digit1" class="form-control form-control-lg text-center border border-primary rounded-3 border-1" maxlength="1" pattern="\d*" required>
+                            <input type="password" id="current_digit2" name="digit2" class="form-control form-control-lg text-center border border-primary rounded-3 border-1" maxlength="1" pattern="\d*" required>
+                            <input type="password" id="current_digit3" name="digit3" class="form-control form-control-lg text-center border border-primary rounded-3 border-1" maxlength="1" pattern="\d*" required>
+                            <input type="password" id="current_digit4" name="digit4" class="form-control form-control-lg text-center border border-primary rounded-3 border-1" maxlength="1" pattern="\d*" required>
+                            <input type="password" id="current_digit5" name="digit5" class="form-control form-control-lg text-center border border-primary rounded-3 border-1" maxlength="1" pattern="\d*" required>
+                            <input type="password" id="current_digit6" name="digit6" class="form-control form-control-lg text-center border border-primary rounded-3 border-1" maxlength="1" pattern="\d*" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-10 mx-3 my-3 border-top py-3">
+                <div class="d-flex justify-content-center align-items-center mx-auto">
+                    <button id="submit-btn" type="submit" class="btn btn-primary fs-5 py-2 px-3 rounded-3 mx-2">Submit</button>
+                    <a href="/admin/admins" class="btn btn-secondary fs-5 py-2 px-3 rounded-3 mx-2">Cancel</a>
+                </div>
+            </div>
+
+
+
+        </div>
+    </form>
+</div>
+{% endblock %}

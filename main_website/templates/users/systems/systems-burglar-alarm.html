@@ -1,0 +1,368 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Burglar Alarm Systems
+{% endblock %}
+
+
+
+{% block scripts %}
+    <script src="{% static 'js/systems-selected.js' %}"></script>
+{% endblock %}
+
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/systems-selected.css' %}">
+{% endblock %}
+
+
+
+
+{% block content %}
+    <section id="banner-area">
+        
+    </section>
+
+    <section id="hero-banner">
+        <div class="container-fluid">
+            <div class="row justify-content-center align-items-center mx-3 my-5 px-xl-5">
+                <div class="col-lg-5 text-center text-xl-start">
+                    <h4 class="text-uppercase">Integrating System</h4>
+                    <h1 class="fw-bolder display-2 text-primary text-uppercase">Burglar Alarm Systems</h1>
+                </div>
+                <div class="col-lg-5 fs-lg-5 d-none d-xl-block text-center text-xl-start">
+                    <p class="text-justify">Burglar Alarm Brands are industry leaders in providing advanced security systems that safeguard homes, businesses, and other properties against unauthorized access and intrusion. These brands focus on delivering innovative and reliable alarm systems equipped with motion detectors, door/window sensors, sirens, and smart integrations. Known for their efficiency and ease of use, these brands ensure peace of mind by providing real-time alerts and deterrence mechanisms to protect what matters most. </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="systems-overview">
+        <div class="container-fluid my-5" id="systems-overview-banner">
+
+            <div class="row justify-content-center align-items-start mx-5 px-xl-5 mt-xl-5 px-1 mt-3 mb-5">
+                <div class="col-xl-4 mx-lg-5 mx-1 mt-lg-5 mt-1 d-none d-lg-block text-xl-end">
+                    <img src="{% static 'images/picture33.png' %}" class="mt-3" alt="">
+                    <img src="{% static 'images/picture32.png' %}" class="mt-3" alt="">
+                </div>
+                <div class="col-xl-5 mx-lg-5 mx-1 mt-lg-5 mt-1 text-justify text-xl-start">
+                    <h2 class="display-5 mb-3">What is Burglar Alarm Systems?</h2>
+                    <p class="text-justify">A burglar alarm system is a security solution designed to detect and alert occupants to unauthorized entry or suspicious activity in a protected area. These systems use sensors, such as motion detectors, door/window contacts, and glass break detectors, to monitor entry points and surrounding areas. When a breach is detected, the system triggers an audible alarm and can send notifications to the property owner, security personnel, or law enforcement.</p>
+                    <p class="text-justify">Modern burglar alarm systems often integrate with smart home technology, enabling users to control and monitor their systems remotely through mobile apps. These systems may also include advanced features such as video verification, which provides live camera feeds or recorded footage for accurate threat assessment. Burglar alarms are essential for deterring potential intruders, ensuring safety, and minimizing property loss. </p>
+                </div>
+            </div>
+            <div class="px-xl-5 mt-xl-5 px-1 mt-3 mb-5 text-justify text-xl-start mx-3 mx-xl-5">
+                <p class="text-justify">Burglar Alarm Brands deliver cutting-edge security solutions designed to protect homes and businesses from intrusions. With a commitment to innovation, reliability, and user-friendly designs, these brands provide customizable alarm systems that cater to various security needs. Whether for small residential properties or large commercial spaces, Burglar Alarm Brands ensure optimal safety and peace of mind through advanced technology and trusted performance.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="systems-products">
+        <div class="container-fluid my-5" id="systems-products-banner">
+            <h3 class="text-center mt-3 mb-5 pt-5 mx-3">
+                <div class="display-lg-2 display-6 mb-1 fw-bold">Burglar Alarm Products</div>
+                <p class="lead text-muted  fs-6 fs-lg-2">State-of-the-Art Systems Designed for Maximum Security</p>
+            </h3>
+
+            <div id="systems-products-slider" class="position-relative d-flex flex-nowrap justify-content-center align-items-center mx-xl-5 px-xl-5 my-2">
+                <button id="products-btn-prev" class="slider-btn btn-prev border-0">
+                    <i class="bi bi-chevron-left fs-3"></i>
+                </button>
+
+                <div id="slider-container" class="lcl-systems row d-flex flex-nowrap justify-content-start align-items-center overflow-x-auto px-xl-5 mx-xl-5 px-1 mx-1" >
+
+                    <div class="col-8 col-md-4 col-xl-3 p-xl-3 p-2">
+                        <a href="/products?search_product=&sort_by=name-up&category=41">
+                            <div class="card p-3 rounded-5 mx-2">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/aa2000_icon.png' %}" alt="Brand 1" class="img-fluid">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-6 mt-3">Control Panel</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+
+                    <div class="col-6 col-xl-3 p-3">
+                        <a href="/products?search_product=&sort_by=name-up&category=42">
+                            <div class="card p-3 rounded-5 mx-2">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/aa2000_icon.png' %}" alt="Brand 1">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-6 mt-3">Motion Sensors</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-6 col-xl-3 p-3">
+                        <a href="/products?search_product=&sort_by=name-up&category=43">
+                            <div class="card p-3 rounded-5 mx-2">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/aa2000_icon.png' %}" alt="Brand 1">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-6 mt-3">Glass Break Detectors</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-6 col-xl-3 p-3">
+                        <a href="/products?search_product=&sort_by=name-up&category=44">
+                            <div class="card p-3 rounded-5 mx-2">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/pro27.png' %}" alt="Brand 1">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-6 mt-3">Door Window Sensors</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-6 col-xl-3 p-3">
+                        <a href="/products?search_product=&sort_by=name-up&category=45">
+                            <div class="card p-3 rounded-5 mx-2">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/pro28.png' %}" alt="Brand 1">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-6 mt-3">Vibration Sensors</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-6 col-xl-3 p-3">
+                        <a href="/products?search_product=&sort_by=name-up&category=46">
+                            <div class="card p-3 rounded-5 mx-2">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/pro29.png' %}" alt="Brand 1">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-6 mt-3">Siren Strobe Lights</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-6 col-xl-3 p-3">
+                        <a href="/products?search_product=&sort_by=name-up&category=47">
+                            <div class="card p-3 rounded-5 mx-2">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/pro30.png' %}" alt="Brand 1">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-6 mt-3">Remote Keypad</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-6 col-xl-3 p-3">
+                        <a href="/products?search_product=&sort_by=name-up&category=48">
+                            <div class="card p-3 rounded-5 mx-2">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/pro31.png' %}" alt="Brand 1">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-6 mt-3">Panic Button</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-6 col-xl-3 p-3">
+                        <a href="/products?search_product=&sort_by=name-up&category=49">
+                            <div class="card p-3 rounded-5 mx-2">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/pro32.png' %}" alt="Brand 1">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-6 mt-3">Alarm Communicator Module</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-6 col-xl-3 p-3">
+                        <a href="/products?search_product=&sort_by=name-up&category=50">
+                            <div class="card p-3 rounded-5 mx-2">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/pro33.png' %}" alt="Brand 1">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-6 mt-3">Notification Software</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+
+                </div>
+
+                <button id="products-btn-next" class="slider-btn btn-next border-0">
+                    <i class="bi bi-chevron-right fs-3"></i>
+                </button>
+
+            </div>
+
+            <div class="justify-content-center align-items-center text-center mt-5 ">
+                <a href="/products?system=burglar-alarm" class="btn btn-primary rounded-3 p-3">View all Burglar Alarm Products</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="systems-services">
+        <div class="container-fluid my-5" id="systems-services-banner">
+
+            <div class="row justify-content-center align-items-start">
+                <div class="col-xl-4">
+                    <img src="{% static 'images/picture31.png' %}" alt="">
+                </div>
+                <div class="col-xl-5">
+                    <h3 class="text-start mt-3 mb-5 mx-3">
+                        <div class="display-lg-2 display-6 mb-1 fw-bold">Our Burglar Alarm Services</div>
+                        <p class="lead text-muted  fs-6 fs-lg-2">Comprehensive Protection and Monitoring Solutions for Your Safety</p>
+                    </h3>
+
+                    <div id="systems-services-container" class="row lcl-systems justify-content-center align-items-center">
+
+                        <div class="col-xl-5 col-5 m-1">
+                            <a href="/services/supply" class="text-decoration-none">
+                                <div class="card rounded-4 shadow">
+                                    <div class="card-body d-flex fs-1 justify-content-start align-items-center pl-3">
+                                        <i class="bi bi-cart-fill mx-xl-3"></i>
+                                        <p class="fs-6 mt-3 fs-3 display-3 mx-1 mx-xl-3 ">Supply</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="col-xl-5 col-5 m-1">
+                            <a href="/services/installation" class="text-decoration-none">
+                                <div class="card rounded-4 shadow">
+                                    <div class="card-body d-flex fs-1 justify-content-start align-items-center pl-3">
+                                        <i class="bi bi-tools mx-xl-3"></i>
+                                        <p class="fs-6 mt-3 fs-3 display-3 mx-1 mx-xl-3 ">Installation</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="col-xl-5 col-5 m-1">
+                            <a href="/services/maintenance" class="text-decoration-none">
+                                <div class="card rounded-4 shadow">
+                                    <div class="card-body d-flex fs-1 justify-content-start align-items-center pl-3">
+                                        <i class="bi bi-battery-half  mx-xl-3"></i>
+                                        <p class="fs-6 mt-3 fs-3 display-3 mx-1 mx-xl-3 ">Maintenance</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+
+                        <div class="col-xl-5 col-5 m-1">
+                            <a href="/services/troubleshooting" class="text-decoration-none">
+                                <div class="card rounded-4 shadow">
+                                    <div class="card-body d-flex fs-1 justify-content-start align-items-center pl-3">
+                                        <i class="bi bi-gear-fill mx-xl-3"></i>
+                                        <p class="mt-3 fs-4 mx-1 mx-xl-3 ">Troubleshooting</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+
+                        <div class="col-xl-5 col-5 m-1">
+                            <a href="/services/design" class="text-decoration-none">
+                                <div class="card rounded-4 shadow">
+                                    <div class="card-body d-flex fs-1 justify-content-start align-items-center pl-3">
+                                        <i class="bi bi-rulers mx-xl-3"></i>
+                                        <p class="fs-6 mt-3 fs-3 display-3 mx-1 mx-xl-3 ">Design</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+
+                        <div class="col-xl-5 col-5 m-1">
+                            <a href="/services/inspection" class="text-decoration-none">
+                                <div class="card rounded-4 shadow">
+                                    <div class="card-body d-flex fs-1 justify-content-start align-items-center pl-3">
+                                        <i class="bi bi-search mx-xl-3"></i>
+                                        <p class="fs-6 mt-3 fs-3 display-3 mx-1 mx-xl-3 ">Inspection</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+
+                        <div class="col-xl-5 col-5 m-1">
+                            <a href="/services/consultation" class="text-decoration-none">
+                                <div class="card rounded-4 shadow">
+                                    <div class="card-body d-flex fs-1 justify-content-start align-items-center pl-3">
+                                        <i class="bi bi-chat-left-quote-fill mx-xl-3"></i>
+                                        <p class="fs-6 mt-3 fs-3 display-3 mx-xl-3 mx-1 ">Consultation</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+
+                        <div class="col-xl-5 col-5 m-1">
+                            <a href="/services/training" class="text-decoration-none">
+                                <div class="card rounded-4 shadow">
+                                    <div class="card-body d-flex fs-1 justify-content-start align-items-center pl-3">
+                                        <i class="bi bi-bar-chart-fill mx-xl-3"></i>
+                                        <p class="fs-6 mt-3 fs-3 display-3 mx-xl-3 mx-1 ">Training</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="systems-brands">
+        <div class="container-fluid my-5" id="systems-brands-banner">
+            <h3 class="text-center mt-3 mb-5 pt-5 mx-3">
+                <div class="display-lg-2 display-6 mb-1 fw-bold">Burglar Alarm Brands</div>
+                <p class="lead text-muted  fs-6 fs-lg-2">Top-Rated Brands Trusted for Reliable and Effective Security Solutions</p>
+            </h3>
+            {% if brands %}
+            <div id="system-brands-container" class="row justify-content-center align-items-center">
+                
+                {% for brand in brands %}
+                <div class="col-xl-1 col-4">
+                    <a href="{% url 'users:brands_overview' brand.brand_slug%}">
+                        <card class="p-1 rounded-5">
+                            <div class="card-body text-center p-1">
+                                <div class="card-title">
+                                    <img src="/media/{{ brand.brand_logo }}" alt="">
+                                </div>
+                            </div>
+                        </card>
+                    </a>
+                </div>
+                {% endfor %}
+                
+            </div>
+            {% else %}
+            <p class="text-center fs-6 fs-lg-2">No brands available</p
+            {% endif %}
+        </div>
+    </section>
+{% endblock %}
+    

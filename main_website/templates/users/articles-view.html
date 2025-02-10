@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Blogs
+{% endblock %}
+
+
+
+{% block scripts %}
+    <script src="{% static 'js/articles-view.js' %}"></script>
+{% endblock %}
+
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/articles-view.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+{% if articleData %}
+    <section id="blog-title">
+        <div class="container-fluid my-5" id="blog-title-banner">
+            <div class="row justify-content-center align-items-center text-center text-lg-start">
+                <div class="col-lg-8 col-10">
+                    <h2 class="display-5 fw-bold text-primary mt-5"">{{ articleData.article_title }}</h2>
+                    <div class="d-flex mb-3">
+                        <p class="fs-6 text-muted lead mx-2"><i class="bi bi-person-fill"></i> {{ articleData.article_author.author_name }}</p>
+                        <p class="fs-6 text-muted lead mx-2"><i class="bi bi-calendar-check-fill"></i> {{ articleData.modified_at }}</p>
+                        <p class="fs-6 text-muted lead mx-2"><i class="bi bi-bookmark-fill"></i> {{ articleData.keywords }}</p>
+                    </div>
+                    <div class="text-center">
+                        <img src="/media/{{ articleData.article_cover }}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="blog-content">
+        <div class="container-fluid my-5" id="blog-content-banner">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-lg-8 col-9 my-5">
+                    {{ articleData.article_content.content|safe }}
+                </div>
+            </div>
+        </div>
+    </section>
+{% else %}
+<h1>No article found</h1>
+{% endif %}
+
+{% endblock %}

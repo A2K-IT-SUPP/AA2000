@@ -1,0 +1,256 @@
+{% extends 'admin_base.html' %}
+{% load static %}
+
+{% block title %}
+    Admins
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'js/admin_manage_admin.js' %}"></script>
+{% endblock %}
+
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/admin_manage_admin.css' %}">
+{% endblock %}
+
+
+{% block content %}
+<div id="view-new-admin-container" class="mt-3 p-2 bg-white rounded-5 shadow-lg mh-50 overflow-y-auto overflow-x-hidden">
+    <div class="text=start m-3 px-2">
+        <a href="/admin/admins" class="btn btn-outline-secondary"><i class="bi bi-chevron-left"></i> Back</a>
+    </div>
+    <form action="" id="edit_admin" method="POST" enctype="multipart/form-data" class="py-2">
+        {% csrf_token %}
+        <div class="row justify-content-center align-items-start pt-3">
+            <div class="col-10 mx-3 my-3 text-center">
+                <h2 class="display-6 fw-bold text-primary text-uppercase">Admin Details</h2>
+                <hr>
+            </div>
+        
+            <div class="col-xl-5 col-12 mx-3 my-3">
+                <div class="admin-first-name-area">
+                    <label for="adminFirstName" class="form-label fs-3 fw-medium">First Name</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="admin-first-name-addon"><i class="bi bi-person-gear"></i></span>
+                        <input type="text" name="adminFirstName" id="adminFirstName" class="form-control" placeholder="Enter First Name" aria-label="admin-first-name" aria-describedby="admin-first-name-addon" value="{{ adminData.admin_fname }}" disabled required>
+                    </div>
+                </div>
+                <div class="admin-last-name-area mt-3">
+                    <label for="adminLastName" class="form-label fs-3 fw-medium">Last Name</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="admin-last-name-addon"><i class="bi bi-person-gear"></i></span>
+                        <input type="text" name="adminLastName" id="adminLastName" class="form-control" placeholder="Enter Last Name" aria-label="admin-last-name" aria-describedby="admin-last-name-addon" value="{{ adminData.admin_lname }}" disabled required>
+                    </div>
+                </div>
+                <div class="admin-email-name-area mt-3">
+                    <label for="adminEmail" class="form-label fs-3 fw-medium">Email Address</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="admin-email-addon"><i class="bi bi-envelope"></i></span>
+                        <input type="email" name="adminEmail" id="adminEmail" class="form-control" placeholder="Enter Email Address" aria-label="admin-email" aria-describedby="admin-email-addon" value="{{ adminData.admin_email }}" disabled required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-5 col-12 mx-3 mb-3">
+                <div class="form-group">
+                    <label for="adminImgUpload" class="form-label fs-3 fw-medium">Admin Photo</label>
+                    <input type="file" name="adminImgUpload" id="adminImgUpload" class="form-control" accept="image/" disabled>
+                    <div class="form-text mx-2" id="admin-photo-help">Please upload a photo in png,jpg,gif format only, preferred height is 300px</div>
+                </div>
+                <div id="adminImgPreviewContainer" class="">
+                    <div class="card">
+                        <img id="adminImgPreview" src="/media/{{ adminData.admin_photo }}" alt="Image Preview">
+                    </div>               
+                </div>
+            </div>
+
+            <div class="col-10 mx-3 my-3 text-center">
+                <h2 class="display-6 fw-bold text-primary text-uppercase">Admin Level</h2>
+                <hr>
+            </div>
+
+
+            <div class="col-6 mx-3 my-3 text-center">
+                <div id="admin-level" class="form-group">
+                    <label for="adminLevel" class="form-label fs-3 fw-medium">Admin Level</label>
+                    <select name="adminLevel" id="adminLevel" class="form-select" disabled>
+                        <option value="4" {% if adminData.level_id == 4 %}selected{% endif %}>Default</option>
+                        <option value="3" {% if adminData.level_id == 3 %}selected{% endif %} >Manager</option>
+                        <option value="2" {% if adminData.level_id == 2 %}selected{% endif %} >Tech Admin</option>
+                        <option value="1" {% if adminData.level_id == 1 %}selected{% endif %} >Super Admin</option>
+                    </select>
+                    <div class="form-text mx-2" id="admin-level-help">Choose which level does the Admin can access</div>
+                </div>
+            </div>
+
+     
+            <div class="col-10 mx-3 my-3 text-center">
+                <h2 class="display-6 fw-bold text-primary text-uppercase">Admin Credentials</h2>
+                <hr>
+            </div>
+
+            <div class="col-xl-5 col-12 mx-3 my-3">
+                <div class="admin-username-area">
+                    <label for="adminUsername" class="form-label fs-3 fw-medium">Username</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="admin-username-addon"><i class="bi bi-person-gear"></i></span>
+                        <input type="text" name="adminUsername" id="adminUsername" class="form-control" placeholder="Enter Username" aria-label="admin-username" aria-describedby="admin-username-addon" value="{{ adminUsername }}" disabled required>
+                    </div>
+                </div>
+                <div id="edit-credentials-btns-area" class="mt-5 mb-3 d-none d-flex justify-content-center align-items-center mx-auto">
+                    <button type="button" id="admin-edit-credentials-btn" class="btn btn-primary fs-5 py-2 px-3 rounded-3 mx-2" data-bs-toggle="modal" data-bs-target="#changePasswordModal">
+                        Force Change Password
+                    </button>
+                </div>
+                <div class="mt-3">
+                    <button type="button" id="admin-edit-credentials-btn" class="d-none btn btn-primary fs-5 py-2 px-3 rounded-3 mx-2">Edit Password</button>
+                </div>
+            </div>
+
+
+            <div class="col-10 mx-3 my-3 text-center">
+                <h2 class="display-6 fw-bold text-primary text-uppercase">Admin Security Code</h2>
+                <hr>
+            </div>
+
+            <div class="col-xl-5 col-12 mx-3 my-3">
+                <div id="edit-code-btns-area" class="mt-5 mb-3 d-none d-flex justify-content-center align-items-center mx-auto">
+                    <button type="button" id="admin-edit-code-btn" class="btn btn-primary fs-5 py-2 px-3 rounded-3 mx-2" data-bs-toggle="modal" data-bs-target="#changeCodeModal">
+                        Force Change Security Code
+                    </button>
+                </div>
+            </div>
+
+            <div class="col-10 mx-3 my-3 border-top py-3">
+
+                <div id="edit-btns-area" class="d-flex justify-content-center align-items-center mx-auto">
+                    <button type="button" id="admin-edit-btn" class="btn btn-primary fs-5 py-2 px-3 rounded-3 mx-2">Edit</button>
+                    <a href="/admin/admins" class="btn btn-secondary fs-5 py-2 px-3 rounded-3 mx-2">Return</a>
+                </div>
+                <div id="edit-active-btns-area" class="d-flex d-none justify-content-center align-items-center mx-auto">
+                    <button type="submit" class="btn btn-primary fs-5 py-2 px-3 rounded-3 mx-2">Save</button>
+                   
+                    <button type="button" class="btn btn-danger fs-5 py-2 px-3 rounded-3 mx-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                        Delete
+                      </button>
+                    <button id="cancel-edit-btn" type="button" class="btn btn-secondary fs-5 py-2 px-3 rounded-3 mx-2">Cancel</button>
+                </div>
+            </div>
+
+        </div>
+    </form>
+</div>
+
+
+
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Confirm Delete</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            Are you sure you want to delete this item? This action cannot be undone.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <form action="" id="delete_admin" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Delete</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="changePasswordModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="changePasswordLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="changePasswordLabel">Update Password</h1>
+              <button type="button" id="admin-canceledit-credentials-btn" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="" id="update_password">
+                {% csrf_token %}
+                <div class="modal-body p-5">
+                    <div class="admin-password-area mt-3 d-none">
+                        <label for="adminNewPassword" class="form-label fs-3 fw-medium">New Password</label>
+                        <div class="input-group">
+                            <span class="input-group-text" id="admin-new-password-addon"><i class="bi bi-person-gear"></i></span>
+                            <input type="password" name="adminNewPassword" id="adminNewPassword" disabled class="form-control" placeholder="Enter New Password" aria-label="admin-password" aria-describedby="admin-password-addon" required>
+                        </div>
+                    </div>
+                    <div class="admin-password-area mt-3 d-none">
+                        <label for="adminNewPassword2" class="form-label fs-3 fw-medium">Enter New Password Again</label>
+                        <div class="input-group">
+                            <span class="input-group-text" id="admin-new-password-addon"><i class="bi bi-key"></i></span>
+                            <input type="password" name="adminNewPassword2" id="adminNewPassword2" disabled class="form-control" placeholder="Enter New Password again" aria-label="admin-password-2" aria-describedby="admin-password-2-addon" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="cancel_edit_password_btn" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Update</button>
+                  </div>
+            </form>
+          </div>
+        </div>
+    </div>
+
+    
+    <div class="modal fade" id="changeCodeModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="changeCodeLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h1 class="modal-title fs-5" id="changePasswordLabel">Update Security Code</h1>
+            <button type="button" id="admin-canceledit-code-btn" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="" id="update_access_code">
+                {% csrf_token %}
+                <div class="modal-body p-5">
+
+                    <div class="admin-access-code-area d-none mt-3 text-center">
+                        <label for="newAdminSecurityCode" class="form-label fs-3 fw-medium">Enter New Security Code</label>
+                        <div class="input-group">
+                        
+                            <div class="new-access-code-area d-flex justify-content-between gap-2 my-3">
+                                <input type="password" id="new_digit1" name="digit1" class="form-control form-control-lg text-center border border-primary rounded-3 border-1" maxlength="1" pattern="\d*" required>
+                                <input type="password" id="new_digit2" name="digit2" class="form-control form-control-lg text-center border border-primary rounded-3 border-1" maxlength="1" pattern="\d*" required>
+                                <input type="password" id="new_digit3" name="digit3" class="form-control form-control-lg text-center border border-primary rounded-3 border-1" maxlength="1" pattern="\d*" required>
+                                <input type="password" id="new_digit4" name="digit4" class="form-control form-control-lg text-center border border-primary rounded-3 border-1" maxlength="1" pattern="\d*" required>
+                                <input type="password" id="new_digit5" name="digit5" class="form-control form-control-lg text-center border border-primary rounded-3 border-1" maxlength="1" pattern="\d*" required>
+                                <input type="password" id="new_digit6" name="digit6" class="form-control form-control-lg text-center border border-primary rounded-3 border-1" maxlength="1" pattern="\d*" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="admin-access-code-area d-none mt-3 text-center">
+                        <label for="confirmNewAdminSecurityCode" class="form-label fs-3 fw-medium">Enter New Security Code Again</label>
+                        <div class="input-group">
+                            {% comment %} <span class="input-group-text" id="admin-security-code-addon"><i class="bi bi-key"></i></span>
+                            <input type="password" name="adminSecurityCode" id="adminSecurityCode" disabled class="form-control" placeholder="Enter Security Code" aria-label="admin-security-code" aria-describedby="admin-security-code-addon" required> {% endcomment %}
+                            <div class="confirm-new-access-code-area d-flex justify-content-between gap-2 my-3">
+                                <input type="password" id="confirm_new_digit1" name="digit1" class="form-control form-control-lg text-center border border-primary rounded-3 border-1" maxlength="1" pattern="\d*" required>
+                                <input type="password" id="confirm_new_digit2" name="digit2" class="form-control form-control-lg text-center border border-primary rounded-3 border-1" maxlength="1" pattern="\d*" required>
+                                <input type="password" id="confirm_new_digit3" name="digit3" class="form-control form-control-lg text-center border border-primary rounded-3 border-1" maxlength="1" pattern="\d*" required>
+                                <input type="password" id="confirm_new_digit4" name="digit4" class="form-control form-control-lg text-center border border-primary rounded-3 border-1" maxlength="1" pattern="\d*" required>
+                                <input type="password" id="confirm_new_digit5" name="digit5" class="form-control form-control-lg text-center border border-primary rounded-3 border-1" maxlength="1" pattern="\d*" required>
+                                <input type="password" id="confirm_new_digit6" name="digit6" class="form-control form-control-lg text-center border border-primary rounded-3 border-1" maxlength="1" pattern="\d*" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="cancel_edit_code_btn" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </div>
+            </form>
+        </div>
+        </div>
+    </div>
+{% endblock %}

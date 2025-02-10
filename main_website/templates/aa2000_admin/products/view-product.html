@@ -1,0 +1,341 @@
+{% extends 'admin_base.html' %}
+{% load static %}
+
+{% block title %}
+    View Product
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'js/admin_products.js' %}"></script>
+{% endblock %}
+
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/admin_products.css' %}">
+{% endblock %}
+
+
+{% block content %}
+<div id="add-new-product-container" class="mt-3 p-2 bg-white rounded-5 shadow-lg mh-50 overflow-y-auto overflow-x-hidden">
+    <div class="text=start m-3 px-2">
+        <a href="/admin/products" class="btn btn-outline-secondary"><i class="bi bi-chevron-left"></i> Back</a>
+    </div>
+    <form action="" class="py-2" id="edit_product_form">
+        {% csrf_token %}
+        <div class="row justify-content-center align-items-start pt-3">'
+            <div class="col-10 mx-3 my-3 text-center">
+                <h2 class="display-6 fw-bold text-primary text-uppercase">Product Details</h2>
+                <hr>
+            </div>
+            <div class="col-xl-5 col-12 mx-3 mb-3">
+                <div id="product-name-area" class="form-group mb-3">
+                    <label for="productName" class="form-label fs-3 fw-medium">Product Name</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="product-name-addon"><i class="bi bi-cart"></i></span>
+                        <input type="text" name="productName" product_id="{{ productData.id }}" id="productName" value="{{ productData.product_name }}" class="form-control" placeholder="Enter Product Name" aria-label="product-name" aria-describedby="product-name-addon" disabled required>
+                    </div>
+                    <div class="form-text mx-2" id="product-name-help">Make Sure to use the proper capitalization of the Product Name</div>
+                </div>
+                <div id="product-slug-area" class="mb-3 form-group">
+                    <label for="productSlug" class="form-label fs-3 fw-medium">URL Name</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="product-slug-addon"><i class="bi bi-bookmark"></i> http://aa2000ph.com/products/</span>
+                        <input type="text" name="productSlug" id="productSlug" class="form-control" value="{{ productData.product_slug }}" disabled placeholder="Enter URL Name" aria-label="brand-name" aria-describedby="brand-name-addon" required>
+                    </div>
+                    <div class="form-text mx-2" id="brand-slug-help">Make it unique, this will be used for URLs. Do not add any spaces, instead, use - (ex.smoke-detector-1)</div>
+                </div>
+                <div id="product-system-type" class="form-group mt-3">
+                    <label for="productSystem" class="form-label fs-3 fw-medium">Type of System</label>
+                    <select name="productSystem" id="productSystem" disabled class="form-select">
+                        {% if systems %}
+                            {% for system in systems %}
+                                <option {% if productData.system.id == system.id %}selected{% endif %} value="{{ system.id }}">{{ system.system_name }}</option>
+                            {% endfor %}
+                        {% endif %}
+                    </select>
+                    <div class="form-text mx-2" id="product-system-help">Choose which system does the Product belong</div>
+                </div>
+                <div id="product-category-type" class="form-group mt-3">
+                    <label for="productCategory" class="form-label fs-3 fw-medium">Type of Product Category</label>
+                    <select name="productCategory" id="productCategory" disabled class="form-select">
+                    {% if categories %}
+                        {% for category in categories %}
+                            <option {% if productData.category.id == category.id %}selected{% endif %} value="{{ category.id }}">{{ category.category_name }}</option>
+                        {% endfor %}
+                    {% endif %}
+                    </select>
+                    <div class="form-text mx-2" id="product-category-help">Choose which category does the Product belong</div>
+                </div>
+                <div id="brand-type" class="form-group mt-3">
+                    <label for="productBrand" class="form-label fs-3 fw-medium">Product Brand</label>
+                    <select name="productBrand" id="productBrand" disabled class="form-select">
+                        {% if brands %}
+                            {% for brand in brands %}
+                            <option {% if productData.brand.id == brand.id %}selected{% endif %} value="{{ brand.id }}">{{ brand.brand_name }}</option>
+                            {% endfor %}
+                        {% endif %}
+                    </select>
+                    <div class="form-text mx-2" id="product-system-help">Choose the brand of the Product</div>
+                </div>
+            </div>
+
+            <div class="col-xl-5 col-12 mx-3 mb-3">
+                <div id="product-short-description-area" id="form-group">
+                    <label for="productShortDescription" class="form-label fs-3 fw-medium">Product Short Description</label>
+                    <textarea name="productShortDescription" id="productShortDescription" disabled class="text-area form-control" rows="10">{{ productData.short_description }}</textarea>
+                </div>
+            </div>
+
+            <div class="col-10 mx-3 my-3 text-center">
+                <h2 class="display-6 fw-bold text-primary text-uppercase">Product Images</h2>
+                <hr>
+            </div>
+
+            {% for photo in productPhotos %}
+                <div class="col-xl-3 col-12 mx-3 mb-3">
+                    <div class="form-group productPhoto" data-photo-id = "{{ photo.id }}">
+                        <label for="productImg{{ forloop.counter }}Upload" class="form-label fs-3 fw-medium">Product Image {{ forloop.counter }}</label>
+                        <input type="file" 
+                            name="productImg{{ forloop.counter }}Upload" 
+                            id="productImg{{ forloop.counter }}Upload" 
+                            class="form-control" 
+                            accept="image/" 
+                            disabled>
+                        <div class="form-text mx-2">Please upload a photo in png,jpg,gif format only, preferred height is 300px</div>
+                    </div>
+                    <div id="preview{{ forloop.counter }}Container"  class="img_container {% if not photo.product_image %}d-none{% endif %}">
+                        <div class="card">
+                            <img id="productImage{{ forloop.counter }}Preview" 
+                                src="{{ photo.product_image.url }}" 
+                                alt="Image Preview"
+                                >
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+            <div class="col-10 mx-3 mt-5 text-center">
+                <h2 class="display-6 fw-bold text-primary text-uppercase">Product Descriptions</h2>
+                <hr>
+            </div>
+
+            {% for description in productDescriptions %}
+                <div class="col-12 row justify-content-center align-items-center product_description" data-description-id = "{{ description.id }}">
+                    <div class="col-xl-5 col-12 mx-3 my-3">
+                        <div class="form-group">  <!-- Fixed: removed duplicate id, changed to class -->
+                            <label for="productDescription_{{ forloop.counter }}" class=" form-label fs-3 fw-medium">Product Description {{ forloop.counter }}</label>
+                            <textarea 
+                                name="productDescription_{{ forloop.counter }}" 
+                                id="productDescription_{{ forloop.counter }}" 
+                                class="text-area form-control" 
+                                rows="10"
+
+                            >{{ description.product_description }}</textarea>
+                        </div>
+                    </div>
+                
+                    <div class="col-xl-5 col-12 mx-3 my-3">
+                        <div class="form-group">
+                            <label for="productDescImg{{ forloop.counter }}Upload" class="form-label fs-3 fw-medium">Product Description Image {{ forloop.counter }}</label>
+                            <input 
+                                type="file" 
+                                name="productDescImg{{ forloop.counter }}Upload"
+                                id="productDescImg{{ forloop.counter }}Upload" 
+                                class="form-control" 
+                                accept="image/" 
+                                data-description-id = "{{ description.id }}"
+                                disabled
+                            >
+                            <div class="form-text mx-2">Please upload a logo in png,jpg,gif format only, preferred height is 300px</div>
+                        </div>
+                        <div id="productDescImg{{ forloop.counter }}PreviewContainer" class="{% if not description.product_image %}d-none{% endif %}">
+                            <div class="card">
+                                <img 
+                                    id="productDescImg{{ forloop.counter }}Preview" 
+                                    src="{{ description.product_image.url }}" 
+                                    alt="Product Description Image {{ forloop.counter }}"
+                                >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            {% endfor %}
+
+            
+            <div class="col-10 mx-3 mt-5 text-center">
+                <h2 class="display-6 fw-bold text-primary text-uppercase">Technical Specifications</h2>
+                <hr>
+            </div>
+            
+            <div class="col-12 mx-3 my-3">
+                <div class="row justify-content-center align-items-center category-area" id="categ-container"> 
+                    {% for tech_spec in productTechSpecs %}
+                        <div class="card tech-spec col-xl-3 col-6 m-1" data-tech-spec-id = "{{ tech_spec.id }}">
+                            <div class="card-body">
+                                <label class="categ-label form-label fs-3 fw-medium">Category</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-star"></i></span>
+                                    <input type="text" 
+                                           name="tech-spec-{{ forloop.counter }}" 
+                                           class="form-control categ-name" 
+                                           value="{{ tech_spec.tech_spec }}" 
+
+                                           required disabled>
+                                </div> 
+                                <div class="add-categ-btns mt-1 d-none">
+                                    <button type="button" class="btn btn-primary p-1 add-btn">Add</button>
+                                    <button type="button" class="btn btn-secondary p-1 delete-btn">Cancel</button>
+                                </div>
+                                <div class="edit-categ-btns mt-1">
+                                    <button type="button" class="btn btn-primary p-1 edit-btn">Edit</button>
+                                    <button type="button" class="btn btn-danger p-1 delete-btn">Delete</button>
+                                </div> 
+                                <div class="edit-active-categ-btns mt-1 d-none">
+                                    <button type="button" class="btn btn-primary p-1 save-btn">Save</button>
+                                </div> 
+                                
+                                <!-- Specs Area -->
+                                <div class="specs-area mt-3 row">
+                                    {% for detail in tech_spec.tech_spec_details.all %}
+                                        <div class="card tech-spec-value mt-2 card-categ-key"
+                                            data-tech-spec-id = "{{ tech_spec.id }}"
+                                            data-tech-spec-detail-id = "{{ detail.id }}">
+                                            <div class="card-body">
+                                                <label class="spec-label form-label">Specification</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text"><i class="bi bi-pencil"></i></span>
+                                                    <input type="text" 
+                                                           name="spec-name-{{ forloop.parentloop.counter }}-{{ forloop.counter }}" 
+                                                           class="form-control spec-name" 
+                                                           value="{{ detail.tech_spec_name }}" 
+                                                           placeholder="Spec Name" 
+                                                           
+                                                           required disabled>
+                                                </div>
+                                                <div class="input-group">
+                                                    <span class="input-group-text"><i class="bi bi-file"></i></span>
+                                                    <input type="text" 
+                                                           name="spec-val-{{ forloop.parentloop.counter }}-{{ forloop.counter }}" 
+                                                           class="form-control spec-val" 
+                                                           value="{{ detail.tech_spec_value }}" 
+                                                           placeholder="Value" 
+                                                           required disabled>
+                                                </div>
+                                                <div class="add-spec-val-btns mt-1 d-none">
+                                                    <button type="button" class="add-spec-val-btn btn btn-primary p-1">Add</button>
+                                                    <button type="button" class="delete-spec-val-btn btn btn-secondary p-1">Cancel</button>
+                                                </div>
+                                                <div class="edit-spec-val-btns mt-1">
+                                                    <button type="button" class="edit-spec-val-btn btn btn-primary p-1">Edit</button>
+                                                    <button type="button" class="delete-spec-val-btn btn btn-danger p-1">Delete</button>
+                                                </div> 
+                                                <div class="edit-active-spec-val-btns mt-1 d-none">
+                                                    <button type="button" class="save-spec-val-btn btn btn-primary p-1">Save</button>
+                                                </div> 
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                                
+                                <div class="add-spec-btn-area mt-2">
+                                    <button type="button" class="btn btn-secondary p-1 add-spec-btn">Add Specification</button>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="categ-btns-area text-center mt-3">
+                    <button type="button" class="add-categ-btn btn btn-primary d-none">Add Category</button>
+                </div>
+            </div>
+
+
+            <div class="col-10 mx-3 mt-5 text-center">
+                <h2 class="display-6 fw-bold text-primary text-uppercase">Key Features</h2>
+                <hr>
+            </div>
+            
+            {% for key_feature in productKeyFeatures %}
+            <div class="col-12 row justify-content-center align-items-center key_features" data-key-feature-id="{{ key_feature.id }}">
+                <div class="col-xl-5 col-12 mx-3 my-3">
+                    <div id="key-feature-{{ forloop.counter }}-area" id="form-group">
+                        <label for="keyFeature_{{ forloop.counter }}" class="form-label fs-3 fw-medium">Key Feature {{ forloop.counter }}</label>
+                        <textarea name="keyFeature_{{ forloop.counter }}"  id="keyFeature_{{ forloop.counter }}" class="text-area form-control" rows="10">{{ key_feature.key_feature }}</textarea>
+                    </div>
+                </div>
+
+                <div class="col-xl-5 col-12 mx-3 my-3">
+                    <div class="form-group">
+                        <label for="keyFeatureImg{{ forloop.counter }}Upload" class="form-label fs-3 fw-medium">Key Feature Image {{ forloop.counter }}</label>
+                        <input type="file" name="keyFeatureImg{{ forloop.counter }}Upload" disabled id="keyFeatureImg{{ forloop.counter }}Upload" class="form-control" accept="image/">
+                        <div class="form-text mx-2" id="key-feature-help">Please upload a logo in png,jpg,gif format only, preferred height is 300px</div>
+                    </div>
+                    <div id="keyFeatureImg{{ forloop.counter }}PreviewContainer" class="">
+                        <div class="card">
+                            <img id="keyFeatureImg{{ forloop.counter }}Preview" src="{{ key_feature.key_feature_image.url }}"  alt="Image Preview {{ forloop.counter }}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {% endfor %}
+
+
+            <div class="col-10 mx-3 my-3 border-top py-3">
+
+                <div id="edit-btns-area" class="d-flex justify-content-center align-items-center mx-auto">
+                    {% if session_admin.level.admin_level_name != 'DEFAULT' %}
+                    <button type="button" id="product-edit-btn" class="btn btn-primary fs-5 py-2 px-3 rounded-3 mx-2">Edit</button>
+                    {% endif %}
+                    <a href="/admin/products" class="btn btn-secondary fs-5 py-2 px-3 rounded-3 mx-2">Return</a>
+                </div>
+                <div id="edit-active-btns-area" class="d-flex d-none justify-content-center align-items-center mx-auto">
+                    <button type="submit" class="btn btn-primary fs-5 py-2 px-3 rounded-3 mx-2">Save</button>
+                    <button type="button" class="btn btn-danger fs-5 py-2 px-3 rounded-3 mx-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                        Delete
+                      </button>
+                    <button id="cancel-edit-btn" type="button" class="btn btn-secondary fs-5 py-2 px-3 rounded-3 mx-2">Cancel</button>
+                </div>
+            </div>
+
+        </div>
+    </form>
+</div>
+
+
+<div class="modal fade" id="loaderModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="loaderModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered p-3">
+        <div class="modal-content text-center">
+            <div class="modal-body">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <p class="mt-2">Please wait while we process your request...</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Confirm Delete</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            Are you sure you want to delete this item? This action cannot be undone.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <form action="" id="delete_product" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Delete</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

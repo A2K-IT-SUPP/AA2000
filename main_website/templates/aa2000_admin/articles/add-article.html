@@ -1,0 +1,138 @@
+{% extends 'admin_base.html' %}
+{% load static %}
+
+{% block title %}
+    Articles
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'js/admin_articles.js' %}"></script>
+{% endblock %}
+
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/admin_articles.css' %}">
+{% endblock %}
+
+
+
+{% block content %}
+
+<div id="add-new-article-container" class="mt-3 p-2 bg-white rounded-5 shadow-lg mh-50 overflow-y-auto overflow-x-hidden">
+    <div class="text=start m-3 px-2">
+        <a href="/admin/articles" class="btn btn-outline-secondary"><i class="bi bi-chevron-left"></i> Back</a>
+    </div>
+    <form action="" id="add_article" method="POST" class="py-2">
+        {% csrf_token %}
+        <div class="row justify-content-center align-items-start pt-3">
+            <div class="col-10 mx-3 my-3 text-center">
+                <h2 class="display-6 fw-bold text-primary text-uppercase">Article Details</h2>
+                <hr>
+            </div>
+
+            <div class="col-10 mx-3 mb-3">
+                <div id="article-title-area" class="mb-3 form-group">
+                    <label for="articleTitle" class="form-label fs-3 fw-medium">Article Title</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="article-title-addon"><i class="bi bi-send"></i></span>
+                        <input type="text" name="articleTitle" id="articleTitle" class="form-control" placeholder="Enter Article Title" aria-label="brand-name" aria-describedby="brand-name-addon" required>
+                    </div>
+                </div>
+                <div id="article-slug-area" class="mb-3 form-group">
+                    <label for="articleSlug" class="form-label fs-3 fw-medium">Article Url Name</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="article-slug-addon"><i class="bi bi-send"></i></span>
+                        <input type="text" name="articleSlug" id="articleSlug" class="form-control" placeholder="Enter Article Slug" aria-label="brand-name" aria-describedby="brand-name-addon" required>
+                    </div>
+                </div>
+                <div id="article-keyword-area" class="mb-3 form-group">
+                    <label for="keyword" class="form-label fs-3 fw-medium">Article Keywords</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="keyword-addon"><i class="bi bi-send"></i></span>
+                        <input type="text" name="keyword" id="keyword" class="form-control" placeholder="Enter Article Keywords" aria-label="brand-name" aria-describedby="brand-name-addon" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="articleCoverImg" class="form-label fs-3 fw-medium">Article Cover Image</label>
+                    <input type="file" name="articleCoverImg" id="articleCoverImg" class="form-control" accept="image/">
+                    <div class="form-text mx-2" id="articleCoverImg">Please upload a photo in png,jpg,gif format only, preferred height is 300px</div>
+                </div>
+                <div id="articleCoverImgPreviewContainer" class="d-none">
+                    <div class="card">
+                        <img id="articleCoverImgPreview" alt="Image Preview">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-10 mx-3 my-3 text-center">
+                <h2 class="display-6 fw-bold text-primary text-uppercase">Author Details</h2>
+                <hr>
+            </div>
+
+            <div class="col-xl-5 col-10 mx-3 mb-3">
+                <div id="article-title-area" class="mb-3 form-group">
+                    <label for="authorName" class="form-label fs-3 fw-medium">Author Name</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="article-title-addon"><i class="bi bi-send"></i></span>
+                        <input type="text" name="authorName" id="authorName" class="form-control" placeholder="Enter Author Name" aria-label="brand-name" aria-describedby="brand-name-addon" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="authorImgUpload" class="form-label fs-3 fw-medium">Author Image</label>
+                        <input type="file" name="author-img" id="authorImgUpload" class="form-control" accept="image/">
+                        <div class="form-text mx-2" id="author-img-help">Please upload a photo in png,jpg,gif format only, preferred height is 300px</div>
+                    </div>
+                    <div id="authorImgPreviewContainer" class="d-none">
+                        <div class="card">
+                            <img id="authorImgPreview" alt="Image Preview">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-xl-5 col-10 mx-3 mb-3">
+                <div id="author-description-area" id="form-group">
+                    <label for="authorDescription" class="form-label fs-3 fw-medium">Author Description</label>
+                    <textarea name="authorDescription" id="authorDescription" class="text-area form-control" rows="10"></textarea>
+                </div>
+            </div>
+
+            <div class="col-10 mx-3 my-3 text-center">
+                <h2 class="display-6 fw-bold text-primary text-uppercase">Article Contents</h2>
+                <hr>
+            </div>
+
+            <div class="col-10 mx-3 mb-3">
+                <div id="article-content-area" id="form-group">
+                    <label for="articleContent" class="form-label fs-3 fw-medium">Article Content</label>
+                    <textarea name="articleContent" id="articleContent" class="text-area form-control" rows="50"></textarea>
+                </div>
+            </div>
+
+
+            <div class="col-10 mx-3 my-3 border-top py-3">
+                <div class="d-flex justify-content-center align-items-center mx-auto">
+                    <button type="submit" class="btn btn-primary fs-5 py-2 px-3 rounded-3 mx-2">Submit</button>
+                    <a href="/admin/articles" class="btn btn-secondary fs-5 py-2 px-3 rounded-3 mx-2">Cancel</a>
+                </div>
+            </div>
+
+        </div>
+    </form>
+</div>
+
+
+<div class="modal fade" id="loaderModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="loaderModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered p-3">
+        <div class="modal-content text-center">
+            <div class="modal-body">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <p class="mt-2">Please wait while we process your request...</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

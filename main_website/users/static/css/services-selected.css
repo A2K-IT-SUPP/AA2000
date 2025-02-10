@@ -1,0 +1,159 @@
+
+:root {
+    --primary-color: #4c7df9; 
+    --secondary-color: #6c757d; 
+    --light-bg: #f8f9fa;
+    --dark-bg: #343a40;
+    --hover-bg: rgba(0, 123, 255, 0.1);
+    --hover-color: #0056b3; 
+
+
+    --main-bg: #ecf2ff;
+    --light-blue: #4c7df9;
+    --black: #202020;
+    --mid-blue: #1f4cff;
+    --dark-blue: #0a2fbf;
+    --gray: #d6d6d8;
+    --img-bg-blue: rgba(58, 120, 253, 0.65);
+    --gradient-bg: linear-gradient(to bottom, var(--light-blue) 0%, var(--mid-blue) 100%);
+}
+
+
+.text-justify {
+    text-align: justify;
+}
+
+#banner-area {
+    position: relative;
+    top: 0px;
+    background-image: url('../images/picture58.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 45vh;
+    display: flex; 
+    align-items: center;
+    color: var(--main-bg); 
+    padding: 0 20px;
+    overflow: hidden;
+}
+
+
+#banner-area::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--img-bg-blue); /* Blue overlay */
+    opacity: 0.5; /* Adjust the overlay opacity here */
+    z-index: 0;
+}
+
+#banner-area > * {
+    position: relative;
+    z-index: 1; /* Bring content above overlay */
+}
+
+
+#service-overview-2, #services-image-area {
+    position: relative;
+    top:0px;
+    background-image: url('../images/picture7.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* height: 85vh; */
+    display: flex; 
+    align-items: center;
+    color: var(--main-bg); 
+    padding: 0 20px;
+    overflow: hidden; 
+}
+
+#service-overview-2::before , #services-image-area::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--img-bg-blue);   
+    z-index: 0; 
+}
+
+#service-overview-2 > * ,#services-image-area > *{
+    position: relative;
+    z-index: 1;
+}
+
+#service-overview-2 #banner , #services-image-area #banner{
+    height: 800px;
+    position: relative;
+}
+
+#service-overview-2 img , #services-image-area img{
+    max-width: 100%; 
+    height: auto; 
+    border-radius: 10px; 
+}
+
+#service-overview-text-banner {
+    position: absolute;
+    bottom: 0px;
+    background: var(--mid-blue); 
+    color: white; 
+    padding: 15px; 
+    border-radius: 5px;
+}
+
+#service-overview-text-banner span {
+    background-color: var(--main-bg);
+    color: var(--black);
+}
+
+
+.lcl-services a{
+    text-decoration: none;
+    color: var(--black)
+}
+
+.lcl-services a:hover .card {
+    background: var(--gradient-bg);
+    color: var(--main-bg);
+    border: none;
+}
+
+#cta {
+    position: relative;
+    top: 0px;
+    background-image: url('../images/picture59.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 50vh;
+    display: flex; 
+    align-items: center;
+    color: var(--main-bg); 
+    padding: 0 20px;
+    overflow: hidden; 
+    z-index: 1; /* Add z-index to the CTA section */
+}
+
+#cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--img-bg-blue);   
+    z-index: 0; /* Ensure this is lower than the text container */
+}
+
+#cta .row {
+    position: relative; /* Add relative positioning to the text container */
+    z-index: 2; /* Bring text above the overlay */
+}
+

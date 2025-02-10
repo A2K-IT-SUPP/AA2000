@@ -1,0 +1,289 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Brands
+{% endblock %}
+
+
+
+{% block scripts %}
+    <script src="{% static 'js/brands.js' %}"></script>
+{% endblock %}
+
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/brands.css' %}">
+{% endblock %}
+
+
+{% block content %}
+    <section id="banner-area">
+        <div class="justify-content-start align-items-start">
+            <img src="{% static 'images/jessa1.png' %}" alt="" style="transform: scale(0.8) translate(0,50px);">
+        </div>
+
+    </section>
+
+    <section id="hero-banner">
+        <div class="container-fluid">
+            <div class="row justify-content-center align-items-center mx-3 my-5 px-xl-5">
+                <div class="col-lg-5 text-center text-xl-start">
+                    <h4 class="text-uppercase">Introducing our</h4>
+                    <h1 class="fw-bolder display-2 text-primary text-uppercase">AA2000 {{ formatted_system }} Brands</h1>
+                </div>
+                <div class="col-lg-5 fs-lg-5 d-none d-xl-block text-center text-xl-start">
+                    <p class="text-justify">At AA2000 Security and Technology Solution Inc., we partner with globally recognized and trusted brands to provide high-quality security, technology, and enterprise solutions. Our selection of brands ensures reliability, innovation, and efficiency across various industries, including commercial, industrial, and residential sectors. From advanced security systems to enterprise resource planning (ERP) solutions, we offer cutting-edge technology designed to enhance safety, streamline operations, and improve overall business performance.</p>
+                      <p>  Our commitment to quality means we only work with brands that meet the highest industry standards in security, automation, and business management. Whether you need state-of-the-art surveillance, access control, communication systems, or integrated business solutions, we provide products from brands known for their durability, scalability, and technological advancements. At AA2000, we ensure that our clients receive the best solutions tailored to their unique needs, backed by expert support and seamless integration services. </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="brands-system-category">
+        <div class="container-fluid my-5" id="brands-system-category">
+            <h3 class="text-center mt-3 mb-5 pt-5 mx-3">
+                <div class="display-lg-2 display-6 mb-1 fw-bold">{{ formatted_system }} Brands of AA2000</div>
+                <p class="lead text-muted fs-6 fs-lg-2">Explore more brands offered by AA2000</p>
+            </h3>
+
+            <div id="brands-system-category-slider" class="position d-flex flex-nowrap justify-content-center align-items-center mx-xl-5 px-xl-5 my-2">
+                <button id="brands-system-btn-prev" class="slider-btn btn-prev border-0">
+                    <i class="bi bi-chevron-left fs-3"></i>
+                </button>
+                    
+                <div id="brands-systems-slider-container" class="lcl-systems row d-flex flex-nowrap justify-content-start align-items-center overflow-x-auto px-xl-5 mx-xl-5 px-1 mx-1">
+                    
+
+                    <div class="col-8 col-md-4 col-xl-3 p-xl-3 p-2">
+                        <a href="/brands?system=fdas" class="brand-category-btn text-decoration-none text-muted border-0">
+                            <div class="card p-3 rounded-5 mx-2 shadow">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/systems/fdas.png' %}" alt="Brand 1" class="img-fluid">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-6 mt-3 lead fs-5 fw-bold">Fire Detection and Alarm Systems</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-8 col-md-4 col-xl-3 p-xl-3 p-2">
+                        <a href="/brands?system=afss" class="brand-category-btn text-decoration-none text-muted border-0">
+                            <div class="card p-3 rounded-5 mx-2 shadow">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/systems/afss.png' %}" alt="Brand 1" class="img-fluid">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-6 mt-3 lead fs-5 fw-bold">Automatic Fire Suppression Systems</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-8 col-md-4 col-xl-3 p-xl-3 p-2">
+                        <a href="/brands?system=cctv" class="brand-category-btn text-decoration-none text-muted border-0">
+                            <div class="card p-3 rounded-5 mx-2 shadow">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/systems/cctv.png' %}" alt="Brand 1" class="img-fluid">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-6 mt-3 lead fs-5 fw-bold">CCTV Systems</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-8 col-md-4 col-xl-3 p-xl-3 p-2">
+                        <a href="/brands?system=access-control" class="brand-category-btn text-decoration-none text-muted border-0">
+                            <div class="card p-3 rounded-5 mx-2 shadow">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/systems/access-control.png' %}" alt="Brand 1" class="img-fluid">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-6 mt-3 lead fs-5 fw-bold">Access Control Systems</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-8 col-md-4 col-xl-3 p-xl-3 p-2">
+                        <a href="/brands?system=burglar-alarm" class="brand-category-btn text-decoration-none text-muted border-0">
+                            <div class="card p-3 rounded-5 mx-2 shadow">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/systems/burglar-alarm.png' %}" alt="Brand 1" class="img-fluid">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-6 mt-3 lead fs-5 fw-bold">Burglar Alarm Systems</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-8 col-md-4 col-xl-3 p-xl-3 p-2">
+                        <a href="/brands?system=intercom-paging" class="brand-category-btn text-decoration-none text-muted border-0">
+                            <div class="card p-3 rounded-5 mx-2 shadow">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/systems/paging-system.png' %}" alt="Brand 1" class="img-fluid">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-6 mt-3 lead fs-5 fw-bold">Intercom and Paging Systems</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-8 col-md-4 col-xl-3 p-xl-3 p-2">
+                        <a href="/brands?system=walkthrough-metal-detectors" class="brand-category-btn text-decoration-none text-muted border-0">
+                            <div class="card p-3 rounded-5 mx-2 shadow">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/systems/metal-detectors.png' %}" alt="Brand 1" class="img-fluid">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-6 mt-3 lead fs-5 fw-bold">Walkthrough/ Handheld Metal Detector Systems</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-8 col-md-4 col-xl-3 p-xl-3 p-2">
+                        <a href="/brands?system=gate-barrier" class="brand-category-btn text-decoration-none text-muted border-0">
+                            <div class="card p-3 rounded-5 mx-2 shadow">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/systems/gate-barrier.png' %}" alt="Brand 1" class="img-fluid">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-6 mt-3 lead fs-5 fw-bold">Gate Barrier Systems</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-8 col-md-4 col-xl-3 p-xl-3 p-2">
+                        <a href="/brands?system=room-alert" class="brand-category-btn text-decoration-none text-muted border-0">
+                            <div class="card p-3 rounded-5 mx-2 shadow">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/systems/room-alert.png' %}" alt="Brand 1" class="img-fluid">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-6 mt-3 lead fs-5 fw-bold">Room Alert Systems</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-8 col-md-4 col-xl-3 p-xl-3 p-2">
+                        <a href="/brands?system=xray-baggage-scanners" class="brand-category-btn text-decoration-none text-muted border-0">
+                            <div class="card p-3 rounded-5 mx-2 shadow">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/systems/x-ray-scanner.png' %}" alt="Brand 1" class="img-fluid">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-6 mt-3 lead fs-5 fw-bold">X-ray Baggage Scanner Systems</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-8 col-md-4 col-xl-3 p-xl-3 p-2">
+                        <a href="/brands?system=eas" class="brand-category-btn text-decoration-none text-muted border-0">
+                            <div class="card p-3 rounded-5 mx-2 shadow">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/systems/eas.png' %}" alt="Brand 1" class="img-fluid">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-6 mt-3 lead fs-5 fw-bold">EAS Systems</p>
+                                </div>
+                            </div>
+                        </a >
+                    </div>
+
+                    <div class="col-8 col-md-4 col-xl-3 p-xl-3 p-2">
+                        <a href="/brands?system=led" class="brand-category-btn text-decoration-none text-muted border-0">
+                            <div class="card p-3 rounded-5 mx-2 shadow">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/systems/led.png' %}" alt="Brand 1" class="img-fluid">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-6 mt-3 lead fs-5 fw-bold">LED Display Systems</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-8 col-md-4 col-xl-3 p-xl-3 p-2">
+                        <a href="/brands?system=robots" class="brand-category-btn text-decoration-none text-muted border-0">
+                            <div class="card p-3 rounded-5 mx-2 shadow">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/systems/robots.png' %}" alt="Brand 1" class="img-fluid">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-6 mt-3 lead fs-5 fw-bold">Robot Systems</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-8 col-md-4 col-xl-3 p-xl-3 p-2">
+                        <a href="/brands?system=erp" class="brand-category-btn text-decoration-none text-muted border-0">
+                            <div class="card p-3 rounded-5 mx-2 shadow">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/systems/a2k.png' %}" alt="Brand 1" class="img-fluid">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-6 mt-3 lead fs-5 fw-bold">ERP Systems</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+                
+
+                <button id="brands-system-btn-next" class="slider-btn btn-prev border-0">
+                    <i class="bi bi-chevron-right fs-3"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section id="brands-area">
+        <div class="container-fluid my-5" id="brands-area-banner">
+            <hr>
+            
+            {% if brands %}
+                
+            <div class="row justify-content-center align-items-center my-5">
+
+                
+                {% for brand in brands %}
+                    
+                <div class="col-5 col-xl-2 m-2">
+                    <a href="{% url 'users:brands_overview' brand.brand_slug%}" class="text-muted text-decoration-none">
+                        <div class="card p-1 rounded-5 mx-2 shadow">
+                            <div class="card-body text-center p-1">                                        
+                                <img src="/media/{{ brand.brand_logo }}" alt="{{ brand.brand_name }}" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="card-title m-2 text-center">
+                            <p class="fs-6 mt-3 lead fs-5 fw-bold">{{ brand.brand_name }}</p>
+                        </div>
+                    </a>
+                </div>
+
+                {% endfor %}
+                    
+            </div>
+            {% else %}
+            <div class="row">
+                <div class="col-12 m-2">
+                    <h6 class="fs-6 mt-3 lead fs-5 fw-bold text-center">No Brands</h6>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </section>
+
+{% endblock %}
+
+

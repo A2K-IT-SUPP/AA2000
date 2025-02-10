@@ -1,0 +1,1199 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Main Page
+{% endblock %}
+
+
+
+{% block scripts %}
+    <script src="{% static 'js/main.js' %}"></script>
+{% endblock %}
+
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+{% endblock %}
+
+
+
+
+
+{% block content %}
+    <section id="intro">
+        <div id="hero-banner" class="container-fluid">
+            <div class="row justify-content-center align-items-center">
+                
+                <div class="col-lg-6 text-center text-xl-start">
+                    <h1>
+                        <div class="display-2 text-capitalize fw-bolder">
+                            <span class="hero-banner-title">Pioneering Excellence of System Integration Solutions</span>
+                        </div>
+                    </h1>
+                    <p class="lead text-muted">
+                        <span class="hero-banner-p fs-4">Seamlessly integrating technology, transforming businesses in the Philippines</span>
+                    </p>
+                    <a href="/contact" class="btn btn-primary btn-lg">Start your Project <i class="bi bi-arrow-right-short"></i></a>
+                </div>
+
+                <div class="col-lg-5 text-center d-xl-block d-none">
+                    <img class="hero-banner-img" src="{% static 'images/kurt-jessa.png' %}" alt="">
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="systems">
+        <div class="container-fluid mt-5" id="systems-banner">
+
+            <h3 class="text-center mt-3 mb-5 pt-5 systems-banner-title mx-3">
+                <div class="display-lg-2 display-6 mb-1 fw-bold">Your No.1 Systems Integrator in the Philippines</div>
+                <p class="lead text-muted  fs-6 fs-lg-2">Delivering Innovative Technology Solutions That Drive Business Growth and Security</p>
+            </h3>
+
+            <div class="lcl-systems d-none d-lg-flex row justify-content-center my-3 mt-5 px-5 text-decoration-none">
+
+                <div class="col-4 col-lg-2 p-3">
+                    <a href="/systems/fdas">
+                        <div class="card p-3 rounded-5 shadow">
+                            <div class="card-body text-center p-1">
+                                <div class="card-title m-2">
+                                    <img src="{% static 'images/systems/fdas.png' %}" alt="AA2000 | FDAS">
+                                </div>
+                                <div class="card-subtitle">
+                                    <p class="lead pt-3">Fire Detection and Alarm Systems</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-4 col-lg-2 p-3">
+                    <a href="/systems/cctv">
+                        <div class="card p-3 rounded-5 shadow">
+                            <div class="card-body text-center p-1">
+                                <div class="card-title m-2">
+                                    <img src="{% static 'images/systems/cctv.png' %}" alt="AA2000 | CCTV">
+                                </div>
+                                <div class="card-subtitle">
+                                    <p class="lead pt-3">CCTV Systems</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="col-4 col-lg-2 p-3">
+                    <a href="/systems/afss">
+                        <div class="card p-3 rounded-5 shadow">
+                            <div class="card-body text-center p-1">
+                                <div class="card-title m-2">
+                                    <img src="{% static 'images/systems/afss.png' %}" alt="AA200 | AFSS">
+                                </div>
+                                <div class="card-subtitle">
+                                    <p class="lead pt-3">Automatic Fire Suppression Systems</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-4 col-lg-2 p-3">
+                    <a href="/systems/access-control">
+                        <div class="card p-3 rounded-5 shadow">
+                            <div class="card-body text-center p-1">
+                                <div class="card-title m-2">
+                                    <img src="{% static 'images/systems/access-control.png' %}" alt="AA2000 | Access Control">
+                                </div>
+                                <div class="card-subtitle">
+                                    <p class="lead pt-3">Access Control Systems</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-4 col-lg-2 p-3">
+                    <a href="/systems/burglar-alarm">
+                        <div class="card p-3 rounded-5 shadow">
+                            <div class="card-body text-center p-1">
+                                <div class="card-title m-2">
+                                    <img src="{% static 'images/systems/burglar-alarm.png' %}" alt="AA2000 | Burglar Alarm">
+                                </div>
+                                <div class="card-subtitle">
+                                    <p class="lead pt-3">Burglar Alarm Systems</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-4 col-lg-2 p-3">
+                    <a href="/systems/intercom-paging">
+                        <div class="card p-3 rounded-5 shadow">
+                            <div class="card-body text-center p-1">
+                                <div class="card-title m-2">
+                                    <img src="{% static 'images/systems/paging-system.png' %}" alt="AA2000 | Paging Systems">
+                                </div>
+                                <div class="card-subtitle">
+                                    <p class="lead pt-3">Paging Systems</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-4 col-lg-2 p-3">
+                    <a href="/systems/walkthrough-metal-detectors">
+                        <div class="card p-3 rounded-5 shadow">
+                            <div class="card-body text-center p-1">
+                                <div class="card-title m-2">
+                                    <img src="{% static 'images/systems/metal-detectors.png' %}" alt="AA2000 | Walkthrough/ Metal Detectors">
+                                </div>
+                                <div class="card-subtitle">
+                                    <p class="lead pt-3">Walkthrough/ Handheld Metal Detectors Systems</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-4 col-lg-2 p-3">
+                    <a href="/systems/gate-barrier">
+                        <div class="card p-3 rounded-5 shadow">
+                            <div class="card-body text-center p-1">
+                                <div class="card-title m-2">
+                                    <img src="{% static 'images/systems/gate-barrier.png' %}" alt="AA2000 | Gate Barrier Systems">
+                                </div>
+                                <div class="card-subtitle">
+                                    <p class="lead pt-3">Gate Barrier Systems</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-4 col-lg-2 p-3">
+                    <a href="/systems/eas">
+                        <div class="card p-3 rounded-5 shadow">
+                            <div class="card-body text-center p-1">
+                                <div class="card-title m-2">
+                                    <img src="{% static 'images/systems/eas.png' %}" alt="AA2000 | EAS">
+                                </div>
+                                <div class="card-subtitle">
+                                    <p class="lead pt-3">Electronic Article Suveillance Systems</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="col-4 col-lg-2 p-3">
+                    <a href="/system/room-alert">
+                        <div class="card p-3 rounded-5 shadow">
+                            <div class="card-body text-center p-1">
+                                <div class="card-title m-2">
+                                    <img src="{% static 'images/systems/room-alert.png' %}" alt="AA2000 | Room Alert">
+                                </div>
+                                <div class="card-subtitle">
+                                    <p class="lead pt-3">Room Alert Systems</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="col-4 col-lg-2 p-3">
+                    <a href="/systems/xray-baggage-scanners">
+                        <div class="card p-3 rounded-5 shadow">
+                            <div class="card-body text-center p-1">
+                                <div class="card-title m-2">
+                                    <img src="{% static 'images/systems/x-ray-scanner.png' %}" alt="AA2000 | X-ray Baggage Scanners">
+                                </div>
+                                <div class="card-subtitle">
+                                    <p class="lead pt-3">X-Ray Baggage Scanner Systems</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="col-4 col-lg-2 p-3">
+                    <a href="/systems/led">
+                        <div class="card p-3 rounded-5 shadow">
+                            <div class="card-body text-center p-1">
+                                <div class="card-title m-2">
+                                    <img src="{% static 'images/systems/led.png' %}" alt="AA2000 | LED Display Systems">
+                                </div>
+                                <div class="card-subtitle">
+                                    <p class="lead pt-3">LED Display Systems</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-4 col-lg-2 p-3">
+                    <a href="/systems/robots">
+                        <div class="card p-3 rounded-5 shadow">
+                            <div class="card-body text-center p-1">
+                                <div class="card-title m-2">
+                                    <img src="{% static 'images/systems/robots.png' %}" alt="AA2000 | Robots Systems">
+                                </div>
+                                <div class="card-subtitle">
+                                    <p class="lead pt-3">Robots Systems</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-4 col-lg-2 p-3">
+                    <a href="/systems/erp">
+                        <div class="card p-3 rounded-5 shadow">
+                            <div class="card-body text-center p-1">
+                                <div class="card-title m-2 pt-">
+                                    <img src="{% static 'images/systems/a2k.png' %}" alt="AA2000 | ERP Softwares">
+                                </div>
+                                <div class="card-subtitle">
+                                    <p class="lead pt-3">ERP Softwares</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            </div>
+
+{% comment %} for small viewpoint {% endcomment %}
+            <div class="lcl-systems d-lg-none my-3 mt-5 px-5 overflow-x-auto">
+
+                <div class="row flex-nowrap">
+
+                    <div class="col-12 p-3">
+                        <a href="/systems/fdas">
+                            <div class="card p-3 rounded-5 shadow">
+                                <div class="card-body text-center p-1">
+                                    <div class="card-title m-2">
+                                        <img src="{% static 'images/systems/fdas.png' %}" alt="AA2000 | FDAS">
+                                    </div>
+                                    <div class="card-subtitle">
+                                        <p class="lead pt-3">Fire Detection and Alarm Systems</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+    
+                    <div class="col-12 p-3">
+                        <a href="/systems/cctv">
+                            <div class="card p-3 rounded-5 shadow">
+                                <div class="card-body text-center p-1">
+                                    <div class="card-title m-2">
+                                        <img src="{% static 'images/systems/cctv.png' %}" alt="AA2000 | CCTV">
+                                    </div>
+                                    <div class="card-subtitle">
+                                        <p class="lead pt-3">CCTV Systems</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="col-12 p-3">
+                        <a href="/systems/afss">
+                            <div class="card p-3 rounded-5 shadow">
+                                <div class="card-body text-center p-1">
+                                    <div class="card-title m-2">
+                                        <img src="{% static 'images/systems/afss.png' %}" alt="AA200 | AFSS">
+                                    </div>
+                                    <div class="card-subtitle">
+                                        <p class="lead pt-3">Automatic Fire Suppression Systems</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+    
+                    <div class="col-12 p-3">
+                        <a href="/systems/access-control">
+                            <div class="card p-3 rounded-5 shadow">
+                                <div class="card-body text-center p-1">
+                                    <div class="card-title m-2">
+                                        <img src="{% static 'images/systems/access-control.png' %}" alt="AA2000 | Access Control">
+                                    </div>
+                                    <div class="card-subtitle">
+                                        <p class="lead pt-3">Access Control Systems</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+    
+                    <div class="col-12 p-3">
+                        <a href="/systems/burglar-alarm">
+                            <div class="card p-3 rounded-5 shadow">
+                                <div class="card-body text-center p-1">
+                                    <div class="card-title m-2">
+                                        <img src="{% static 'images/systems/burglar-alarm.png' %}" alt="AA2000 | Burglar Alarm">
+                                    </div>
+                                    <div class="card-subtitle">
+                                        <p class="lead pt-3">Burglar Alarm Systems</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+    
+                    <div class="col-12 p-3">
+                        <a href="/systems/interom-paging">
+                            <div class="card p-3 rounded-5 shadow">
+                                <div class="card-body text-center p-1">
+                                    <div class="card-title m-2">
+                                        <img src="{% static 'images/systems/paging-system.png' %}" alt="AA2000 | Paging Systems">
+                                    </div>
+                                    <div class="card-subtitle">
+                                        <p class="lead pt-3">Paging Systems</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+    
+                    <div class="col-12 p-3">
+                        <a href="/systems/walkthrough-metal-detectors">
+                            <div class="card p-3 rounded-5 shadow">
+                                <div class="card-body text-center p-1">
+                                    <div class="card-title m-2">
+                                        <img src="{% static 'images/systems/metal-detectors.png' %}" alt="AA2000 | Walkthrough/ Metal Detectors">
+                                    </div>
+                                    <div class="card-subtitle">
+                                        <p class="lead pt-3">Walkthrough/ Handheld Metal Detectors Systems</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+    
+                    <div class="col-12 p-3">
+                        <a href="/systems/gate-barrier">
+                            <div class="card p-3 rounded-5 shadow">
+                                <div class="card-body text-center p-1">
+                                    <div class="card-title m-2">
+                                        <img src="{% static 'images/systems/gate-barrier.png' %}" alt="AA2000 | Gate Barrier Systems">
+                                    </div>
+                                    <div class="card-subtitle">
+                                        <p class="lead pt-3">Gate Barrier Systems</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+    
+                    <div class="col-12 p-3">
+                        <a href="/systems/eas">
+                            <div class="card p-3 rounded-5 shadow">
+                                <div class="card-body text-center p-1">
+                                    <div class="card-title m-2">
+                                        <img src="{% static 'images/systems/eas.png' %}" alt="AA2000 | EAS">
+                                    </div>
+                                    <div class="card-subtitle">
+                                        <p class="lead pt-3">Electronic Article Suveillance Systems</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="col-12 p-3">
+                        <a href="/systems/room-alert">
+                            <div class="card p-3 rounded-5 shadow">
+                                <div class="card-body text-center p-1">
+                                    <div class="card-title m-2">
+                                        <img src="{% static 'images/systems/room-alert.png' %}" alt="AA2000 | Room Alert">
+                                    </div>
+                                    <div class="card-subtitle">
+                                        <p class="lead pt-3">Room Alert Systems</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="col-12 p-3">
+                        <a href="/systems/xray-baggage-scanners">
+                            <div class="card p-3 rounded-5 shadow">
+                                <div class="card-body text-center p-1">
+                                    <div class="card-title m-2">
+                                        <img src="{% static 'images/systems/x-ray-scanner.png' %}" alt="AA2000 | X-ray Baggage Scanners">
+                                    </div>
+                                    <div class="card-subtitle">
+                                        <p class="lead pt-3">X-Ray Baggage Scanner Systems</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="col-12 p-3">
+                        <a href="/systems/led">
+                            <div class="card p-3 rounded-5 shadow">
+                                <div class="card-body text-center p-1">
+                                    <div class="card-title m-2">
+                                        <img src="{% static 'images/systems/led.png' %}" alt="AA2000 | LED Display Systems">
+                                    </div>
+                                    <div class="card-subtitle">
+                                        <p class="lead pt-3">LED Display Systems</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-12 p-3">
+                        <a href="/systems/robots">
+                            <div class="card p-3 rounded-5 shadow">
+                                <div class="card-body text-center p-1">
+                                    <div class="card-title m-2">
+                                        <img src="{% static 'images/systems/led.png' %}" alt="AA2000 | Robots Systems">
+                                    </div>
+                                    <div class="card-subtitle">
+                                        <p class="lead pt-3">Robots Systems</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-12 p-3">
+                        <a href="/systems/erp">
+                            <div class="card p-3 rounded-5 shadow">
+                                <div class="card-body text-center p-1">
+                                    <div class="card-title m-2">
+                                        <img src="{% static 'images/systems/led.png' %}" alt="AA2000 | ERP Softwares">
+                                    </div>
+                                    <div class="card-subtitle">
+                                        <p class="lead pt-3">ERP Softwares</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+                
+            </div>
+
+        </div>
+    </section>
+
+
+
+
+
+
+    <section id="services">
+        <div class="container-fluid my-5" id="services-banner">
+
+            <div class="d-none d-lg-flex justify-content-between align-items-center">
+                <h3 class="text-start mx-5 mt-3 mb-5 pt-5 systems-banner-title mx-3">
+                    <div class="display-lg-2 display-6 mb-1 fw-bold">OUR SOLUTIONS AND EXPERTISES</div>
+                    <p class="lead text-muted fs-6 fs-lg-2">Delivering Customized Technology Solutions Designed to Drive Your Business Success</p>
+                </h3>
+                <div class="carousel-buttons">
+                    <button class="btn fs-1" type="button" data-bs-target="#services-carousel" data-bs-slide="prev" data-bs-slide="prev">
+                        <i class="bi bi-arrow-left-circle"></i>
+                    </button>
+                    <button class="btn fs-1" type="button" data-bs-target="#services-carousel" data-bs-slide="next" data-bs-slide="next">
+                        <i class="bi bi-arrow-right-circle"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div id="services-carousel" class="d-lg-flex d-none carousel slide mt-5" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+
+                        <div class="row px-5">
+
+                            <div class="col-6 mt-3">
+                                <div class="row p-1">
+                                    <div class="col-6">
+                                        <div>
+                                            <h3 class="fs-1"> <i class="bi bi-cart-fill"></i> Supply</h3>
+                                            <p>Providing high-quality technology products tailored to your specific needs.</p>
+                                        </div>
+                                        <a href="/services/supply" class="btn mt-auto text-end fw-bold">
+                                            Learn More <i class="bi bi-arrow-right-short"></i>
+                                        </a>
+                                    </div>
+                                    <div class="col-6">
+                                        <img src="{% static 'images/solutions/owen2.png' %}" alt="">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-6 mt-3">
+                                <div class="row p-1">
+                                    <div class="col-6">
+                                        <div>
+                                            <h3 class="fs-1"><i class="bi bi-battery-half"></i> Maintenance</h3>
+                                            <p>Routine checks and proactive care to keep your systems running smoothly and prevent issues.</p>
+                                        </div>
+                                        <a href="/services/maintenance" class="btn mt-auto text-end fw-bold">
+                                            Learn More <i class="bi bi-arrow-right-short"></i>
+                                        </a>
+                                    </div>
+                                    <div class="col-6">
+                                        <img src="{% static 'images/solutions/josh3.png' %}" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                
+                            <div class="col-6 mt-3">
+                                <div class="row p-1">
+                                    <div class="col-6">
+                                        <img src="{% static 'images/solutions/jessa3.png' %}" alt="">
+                                    </div>
+                                    <div class="col-6">
+                                        <div>
+                                            <h3 class="fs-1"><i class="bi bi-tools"></i> Installation</h3>
+                                            <p>Expertly setting up and configuring your systems to ensure seamless integration and optimal performance.</p>
+                                        </div>
+                                        <a href="/services/installation" class="btn mt-auto text-end fw-bold">
+                                            Learn More <i class="bi bi-arrow-right-short"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-6 mt-3">
+                                <div class="row p-1">
+                                    <div class="col-6">
+                                        <img src="{% static 'images/solutions/kurt3.png' %}" alt="">
+                                    </div>
+                                    <div class="col-6">
+                                        <div>
+                                            <h3 class="fs-1"><i class="bi bi-gear-fill"></i> Troubleshooting</h3>
+                                            <p>Quickly diagnosing and resolving technical problems to minimize downtime and restore functionality.</p>
+                                        </div>
+                                        <a href="/services/troubleshooting" class="btn mt-auto text-end fw-bold">
+                                            Learn More <i class="bi bi-arrow-right-short"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                
+                        </div>
+                        
+                        
+                    </div>
+
+                    <div class="carousel-item">
+
+                        <div class="row px-5">
+
+                            <div class="col-6 mt-3">
+                                <div class="row p-1">
+                                    <div class="col-6">
+                                        <div>
+                                            <h3 class="fs-1"><i class="bi bi-rulers"></i> Design</h3>
+                                            <p>Crafting customized solutions and layouts to meet your unique business requirements and objectives.</p>
+                                        </div>
+                                        <a href="/services/design" class="btn mt-auto text-end fw-bold">
+                                            Learn More <i class="bi bi-arrow-right-short"></i>
+                                        </a>
+                                    </div>
+                                    <div class="col-6">
+                                        <img src="{% static 'images/solutions/josh2.png' %}" alt="">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-6 mt-3">
+                                <div class="row p-1">
+                                    <div class="col-6">
+                                        <div>
+                                            <h3 class="fs-1"><i class="bi bi-chat-square-quote-fill"></i> Consultation</h3>
+                                            <p>Offering expert advice to help you choose the best technology solutions and strategies for your business.</p>
+                                        </div>
+                                        <a href="/services/consultation" class="btn mt-auto text-end fw-bold">
+                                            Learn More <i class="bi bi-arrow-right-short"></i>
+                                        </a>
+                                    </div>
+                                    <div class="col-6">
+                                        <img src="{% static 'images/solutions/jack2.png' %}" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                
+                            <div class="col-6 mt-3">
+                                <div class="row p-1">
+                                    <div class="col-6">
+                                        <img src="{% static 'images/solutions/jessa2.png' %}" alt="">
+                                    </div>
+                                    <div class="col-6">
+                                        <div>
+                                            <h3 class="fs-1"><i class="bi bi-search"></i> Inspection</h3>
+                                            <p>Thorough evaluations of your systems to ensure compliance, safety, and efficiency.</p>
+                                        </div>
+                                        <a href="/service/inspection" class="btn mt-auto text-end fw-bold">
+                                            Learn More <i class="bi bi-arrow-right-short"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-6 mt-3">
+                                <div class="row p-1">
+                                    <div class="col-6">
+                                        <img src="{% static 'images/solutions/kurt2.png' %}" alt="">
+                                    </div>
+                                    <div class="col-6">
+                                        <div>
+                                            <h3 class="fs-1"><i class="bi bi-bar-chart-fill"></i> Training</h3>
+                                            <p>Equipping your team with the knowledge and skills needed to effectively manage and utilize your technology.</p>
+                                        </div>
+                                        <a href="/services/training" class="btn mt-auto text-end fw-bold">
+                                            Learn More <i class="bi bi-arrow-right-short"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                
+                        </div>
+                        
+                        
+                    </div>
+
+                </div>
+            </div>
+
+{% comment %} for smaller viewpoint {% endcomment %}
+            <div class="d-lg-none m-5">
+
+                <h3 class="text-center mx-5 mt-3 mb-5 pt-5 systems-banner-title mx-3">
+                    <div class="display-lg-2 display-6 mb-1 fw-bold">OUR SOLUTIONS AND EXPERTISES</div>
+                    <p class="lead text-muted fs-6 fs-lg-2">Delivering Customized Technology Solutions Designed to Drive Your Business Success</p>
+                </h3>
+
+                <div class="row justify-content-center">
+
+                    <div class="lcl-services-items py-2 col-10 rounded-5 shadow my-1">
+                        <a href="/services/supply">
+                            <div class="p-3">
+                                <h3 class="display-5 pt-1"> <i class="bi bi-cart-fill"></i> Supply</h3>
+                                <p class="fs-6">Providing high-quality technology products tailored to your specific needs.</p>
+                                <p class="fs-6 fw-bold">Learn More <i class="bi bi-arrow-right-short"></i></p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="lcl-services-items py-2 col-10 rounded-5 shadow my-1">
+                        <a href="/services/installation">
+                            <div class="p-3">
+                                <h3 class="display-5 pt-1"><i class="bi bi-tools"></i> Installation</h3>
+                                <p class="fs-6">Expertly setting up and configuring your systems to ensure seamless integration and optimal performance.</p>
+                                <p class="fs-6 fw-bold">Learn More <i class="bi bi-arrow-right-short"></i></p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="lcl-services-items py-2 col-10 rounded-5 shadow my-1">
+                        <a href="/services/maintenance">
+                            <div class="p-3">
+                                <h3 class="display-5 pt-1"><i class="bi bi-battery-half"></i> Maintenance</h3>
+                                <p class="fs-6">Routine checks and proactive care to keep your systems running smoothly and prevent issues.</p>
+                                <p class="fs-6 fw-bold">Learn More <i class="bi bi-arrow-right-short"></i></p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="lcl-services-items py-2 col-10 rounded-5 shadow my-1">
+                        <a href="/services/troubleshooting">
+                            <div class="p-3">
+                                <h3 class="display-5 pt-1"><i class="bi bi-gear-fill"></i> Troubleshooting</h3>
+                                <p class="fs-6">Quickly diagnosing and resolving technical problems to minimize downtime and restore functionality.</p>
+                                <p class="fs-6 fw-bold">Learn More <i class="bi bi-arrow-right-short"></i></p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="lcl-services-items py-2 col-10 rounded-5 shadow my-1">
+                        <a href="/services/design">
+                            <div class="p-3">
+                                <h3 class="display-5 pt-1"><i class="bi bi-rulers"></i> Design</h3>
+                                <p class="fs-6">Crafting customized solutions and layouts to meet your unique business requirements and objectives.</p>
+                                <p class="fs-6 fw-bold">Learn More <i class="bi bi-arrow-right-short"></i></p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="lcl-services-items py-2 col-10 rounded-5 shadow my-1">
+                        <a href="/services/consultation">
+                            <div class="p-3">
+                                <h3 class="display-5 pt-1"><i class="bi bi-chat-square-quote-fill"></i> Consultation</h3>
+                                <p class="fs-6">Offering expert advice to help you choose the best technology solutions and strategies for your business.</p>
+                                <p class="fs-6 fw-bold">Learn More <i class="bi bi-arrow-right-short"></i></p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="lcl-services-items py-2 col-10 rounded-5 shadow my-1">
+                        <a href="/services/inspection">
+                            <div class="p-3">
+                                <h3 class="display-5 pt-1"><i class="bi bi-search"></i> Inspection</h3>
+                                <p class="fs-6">Thorough evaluations of your systems to ensure compliance, safety, and efficiency.</p>
+                                <p class="fs-6 fw-bold">Learn More <i class="bi bi-arrow-right-short"></i></p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="lcl-services-items py-2 col-10 rounded-5 shadow my-1">
+                        <a href="/services/training">
+                            <div class="p-3">
+                                <h3 class="display-5 pt-1"><i class="bi bi-bar-chart-fill"></i> Training</h3>
+                                <p class="fs-6">Equipping your team with the knowledge and skills needed to effectively manage and utilize your technology.</p>
+                                <p class="fs-6 fw-bold">Learn More <i class="bi bi-arrow-right-short"></i></p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="in-aa2000">
+        <div id="banner" class="container-fluid mt-5">
+            <div id="text-banner" class="row justify-content-between mx-lg-5 px-5 py-5 align-items-center rounded-5">
+                <div class="col-lg-4 py-3">
+                    <h3 class=" display-5 fw-bold"><span class="rounded-3 px-3 py-1">In AA2000</span></h3>
+                    <h4 class="fs-lg-2 text-uppercase fw-bold">We Design, Build, Implement, Support, and Audit</h4>
+                </div>
+                <div class="col-lg-7 border-0 py-3">
+                    <p class="fs-lg-4">AA2000 is the specialist in security and safety systems engineering. We design the perfect technology-based solutions that comply with the highest standards in the industry. Our products are carefully sourced directly from the manufacturers and are customized according to our customers' unique needs and requirements to recommend the most effective solution at the best price.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="why-choose-us">
+        <div class="container-fluid py-5 border-0" id="banner">
+            <h3 class="text-center mt-3 mb-5 pt-5 mx-3 lcl-why-aa2000-text">
+                <div class="display-lg-2 display-6 mb-1 fw-bold">Why Choose Us?</div>
+                <p class="lead fs-6 fs-lg-2">Trusted Expertise and Tailored Solutions for Lasting Success</p>
+            </h3>
+
+            <div class="row mx-5 justify-content-center align-items-center">
+
+                <div class="col-lg-4 p-3">
+                    <div class="card border-0 rounded-5 shadow">
+                        <div class="card-body text-center py-4 px-2 mb-3">
+                            <div class="display-1 fw-bold my-3"><i class="bi bi-person-fill-gear"></i></div>
+                            <h4 class="card-title fs-1 px-4 fw-bold">Expertise you can trust</h4>
+                            <p class="card-subtitle px-5">With years of experience in the industry, we provide specialized knowledge and innovative solutions tailored to meet the unique challenges of your business.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 p-3">
+                    <div class="card border-0 rounded-5 shadow">
+                        <div class="card-body text-center py-4 px-2 mb-3">
+                            <div class="display-1 fw-bold my-3"><i class="bi bi-lightbulb-fill"></i></div>
+                            <h4 class="card-title fs-1 px-4 fw-bold">End-to-End Solutions Provider</h4>
+                            <p class="card-subtitle px-5">From design and supply to installation and ongoing support, we deliver comprehensive services to ensure seamless integration and long-term success.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 p-3">
+                    <div class="card border-0 rounded-5 shadow">
+                        <div class="card-body text-center py-4 px-2 mb-3">
+                            <div class="display-1 fw-bold my-3"><i class="bi bi-people-fill"></i></div>
+                            <h4 class="card-title fs-1 px-4 fw-bold">Customer-Centric Approach</h4>
+                            <p class="card-subtitle px-5">We prioritize your business needs by offering personalized service, fast response times, and dedicated support to ensure your satisfaction at every step.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    
+    {% if brands %}  
+    <section id="trusted-brands">
+        <div class="container-fluid py-5" id="banner">
+            <h3 class="text-center mt-3 mb-5 pt-5 mx-3 lcl-why-aa2000-text">
+                <div class="display-lg-2 display-6 mb-1 fw-bold">Trusted Brands</div>
+                <p class="lead fs-6 fs-lg-2">Partnering with Industry-Leading Brands for Unmatched Quality and Reliability</p>
+            </h3>
+
+            <div class="position-relative justify-content-center d-flex align-items-center my-2" id="brandCardSlider">
+                
+                <button class="slider-btn btn-prev border-0">
+                    <i class="bi bi-chevron-left fs-3"></i>
+                </button>
+
+                <div id="brand-slider-container" class="slider-container row d-flex overflow-x-auto flex-nowrap mx-5">
+
+                    
+                    {% for brand in brands %}
+                    <div class="col-6 col-lg-1 card mx-2 shadow p-5 rounded-circle">
+                        <div class="card-body text-center">
+                            <img src="media/{{ brand.brand_logo }}" style="transform: scale(0.7)" alt="{{ brand.brand_name }}">
+                        </div>
+                    </div>
+                    {% endfor %}
+                        
+
+
+
+                </div>
+
+
+                <button class="slider-btn btn-next border-0">
+                    <i class="bi bi-chevron-right fs-3"></i>
+                </button>
+
+            </div>
+
+            <h3 class="text-center mt-3 mb-5 pt-5 mx-3 lcl-why-aa2000-text">
+                <a href="/brands" class="btn"><span class="lead fs-6 fs-lg-2">View All Brands<i class="bi bi-arrow-up-right"></i></span></a>
+            </h3>
+
+        </div>
+    </section>
+    {% endif %}
+
+
+    <section id="featured-clients">
+        <div class="container-fluid py-5" id="banner">
+            <h3 class="text-center mt-3 mb-5 pt-5 mx-3 lcl-why-aa2000-text">
+                <div class="display-lg-2 display-6 mb-1 fw-bold">Featured Clients</div>
+                <p class="lead fs-6 fs-lg-2">Proudly Serving Clients Across Diverse Industries with Tailored Solutions and Proven Results</p>
+            </h3>
+
+            <div class="position-relative justify-content-center d-flex align-items-center my-2" id="brandCardSlider">
+                
+                <!-- <button id="client-btn-left" class="slider-btn btn-prev border-0 lcl-white-btn">
+                        <i class="bi bi-chevron-left fs-3"></i>
+                </button> -->
+
+                <div id="clients-slider-container" class="slider-container row d-flex overflow-x-auto flex-nowrap mx-5">
+
+                    <div class="col-6 col-lg-1 card mx-2 shadow p-3 rounded-circle">
+                        <div class="featured_client_logo_area card-body text-center">
+                            <img src="{% static 'images/featured_clients/abscbn.png' %}" alt="Brand 1">
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-lg-1 card mx-2 shadow p-3 rounded-circle">
+
+                        <div class="featured_client_logo_area card-body text-center">
+                            <img src="{% static 'images/featured_clients/apcargo.png' %}" alt="Brand 1">
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-lg-1 card mx-2 shadow p-3 rounded-circle">
+
+                        <div class="featured_client_logo_area card-body text-center">
+                            <img src="{% static 'images/featured_clients/Ateneo_de_Manila.png' %}" alt="Brand 1">
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-lg-1 card mx-2 shadow p-3 rounded-circle">
+
+                        <div class="featured_client_logo_area card-body text-center">
+                            <img src="{% static 'images/featured_clients/brinks.png' %}" alt="Brand 1">
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-lg-1 card mx-2 shadow p-3 rounded-circle">
+
+                        <div class="featured_client_logo_area card-body text-center">
+                            <img src="{% static 'images/featured_clients/buffet_101.png' %}" alt="Brand 1">
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-lg-1 card mx-2 shadow p-3 rounded-circle">
+
+                        <div class="featured_client_logo_area card-body text-center">
+                            <img src="{% static 'images/featured_clients/Citadines.png' %}" alt="Brand 1">
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-lg-1 card mx-2 shadow p-3 rounded-circle">
+
+                        <div class="featured_client_logo_area card-body text-center">
+                            <img src="{% static 'images/featured_clients/claret_logo.png' %}" alt="Brand 1">
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-lg-1 card mx-2 shadow p-3 rounded-circle">
+
+                        <div class="featured_client_logo_area card-body text-center">
+                            <img src="{% static 'images/featured_clients/Colegio_San_Agustin_Makati_Logo.png' %}" alt="Brand 1">
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-lg-1 card mx-2 shadow p-3 rounded-circle">
+
+                        <div class="featured_client_logo_area card-body text-center">
+                            <img src="{% static 'images/featured_clients/DLSCSB.png' %}" alt="Brand 1">
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-lg-1 card mx-2 shadow p-3 rounded-circle">
+
+                        <div class="featured_client_logo_area card-body text-center">
+                            <img src="{% static 'images/featured_clients/Dunkin-Emblem.png' %}" alt="Brand 1">
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-lg-1 card mx-2 shadow p-3 rounded-circle">
+
+                        <div class="featured_client_logo_area card-body text-center">
+                            <img src="{% static 'images/featured_clients/editors-market.png' %}" alt="Brand 1">
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-lg-1 card mx-2 shadow p-3 rounded-circle">
+
+                        <div class="featured_client_logo_area card-body text-center">
+                            <img src="{% static 'images/featured_clients/Filinvest_Corporate_Logo.png' %}" alt="Brand 1">
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-lg-1 card mx-2 shadow p-3 rounded-circle">
+
+                        <div class="featured_client_logo_area card-body text-center">
+                            <img src="{% static 'images/featured_clients/grandtowers.png' %}" alt="Brand 1">
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-lg-1 card mx-2 shadow p-3 rounded-circle">
+
+                        <div class="featured_client_logo_area card-body text-center">
+                            <img src="{% static 'images/featured_clients/greenmist.png' %}" alt="Brand 1">
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-lg-1 card mx-2 shadow p-3 rounded-circle">
+
+                        <div class="featured_client_logo_area card-body text-center">
+                            <img src="{% static 'images/featured_clients/HomeAid-National-full-rgb.png' %}" alt="Brand 1">
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-lg-1 card mx-2 shadow p-3 rounded-circle">
+
+                        <div class="featured_client_logo_area card-body text-center">
+                            <img src="{% static 'images/featured_clients/hotel-101.png' %}" alt="Brand 1">
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-lg-1 card mx-2 shadow p-3 rounded-circle">
+
+                        <div class="featured_client_logo_area card-body text-center">
+                            <img src="{% static 'images/featured_clients/IPS.png' %}" alt="Brand 1">
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-lg-1 card mx-2 shadow p-3 rounded-circle">
+                        <div class="featured_client_logo_area card-body text-center">
+                            <img src="{% static 'images/featured_clients/jabe.png' %}" alt="Brand 1">
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-lg-1 card mx-2 shadow p-3 rounded-circle">
+
+                        <div class="featured_client_logo_area card-body text-center">
+                            <img src="{% static 'images/featured_clients/kawasaki.png' %}" alt="Brand 1">
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-lg-1 card mx-2 shadow p-3 rounded-circle">
+
+                        <div class="featured_client_logo_area card-body text-center">
+                            <img src="{% static 'images/featured_clients/lasalle.png' %}" alt="Brand 1">
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-lg-1 card mx-2 shadow p-3 rounded-circle">
+
+                        <div class="featured_client_logo_area card-body text-center">
+                            <img src="{% static 'images/featured_clients/lawson.png' %}" alt="Brand 1">
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-lg-1 card mx-2 shadow p-3 rounded-circle">
+
+                        <div class="featured_client_logo_area card-body text-center">
+                            <img src="{% static 'images/featured_clients/mcdonalds.png' %}" alt="Brand 1">
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-lg-1 card mx-2 shadow p-3 rounded-circle">
+
+                        <div class="featured_client_logo_area card-body text-center">
+                            <img src="{% static 'images/featured_clients/meralco.png' %}" alt="Brand 1">
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-lg-1 card mx-2 shadow p-3 rounded-circle">
+
+                        <div class="featured_client_logo_area card-body text-center">
+                            <img src="{% static 'images/featured_clients/motorcycle-city.png' %}" alt="Brand 1">
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-lg-1 card mx-2 shadow p-3 rounded-circle">
+
+                        <div class="featured_client_logo_area card-body text-center">
+                            <img src="{% static 'images/featured_clients/mr-diy.png' %}" alt="Brand 1">
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-lg-1 card mx-2 shadow p-3 rounded-circle">
+
+                        <div class="featured_client_logo_area card-body text-center">
+                            <img src="{% static 'images/featured_clients/petron.png' %}" alt="Brand 1">
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-lg-1 card mx-2 shadow p-3 rounded-circle">
+
+                        <div class="featured_client_logo_area card-body text-center">
+                            <img src="{% static 'images/featured_clients/PUREGOLD-24-01.png' %}" alt="Brand 1">
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-lg-1 card mx-2 shadow p-3 rounded-circle">
+
+                        <div class="featured_client_logo_area card-body text-center">
+                            <img src="{% static 'images/featured_clients/samsung.png' %}" alt="Brand 1">
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-lg-1 card mx-2 shadow p-3 rounded-circle">
+
+                        <div class="featured_client_logo_area card-body text-center">
+                            <img src="{% static 'images/featured_clients/San-Miguel.png' %}" alt="Brand 1">
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-lg-1 card mx-2 shadow p-3 rounded-circle">
+
+                        <div class="featured_client_logo_area card-body text-center">
+                            <img src="{% static 'images/featured_clients/Seabank.png' %}" alt="Brand 1">
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-lg-1 card mx-2 shadow p-3 rounded-circle">
+
+                        <div class="featured_client_logo_area card-body text-center">
+                            <img src="{% static 'images/featured_clients/shopee.png' %}" alt="Brand 1">
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-lg-1 card mx-2 shadow p-3 rounded-circle">
+
+                        <div class="featured_client_logo_area card-body text-center">
+                            <img src="{% static 'images/featured_clients/uratex-foam.png' %}" alt="Brand 1">
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-lg-1 card mx-2 shadow p-3 rounded-circle">
+
+                        <div class="featured_client_logo_area card-body text-center">
+                            <img src="{% static 'images/featured_clients/SM_Prime.png' %}" alt="Brand 1">
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-lg-1 card mx-2 shadow p-3 rounded-circle">
+
+                        <div class="featured_client_logo_area card-body text-center">
+                            <img src="{% static 'images/featured_clients/UP.png' %}" alt="Brand 1">
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+<!-- 
+                <button id="client-btn-right" class="slider-btn btn-next border-0 lcl-white-btn">
+                        <i class="bi bi-chevron-right fs-3"></i>
+                </button> -->
+            </div>
+<!-- 
+            <h3 class="text-center mt-3 mb-5 pt-5 mx-3 lcl-why-aa2000-text">
+                <a href="" class="btn"><span class="lcl-text-white lead fs-6 fs-lg-2">View All Brands<i class="bi bi-arrow-up-right"></i></span></a>
+            </h3> -->
+
+        </div>
+    </section>
+
+
+    
+    {% if articles %}
+        
+    <section id="blogs">
+        <div class="container-fluid py-5" id="banner">
+
+            <h3 class="text-center mt-3 mb-5 pt-5 mx-3 lcl-why-aa2000-text">
+                <div class="display-lg-2 display-6 mb-1 fw-bold">Articles and Blogs</div>
+                <p class="lead fs-6 fs-lg-2">Insights and Trends to Keep You Informed on the Latest in Technology and Innovation</p>
+            </h3>
+
+            <div class="row justify-content-center align-items-center">
+                
+                {% for article in articles %}
+                    <div class="card lcl-blog-card-body col-3 mx-2 mt-3 py-3" style="width: 20rem;">
+                        <img src="/media/{{ article.article_cover }}" class="card-img-top" alt="...">
+                        <div class="card-body mt-4">
+                            
+                            <h3 class="card-subtitle text-align-start fw-bold">{{ article.article_title }}</h3>
+                            <h6 class="fst-italic fw-lighter">Written by: {{ article.article_author.author_name }}</h6>
+                            <h6 class="fw-light px-3 py-1 rounded-5 bg-primary text-white my-3">Tags: {{ article.keywords }}</h6>
+                            {% comment %} <p class="card-text">{{ article.article_content.content|safe|slice:":20" }}</p> {% endcomment %}
+                            <h6 class="fst-italic fw-lighter text-muted my-2">{{ article.modified_at }}</h6>
+                            <a href="{% url 'users:articles_view' article.article_slug %}" class="btn btn-primary mt-4">Read Now</a>
+                        </div>
+                    </div>
+                {% endfor %}
+                    
+
+
+            </div>
+            <h3 class="text-center mt-3 mb-5 pt-5 mx-3 lcl-why-aa2000-text">
+                <a href="/articles" class="btn"><span class="lcl-text-white lead fs-6 fs-lg-2">Read More Articles<i class="bi bi-arrow-up-right"></i></span></a>
+            </h3>
+
+        </div>
+    </section>
+
+    {% endif %}
+
+    <section id="cta">
+        <div id="cta-banner" class="container-fluid py-5">
+            <div class="row justify-content-center text-center">
+                <div class="col">
+                    <h5 class="display-3 fw-bold"> Ready to Start your Project?</h5>
+                    <p class="fs-5">Partner with us for innovative solutions that drive your business forward. Let's turn your vision into reality today!</p>
+                    <a href="/contact" class="btn btn-primary btn-lg">Get Started Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    
+{% endblock %}
+    

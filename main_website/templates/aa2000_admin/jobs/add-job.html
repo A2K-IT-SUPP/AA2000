@@ -1,0 +1,177 @@
+{% extends 'admin_base.html' %}
+{% load static %}
+
+{% block title %}
+    Add New Job
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'js/admin_jobs.js' %}"></script>
+{% endblock %}
+
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/admin_jobs.css' %}">
+{% endblock %}
+
+
+{% block content %}
+<div id="add-new-job-container" class="mt-3 p-2 bg-white rounded-5 shadow-lg mh-50 overflow-y-auto overflow-x-hidden">
+    <div class="text=start m-3 px-2">
+        <a href="/admin/jobs" class="btn btn-outline-secondary"><i class="bi bi-chevron-left"></i> Back</a>
+    </div>
+    <form id="add_job" method="POST" action="" class="py-2">
+        {% csrf_token %}
+        <div class="row justify-content-center align-items-start pt-3">
+            <div class="col-10 mx-3 my-3 text-center">
+                <h2 class="display-6 fw-bold text-primary text-uppercase">Job Overview</h2>
+                <hr>
+            </div>
+
+            <div class="col-xl-5 col-10 mx-3 my-3">
+                <label for="jobTitle" class="form-label fs-3 fw-medium">Job Title</label>
+                <div class="input-group">
+                    <span class="input-group-text" id="job-title-addon"><i class="bi bi-suitcase-lg"></i></span>
+                    <input type="text" name="jobTitle" id="jobTitle" class="form-control" placeholder="Enter Job Title" aria-label="job-title" aria-describedby="job-title-addon" required>
+                </div>
+                <div id="job-slug-area" class="mb-3 form-group">
+                    <label for="jobSlug" class="form-label fs-3 fw-medium">URL Name</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="job-slug-addon"><i class="bi bi-bookmark"></i></span>
+                        <input type="text" name="jobSlug" id="jobSlug" class="form-control" value="{{ jobSlug|default:'' }}" placeholder="Enter URL Name" aria-label="job-name" aria-describedby="job-name-addon" required>
+                    </div>
+                    <div class="form-text mx-2" id="brand-slug-help">Make it unique, this will be used for URLs. Do not add any spaces, instead, use - (ex.smoke-detector-1)</div>
+                </div>
+                <div id="short-description-area" id="form-group">
+                    <label for="short-description" class="form-label fs-3 fw-medium">Short Description</label>
+                    <textarea name="shortDescription" id="shortDescription" class="text-area form-control" rows="10"></textarea>
+                </div>
+            </div>
+
+            <div class="col-xl-5 col-10 mx-3 my-3">
+                <div class="form-group">
+                    <label for="jobImageUpload" class="form-label fs-3 fw-medium">Job Image</label>
+                    <input type="file" name="jobImageUpload" id="jobImageUpload" class="form-control" accept="image/" required>
+                    <div class="form-text mx-2" id="job-image-help">Please upload a logo in png,jpg,gif format only, preferred height is 300px</div>
+                </div>
+                <div id="jobImgPreviewContainer" class="d-none">
+                    <div class="card">
+                        <img id="jobImgPreview" alt="Image Preview">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-10 mx-3 my-3 text-center">
+                <h2 class="display-6 fw-bold text-primary text-uppercase">Job Description</h2>
+                <hr>
+            </div>
+
+            <div class="col-10 mx-3 my-3">
+                <div id="job-description-area" id="form-group">
+                    <label for="jobDescription" class="form-label fs-3 fw-medium">Job Description</label>
+                    <textarea name="jobDescription" id="jobDescription" class="text-area form-control" rows="10"></textarea>
+                </div>
+            </div>
+
+            <div class="col-10 mx-3 my-3 text-center">
+                <h2 class="display-6 fw-bold text-primary text-uppercase">Key Responsibilities</h2>
+                <hr>
+            </div>
+
+            <div class="col-xl-5 col-10 mx-3 my-3">
+                <div id="key-responsibilities-1-area" id="form-group">
+                    <label for="keyResponsibilities_1" class="form-label fs-3 fw-medium">Key Responsibilities 1</label>
+                    <textarea name="keyResponsibilities_1" id="keyResponsibilities_1" class="text-area form-control" rows="10"></textarea>
+                </div>
+            </div>
+
+            <div class="col-xl-5 col-10 mx-3 my-3">
+                <div id="key-responsibilities-2-area" id="form-group">
+                    <label for="keyResponsibilities_2" class="form-label fs-3 fw-medium">Key Responsibilties 2</label>
+                    <textarea name="keyResponsibilities_2" id="keyResponsibilities_2" class="text-area form-control" rows="10"></textarea>
+                </div>
+            </div>
+
+
+            <div class="col-10 mx-3 my-3 text-center">
+                <h2 class="display-6 fw-bold text-primary text-uppercase">Qualifications</h2>
+                <hr>
+            </div>
+
+            <div class="col-xl-5 col-10 mx-3 my-3">
+                <div id="qualifications-1-area" id="form-group">
+                    <label for="qualifications_1" class="form-label fs-3 fw-medium">Qualifications 1</label>
+                    <textarea name="qualifications_1" id="qualifications_1" class="text-area form-control" rows="10"></textarea>
+                </div>
+            </div>
+
+            <div class="col-xl-5 col-10 mx-3 my-3">
+                <div id="qualifications-2-area" id="form-group">
+                    <label for="qualifications_2" class="form-label fs-3 fw-medium">Qualifications 2</label>
+                    <textarea name="qualifications_2" id="qualifications_2" class="text-area form-control" rows="10"></textarea>
+                </div>
+            </div>
+
+
+            <div class="col-10 mx-3 my-3 text-center">
+                <h2 class="display-6 fw-bold text-primary text-uppercase">Preferred Skills</h2>
+                <hr>
+            </div>
+
+            <div class="col-xl-5 col-10 mx-3 my-3">
+                <div id="preferred-skills-1-area" id="form-group">
+                    <label for="preferredSkills_1" class="form-label fs-3 fw-medium">Preferred Skills 1</label>
+                    <textarea name="preferredSkills_1" id="preferredSkills_1" class="text-area form-control" rows="10"></textarea>
+                </div>
+            </div>
+
+            <div class="col-xl-5 col-10 mx-3 my-3">
+                <div id="preferred-skills-2-area" id="form-group">
+                    <label for="preferredSkills_2" class="form-label fs-3 fw-medium">Preferred Skills 2</label>
+                    <textarea name="preferredSkills_2" id="preferredSkills_2" class="text-area form-control" rows="10"></textarea>
+                </div>
+            </div>
+
+
+            <div class="col-10 mx-3 my-3 text-center">
+                <h2 class="display-6 fw-bold text-primary text-uppercase">Compensation and Benefits</h2>
+                <hr>
+            </div>
+
+            <div class="col-xl-5 col-10 mx-3 my-3">
+                <div id="compensation-benefits-1-area" id="form-group">
+                    <label for="compensations" class="form-label fs-3 fw-medium">Compensation</label>
+                    <textarea name="compensations" id="compensations" class="text-area form-control" rows="10"></textarea>
+                </div>
+            </div>
+
+            <div class="col-xl-5 col-10 mx-3 my-3">
+                <div id="compensation-benefits-2-area" id="form-group">
+                    <label for="benefits" class="form-label fs-3 fw-medium">Benefits</label>
+                    <textarea name="benefits" id="benefits" class="text-area form-control" rows="10"></textarea>
+                </div>
+            </div>
+
+            <div class="col-10 mx-3 my-3 border-top py-3">
+                <div class="d-flex justify-content-center align-items-center mx-auto">
+                    <button type="submit" class="btn btn-primary fs-5 py-2 px-3 rounded-3 mx-2">Submit</button>
+                    <a href="/admin/jobs" class="btn btn-secondary fs-5 py-2 px-3 rounded-3 mx-2">Cancel</a>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="modal fade" id="loaderModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="loaderModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered p-3">
+        <div class="modal-content text-center">
+            <div class="modal-body">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <p class="mt-2">Please wait while we process your request...</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Check Ticket
+{% endblock %}
+
+
+
+{% block scripts %}
+    <script src="{% static 'js/contact.js' %}"></script>
+{% endblock %}
+
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/contact.css' %}">
+{% endblock %}
+
+
+{% block content %}
+    <section id="contact">
+        <div id="contact-banner" class="container-fluid my-5">
+            <div class="row justify-content-center align-items-center">
+                
+                <div class="col-lg-5 text-start d-xl-block d-none">
+                    <img class="hero-banner-img" src="{% static 'images/aa2000-model-1.png' %}" alt="">
+                </div>
+
+                <div id="inquire-container" class="col-lg-5 card p-5 rounded-5 shadow">
+                    <h4 class="fw-bolder display-6">Check your Inquiry Status</h4>
+                    <p class="text-justify">To view the status of your inquiry, please enter your ticket number</p>
+                    <form id="check_ticket_status" method="GET" action="{% url 'users:ticket' %}">
+                    <div class="mb-3 me-2 flex-grow-1">
+                        <label for="ticket" class="form-label">Ticket ID</label>
+                        <input type="text" name="ticket" class="form-control" id="ticket" placeholder="Enter your Ticket ID" required>
+                    </div>
+
+                    <div style="width: 100%" class="text-center">                        
+                        <button type="submit" class="btn btn-primary mt-3 py-3 px-5 fs-5">Submit</button>
+                    </div>
+                    </form>
+
+                    <div class="my-5" id="ticket_status_container">
+                        <hr class="my-3">
+            
+                        {% if inquiry %}
+                        <h4 class="fw-bolder display-6">Here is your Ticket Status</h4>
+                        <p class="text-justify fs-5">Ticket ID: {{inquiry.ticket}}</p>
+                        <p class="text-justify fs-6">Email: {{inquiry_details.email}}</p>
+                        <p class="text-justify">Status: <span class="{{inquiry.status}} ml-3 rounded-4 px-5 py-1 fs-5 fs-bold">{{inquiry.status}}</span></p>
+                        <p class="text-justify">Last Update on: <span class="rounded-4 ml-3 px-5 py-1 fs-5 fs-bold">{{inquiry.modified_at}}</span></p>
+                        
+                        {% if inquiry.status != 'CLOSED' %}
+                        <p class="fsw-italic fw-light text-muted">Thank you for your patience. Please allow a few days for us to process your request.</p>
+                        {% else %}
+                        <p class="fsw-italic fw-light text-muted">Thank you for your patience. Please check your email to view our reply.</p>
+                        {% endif %}
+                    
+                                
+                        {% endif %}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

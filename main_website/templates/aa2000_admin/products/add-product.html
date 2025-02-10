@@ -1,0 +1,262 @@
+{% extends 'admin_base.html' %}
+{% load static %}
+
+{% block title %}
+    Add New Product
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'js/admin_products.js' %}"></script>
+{% endblock %}
+
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/admin_products.css' %}">
+{% endblock %}
+
+
+{% block content %}
+<div id="add-new-product-container" class="mt-3 p-2 bg-white rounded-5 shadow-lg mh-50 overflow-y-auto overflow-x-hidden">
+    <div class="text=start m-3 px-2">
+        <a href="/admin/products" class="btn btn-outline-secondary"><i class="bi bi-chevron-left"></i> Back</a>
+    </div>
+    <form id="add_product" method="POST" enctype="multipart/form-data" class="py-2">
+        {% csrf_token %}
+        <div class="row justify-content-center align-items-start pt-3">
+            <div class="col-10 mx-3 my-3 text-center">
+                <h2 class="display-6 fw-bold text-primary text-uppercase">Product Details</h2>
+                <hr>
+            </div>
+            <div class="col-xl-5 col-12 mx-3 mb-3">
+                <div id="product-name-area" class="form-group mb-3">
+                    <label for="productName" class="form-label fs-3 fw-medium">Product Name</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="product-name-addon"><i class="bi bi-cart"></i></span>
+                        <input type="text" name="productName" id="productName" class="form-control" placeholder="Enter Product Name" aria-label="product-name" aria-describedby="product-name-addon" required>
+                    </div>
+                    <div class="form-text mx-2" id="product-name-help">Make Sure to use the proper capitalization of the Product Name</div>
+                </div>
+                <div id="product-slug-area" class="mb-3 form-group">
+                    <label for="productSlug" class="form-label fs-3 fw-medium">URL Name</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="product-slug-addon"><i class="bi bi-bookmark"></i> http://aa2000ph.com/products/</span>
+                        <input type="text" name="productSlug" id="productSlug" class="form-control" value="{{ productSlug|default:'' }}" placeholder="Enter URL Name" aria-label="brand-name" aria-describedby="brand-name-addon" required>
+                    </div>
+                    <div class="form-text mx-2" id="brand-slug-help">Make it unique, this will be used for URLs. Do not add any spaces, instead, use - (ex.smoke-detector-1)</div>
+                </div>
+                <div id="product-system-type" class="form-group mt-3">
+                    <label for="productSystem" class="form-label fs-3 fw-medium">Type of System</label>
+                    <select name="productSystem" id="productSystem" class="form-select">
+                        <option value="" disabled selected></option>
+                        {% if systems %}
+                            {% for system in systems %}
+                                <option value="{{ system.id }}">{{ system.system_name }}</option>
+                            {% endfor %}
+                        {% endif %}
+                    </select>
+                    <div class="form-text mx-2" id="product-system-help">Choose which system does the Product belong</div>
+                </div>
+                <div id="product-category-type" class="form-group mt-3">
+                    <label for="productCategory" class="form-label fs-3 fw-medium">Type of Product Category</label>
+                    <select name="productCategory" id="productCategory" class="form-select">
+
+                    </select>
+                    <div class="form-text mx-2" id="product-category-help">Choose which category does the Product belong</div>
+                </div>
+                <div id="brand-type" class="form-group mt-3">
+                    <label for="productBrand" class="form-label fs-3 fw-medium">Product Brand</label>
+                    <select name="productBrand" id="productBrand" class="form-select">
+            
+                    </select>
+                    <div class="form-text mx-2" id="product-system-help">Choose the brand of the Product</div>
+                </div>
+            </div>
+
+            <div class="col-xl-5 col-12 mx-3 mb-3">
+                <div id="product-short-description-area" id="form-group">
+                    <label for="productShortDescription" class="form-label fs-3 fw-medium">Product Short Description</label>
+                    <textarea name="productShortDescription" id="productShortDescription" class="text-area form-control" rows="20"></textarea>
+                </div>
+            </div>
+
+            <div class="col-10 mx-3 my-3 text-center">
+                <h2 class="display-6 fw-bold text-primary text-uppercase">Product Images</h2>
+                <hr>
+            </div>
+
+            <div class="col-xl-3 col-12 mx-3 mb-3">
+                <div class="form-group">
+                    <label for="productImg1Upload" class="form-label fs-3 fw-medium">Product Image 1</label>
+                    <input type="file" name="productImg1Upload" id="productImg1Upload" class="form-control" accept="image/" required>
+                    <div class="form-text mx-2" id="product-img-1-help">Please upload a photo in png,jpg,gif format only, preferred height is 300px</div>
+                </div>
+                <div id="preview1Container" class="d-none">
+                    <div class="card">
+                        <img id="productImage1Preview" alt="Image Preview">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-3 col-12 mx-3 mb-3">
+                <div class="form-group">
+                    <label for="productImg2Upload" class="form-label fs-3 fw-medium">Product Image 2</label>
+                    <input type="file" name="productImg2Upload" id="productImg2Upload" class="form-control" accept="image/" required>
+                    <div class="form-text mx-2" id="product-img-2-help">Please upload a photo in png,jpg,gif format only, preferred height is 300px</div>
+                </div>
+                <div id="preview2Container" class="d-none">
+                    <div class="card">
+                        <img id="productImage2Preview" alt="Image Preview">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-3 col-12 mx-3 mb-3">
+                <div class="form-group">
+                    <label for="productImg3Upload" class="form-label fs-3 fw-medium">Product Image 3</label>
+                    <input type="file" name="productImg3Upload" id="productImg3Upload" class="form-control" accept="image/" required>
+                    <div class="form-text mx-2" id="product-img-3-help">Please upload a photo in png,jpg,gif format only, preferred height is 300px</div>
+                </div>
+                <div id="preview3Container" class="d-none">
+                    <div class="card">
+                        <img id="productImage3Preview" alt="Image Preview">
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-10 mx-3 mt-5 text-center">
+                <h2 class="display-6 fw-bold text-primary text-uppercase">Product Descriptions</h2>
+                <hr>
+            </div>
+
+            <div class="col-xl-5 col-12 mx-3 my-3">
+                <div id="product-description-1-area" id="form-group">
+                    <label for="productDescription_1" class="form-label fs-3 fw-medium">Product Description 1</label>
+                    <textarea name="productDescription_1" id="productDescription_1" class="text-area form-control" rows="10"></textarea>
+                </div>
+            </div>
+
+            <div class="col-xl-5 col-12 mx-3 my-3">
+                <div class="form-group">
+                    <label for="productDescImg1Upload" class="form-label fs-3 fw-medium">Product Description Image 1</label>
+                    <input type="file" name="productDescImg1Upload" id="productDescImg1Upload" class="form-control" accept="image/" required>
+                    <div class="form-text mx-2" id="product-logo-help">Please upload a logo in png,jpg,gif format only, preferred height is 300px</div>
+                </div>
+                <div id="productDescImg1PreviewContainer" class="d-none">
+                    <div class="card">
+                        <img id="productDescImg1Preview" alt="Image Preview">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-5 col-12 mx-3 my-3">
+                <div id="product-description-2-area" id="form-group">
+                    <label for="productDescription_2" class="form-label fs-3 fw-medium">Product Description 2</label>
+                    <textarea name="productDescription_2" id="productDescription_2" class="text-area form-control" rows="10"></textarea>
+                </div>
+            </div>
+
+            <div class="col-xl-5 col-12 mx-3 my-3">
+                <div class="form-group">
+                    <label for="productDescImg2Upload" class="form-label fs-3 fw-medium">Product Description Image 2</label>
+                    <input type="file" name="productDescImg2Upload" id="productDescImg2Upload" class="form-control" accept="image/" required>
+                    <div class="form-text mx-2" id="product-logo-help">Please upload a logo in png,jpg,gif format only, preferred height is 300px</div>
+                </div>
+                <div id="productDescImg2PreviewContainer" class="d-none">
+                    <div class="card">
+                        <img id="productDescImg2Preview" alt="Image Preview">
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="col-10 mx-3 mt-5 text-center">
+                <h2 class="display-6 fw-bold text-primary text-uppercase">Technical Specifications</h2>
+                <hr>
+            </div>
+
+            <div class="col-12 mx-3 my-3">
+                <div class="row justify-content-center align-items-center category-area" id="categ-container"> 
+                    {% comment %} container for tech specs {% endcomment %}
+                </div>
+                <div class="categ-btns-area text-center mt-3">
+                    <button type="button" class="add-categ-btn btn btn-primary">Add Category</button>
+                </div>
+            </div>
+
+
+            <div class="col-10 mx-3 mt-5 text-center">
+                <h2 class="display-6 fw-bold text-primary text-uppercase">Key Features</h2>
+                <hr>
+            </div>
+
+            <div class="col-xl-5 col-12 mx-3 my-3">
+                <div id="key-feature-1-area" id="form-group">
+                    <label for="keyFeature_1" class="form-label fs-3 fw-medium">Key Feature 1</label>
+                    <textarea name="keyFeature_1" id="keyFeature_1" class="text-area form-control" rows="10"></textarea>
+                </div>
+            </div>
+
+            <div class="col-xl-5 col-12 mx-3 my-3">
+                <div class="form-group">
+                    <label for="keyFeatureImg1Upload" class="form-label fs-3 fw-medium">Key Feature Image 1</label>
+                    <input type="file" name="keyFeatureImg1Upload" id="keyFeatureImg1Upload" class="form-control" accept="image/" required>
+                    <div class="form-text mx-2" id="key-feature-help">Please upload a logo in png,jpg,gif format only, preferred height is 300px</div>
+                </div>
+                <div id="keyFeatureImg1PreviewContainer" class="d-none">
+                    <div class="card">
+                        <img id="keyFeatureImg1Preview" alt="Image Preview">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-5 col-12 mx-3 my-3">
+                <div id="key-feature-2-area" id="form-group">
+                    <label for="keyFeature_2" class="form-label fs-3 fw-medium">Key Feature 2</label>
+                    <textarea name="keyFeature_2" id="keyFeature_2" class="text-area form-control" rows="10"></textarea>
+                </div>
+            </div>
+
+            <div class="col-xl-5 col-12 mx-3 my-3">
+                <div class="form-group">
+                    <label for="keyFeatureImg2Upload" class="form-label fs-3 fw-medium">Key Feature Image 2</label>
+                    <input type="file" name="keyFeatureImg2Upload" id="keyFeatureImg2Upload" class="form-control" accept="image/" required>
+                    <div class="form-text mx-2" id="key-feature-help">Please upload a logo in png,jpg,gif format only, preferred height is 300px</div>
+                </div>
+                <div id="keyFeatureImg2PreviewContainer" class="d-none">
+                    <div class="card">
+                        <img id="keyFeatureImg2Preview" alt="Image Preview">
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-10 mx-3 my-3 border-top py-3">
+                <div class="d-flex justify-content-center align-items-center mx-auto">
+                    <button id="add_product_btn" type="submit" class="btn btn-primary fs-5 py-2 px-3 rounded-3 mx-2">Submit</button>
+                    <a href="/admin/products" class="btn btn-secondary fs-5 py-2 px-3 rounded-3 mx-2">Cancel</a>
+                </div>
+            </div>
+
+        </div>
+    </form>
+</div>
+
+<div class="modal fade" id="loaderModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="loaderModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered p-3">
+        <div class="modal-content text-center">
+            <div class="modal-body">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <p class="mt-2">Please wait while we process your request...</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}
+
+

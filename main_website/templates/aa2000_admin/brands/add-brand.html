@@ -1,0 +1,159 @@
+{% extends 'admin_base.html' %}
+{% load static %}
+
+{% block title %}
+    Add New Brand
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'js/admin_brands.js' %}"></script>
+{% endblock %}
+
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/admin_brands.css' %}">
+{% endblock %}
+
+
+{% block content %}
+    <div id="add-new-brand-container" class="mt-3 p-2 bg-white rounded-5 shadow-lg mh-50 overflow-y-auto overflow-x-hidden">
+        <div class="text=start m-3 px-2">
+            <a href="/admin/brands" class="btn btn-outline-secondary"><i class="bi bi-chevron-left"></i> Back</a>
+        </div>
+        <form action="{% url 'aa2000_admin:processadd_brand' %}" method="POST" enctype="multipart/form-data" class="py-2">
+            {% csrf_token %}
+            <div class="row justify-content-center align-items-start pt-3">
+                <div class="col-10 mx-3 my-3 text-center">
+                    <h2 class="display-6 fw-bold text-primary text-uppercase">Brand Details</h2>
+                    <hr>
+                </div>
+                <div class="col-xl-5 col-12 mx-3 mb-3">
+                    <div id="brand-name-area" class="mb-3 form-group">
+                        <label for="brandName" class="form-label fs-3 fw-medium">Brand Name</label>
+                        <div class="input-group">
+                            <span class="input-group-text" id="brand-name-addon"><i class="bi bi-bookmark"></i></span>
+                            <input type="text" name="brandName" id="brandName" class="form-control" value="{{ brandName|default:'' }}" placeholder="Enter Brand Name" aria-label="brand-name" aria-describedby="brand-name-addon" required>
+                        </div>
+                        <div class="form-text mx-2" id="brand-name-help">Make Sure to use the proper capitalization of the Brand Name</div>
+                    </div>
+                    <div id="brand-slug-area" class="mb-3 form-group">
+                        <label for="brandSlug" class="form-label fs-3 fw-medium">URL Name</label>
+                        <div class="input-group">
+                            <span class="input-group-text" id="brand-slug-addon"><i class="bi bi-bookmark"></i></span>
+                            <input type="text" name="brandSlug" id="brandSlug" class="form-control" value="{{ brandSlug|default:'' }}" placeholder="Enter Brand Name" aria-label="brand-name" aria-describedby="brand-name-addon" required>
+                        </div>
+                        <div class="form-text mx-2" id="brand-slug-help">Make it unique, this will be used for URLs. Do not add any spaces, instead, use - (ex.smoke-detector-1)</div>
+                    </div>
+                    <div id="brand-system-type" class="form-group">
+                        <label for="brandSystem" class="form-label fs-3 fw-medium">Type of System</label>
+                        <select name="brandSystem" id="brandSystem" class="form-select">
+                            <option value="1" {% if raw_data.system == "1" %}selected{% endif %} selected>FDAS</option>
+                            <option value="3" {% if raw_data.system == "3" %}selected{% endif %}>CCTV</option>
+                            <option value="2" {% if raw_data.system == "2" %}selected{% endif %}>AFSS</option>
+                            <option value="4" {% if raw_data.system == "4" %}selected{% endif %}>Access Control</option>
+                            <option value="5" {% if raw_data.system == "5" %}selected{% endif %}>Burglar Alarm</option>
+                            <option value="6" {% if raw_data.system == "6" %}selected{% endif %}>Intercom & Paging</option>
+                            <option value="7" {% if raw_data.system == "7" %}selected{% endif %}>Walkthrough/ Handheld Metal Detectors</option>
+                            <option value="8" {% if raw_data.system == "8" %}selected{% endif %}>Gate Barriers</option>
+                            <option value="9" {% if raw_data.system == "9" %}selected{% endif %}>EAS</option>
+                            <option value="10" {% if raw_data.system == "10" %}selected{% endif %}>X-Ray Baggage Scanners</option>
+                            <option value="11" {% if raw_data.system == "11" %}selected{% endif %}>LED Display</option>
+                            <option value="12" {% if raw_data.system == "12" %}selected{% endif %}>Room Alert</option>
+                            <option value="13" {% if raw_data.system == "13" %}selected{% endif %}>Robotics</option>
+                            <option value="14" {% if raw_data.system == "14" %}selected{% endif %}>ERP Software</option>
+                        </select>
+                        <div class="form-text mx-2" id="brand-system-help">Choose which system does the Brand belong</div>
+                    </div>
+                </div>
+
+                <div class="col-xl-5 col-12 mx-3 mb-3">
+                    <div class="form-group">
+                        <label for="brandLogoUpload" class="form-label fs-3 fw-medium">Brand Logo</label>
+                        <input type="file" name="brandLogoUpload" id="brandLogoUpload" class="form-control" accept="image/" required>
+                        <div class="form-text mx-2" id="brand-logo-help">Please upload a logo in png,jpg,gif format only, preferred height is 300px</div>
+                    </div>
+                    <div id="previewContainer" class="d-none">
+                        <div class="card">
+                            <img id="brandImagePreview" alt="Image Preview">
+                            {% comment %} <div class="card-body">
+                                <p class="card-text">Image Preview</p>
+                            </div> {% endcomment %}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-10 mx-3 my-3 text-center">
+                    <h2 class="display-6 fw-bold text-primary text-uppercase">Brand Description</h2>
+                    <hr>
+                </div>
+            
+                <div class="col-xl-5 col-12 mx-3 my-3">
+                    <div id="brand-description-1-area" id="form-group">
+                        <label for="brandDescription_1" class="form-label fs-3 fw-medium">Brand Description 1</label>
+                        <textarea name="brandDescription_1" value="{{ brandDescription_1|default:'' }}" id="brandDescription_1" class="text-area form-control" rows="10"></textarea>
+                    </div>
+                </div>
+
+
+                <div class="col-xl-5 col-12 mx-3 my-3">
+                    <div class="form-group">
+                        <label for="brandDescImg1Upload" class="form-label fs-3 fw-medium">Brand Description Image 1</label>
+                        <input type="file" name="brandDescImg1Upload" id="brandDescImg1Upload" class="form-control" accept="image/">
+                        <div class="form-text mx-2" id="brand-logo-help">Please upload a logo in png,jpg,gif format only, preferred height is 300px</div>
+                    </div>
+                    <div id="brandDescImg1PreviewContainer" class="d-none">
+                        <div class="card">
+                            <img id="brandDescImg1Preview" alt="Image Preview">
+                            {% comment %} <div class="card-body">
+                                <p class="card-text">Image Preview</p>
+                            </div> {% endcomment %}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-5 col-12 mx-3 my-3">
+                    <div id="brand-description-2-area" id="form-group">
+                        <label for="brandDescription_2" class="form-label fs-3 fw-medium">Brand Description 2</label>
+                        <textarea name="brandDescription_2" id="brandDescription_2" value="{{ brandDescription_2|default:'' }}" class="text-area form-control" rows="10"></textarea>
+                    </div>
+                </div>
+
+
+                <div class="col-xl-5 col-12 mx-3 my-3">
+                    <div class="form-group">
+                        <label for="brandDescImg2Upload" class="form-label fs-3 fw-medium">Brand Description Image 2</label>
+                        <input type="file" name="brandDescImg2Upload" id="brandDescImg2Upload" class="form-control" accept="image/" required>
+                        <div class="form-text mx-2" id="brand-logo-help">Please upload a logo in png,jpg,gif format only, preferred height is 300px</div>
+                    </div>
+                    <div id="brandDescImg2PreviewContainer" class="d-none">
+                        <div class="card">
+                            <img id="brandDescImg2Preview" alt="Image Preview">
+                            {% comment %} <div class="card-body">
+                                <p class="card-text">Image Preview</p>
+                            </div> {% endcomment %}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-10 col-12 mx-3 my-3">
+                    <hr>
+                    <div id="brand-other-description-area" id="form-group">
+                        <label for="brandOtherDescription" class="form-label fs-3 fw-medium">Other Description</label>
+                        <textarea name="brandOtherDescription" value="{{ brandOtherDescription|default:'' }}" id="brandOtherDescription" class="text-area form-control" rows="10"></textarea>
+                    </div>
+                </div>
+                
+
+                <div class="col-10 mx-3 my-3 border-top py-3">
+                    <div class="d-flex justify-content-center align-items-center mx-auto">
+                        <button type="submit" class="btn btn-primary fs-5 py-2 px-3 rounded-3 mx-2">Submit</button>
+                        <a href="/admin/brands" class="btn btn-secondary fs-5 py-2 px-3 rounded-3 mx-2">Cancel</a>
+                    </div>
+                </div>
+
+    
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

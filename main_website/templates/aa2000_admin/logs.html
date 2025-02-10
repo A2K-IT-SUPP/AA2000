@@ -1,0 +1,145 @@
+{% extends 'admin_base.html' %}
+{% load static %}
+
+{% block title %}
+    Activity Logs
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'js/admin_logs.js' %}"></script>
+{% endblock %}
+
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/admin_logs.css' %}">
+{% endblock %}
+
+
+
+{% block content %}
+<div class="mt-3 p-2 bg-white rounded-5 shadow-lg">
+    <div class="row justify-content-between align-items-center pt-2">
+        <div class="col-xl-3">
+            <h2 class="text-lg-start text-center mx-xl-5 fs-3 fw-medium text-dark">All Admin Activities</h2>
+        </div>
+        <div class="col-xl-7 d-flex justify-content-center align-items-center">
+            <form action="{% url 'aa2000_admin:logs' %}" method="GET" class="d-flex justify-content-center align-items-end">
+                <div class="filter-area mx-2">
+                    <h6 class="text-muted fs-6 fw-light">Filter Search by:</h6>
+                    <select class="form-select px-1" id="filter-search-by" name="filter_search_by">
+                        <option value="username">Username</option>
+                        <option value="level">Level</option>
+                        <option value="action">Action</option>
+                        <option value="entity">Entity Type</option>
+                        <option value="date">Date</option>     
+                    </select>
+                </div>
+                <div class="search-area mx-2">
+                    <h6 class="text-muted fs-6 fw-light">Search:</h6>
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="search" id="search" placeholder="search" aria-label="search-area" aria-describedby="search-addon">
+                        <span class="input-group-text" id="search-addon"><i class="bi bi-search"></i></span>
+                    </div>
+                </div>
+                <div class="mx-2">
+                    <button type="submit" class="btn btn-primary">Apply</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+    {% if page_obj %}
+    <div class="col-12 mt-5 px-4 table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Timestamp</th>
+                    <th>Username</th>
+                    <th>Access Level</th>
+                    <th>Action</th>
+                    <th>Entity</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% comment %} <tr>
+                    <th scope="row">10/25/2024 10:00:00AM</th>
+                    <td>Username 1</td>
+                    <td>
+                        <span>Superadmin</span>
+                    </td>
+                    <td>
+                        <span>Product</span>
+                    </td>
+                    <td class="text-muted fs-6 fw-light">action 1</td>
+                </tr> {% endcomment %}
+
+                {% for log in page_obj %}
+                <tr>
+                    <th scope="row">{{ log.created_at }}</th>
+                    <td>{{ log.admin.admin_fname }}  {{ log.admin.admin_lname }}</td>
+                    <td>
+                        <span class="px-3 py-1 rounded-3 {{ log.admin.level.admin_level_name }}">{{ log.admin.level.admin_level_name }}</span>
+                    </td>
+                    <td>
+                        <span class=" px-3 py-1 rounded-3 {{ log.action.action_name }}">{{ log.action.action_name }}</span>
+                    </td>
+                    <td>
+                        <span class="px-3 py-1 rounded-3 {{ log.entity.entity_name }}">{{ log.entity.entity_name }}</span>
+                    </td>
+                    <td>{{ log.notes }}</td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+    <div aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            {% if page_obj.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo; Previous</span>
+                    </a>
+                </li>
+            {% else %}
+                <li class="page-item disabled">
+                    <a class="page-link">Previous</a>
+                </li>
+            {% endif %}
+    
+            {% for num in page_range %}
+                {% if page_obj.number == num %}
+                    <li class="page-item active" aria-current="page">
+                        <a class="page-link">{{ num }}</a>
+                    </li>
+                {% else %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+    
+            {% if page_obj.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+                        <span aria-hidden="true">Next &raquo;</span>
+                    </a>
+                </li>
+            {% else %}
+                <li class="page-item disabled">
+                    <a class="page-link">Next</a>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+    
+    {% else %}
+    <div class="col-10">
+        <hr>
+        <p class="mx-5">No Articles found.</p>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,436 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Products
+{% endblock %}
+
+
+
+{% block scripts %}
+    <script src="{% static 'js/products.js' %}"></script>
+{% endblock %}
+
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/products.css' %}">
+{% endblock %}
+
+
+
+
+{% block content %}
+    <section id="banner-area">
+        <div class="justify-content-start align-items-start">
+            <img src="{% static 'images/owen2.png' %}" alt="" style="transform: scale(0.8) translate(0,10px);">
+        </div>
+        
+    </section>
+    
+
+    <section id="hero-banner">
+        <div class="container-fluid my-5">
+            <div class="row justify-content-center align-items-center mx-3 my-5 px-xl-5">
+                <div class="col-lg-5 text-center text-xl-start">
+                    <h4 class="text-uppercase">Our Products</h4>
+                    <h1 class="fw-bolder display-2 text-primary text-uppercase">{{ formatted_system }} Products</h1>
+                </div>
+                <div class="col-lg-5 fs-lg-5 d-none d-xl-block text-center text-xl-start">
+                    <p class="text-justify">At AA2000 Security and Technology Solution Inc., we provide a wide range of high-quality security, technology, and enterprise solutions designed to meet the diverse needs of businesses and organizations. Our products are carefully selected to ensure reliability, efficiency, and innovation, helping clients enhance security, streamline operations, and improve overall productivity. Whether for small enterprises or large-scale facilities, our solutions are built to deliver long-term value and seamless integration into existing systems.</p>
+                      <p>  With a commitment to excellence, we offer advanced solutions across various industries, including corporate offices, retail, healthcare, education, manufacturing, and more. Our team of experts provides end-to-end support, from product selection and system installation to maintenance and troubleshooting, ensuring that businesses receive the best technology to optimize their daily operations. At AA2000, we are dedicated to delivering cutting-edge solutions that empower businesses to stay ahead in a rapidly evolving digital landscape.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="products-overview">
+        <div class="container-fluid" id="products-overview-banner">
+            <h3 class="text-center mt-3 mb-5 pt-5 systems-banner-title mx-3">
+                <div class="display-lg-2 display-6 mb-1 fw-bold">All {{ formatted_system }} Products</div>
+                <p class="lead text-muted  fs-6 fs-lg-2">Delivering Innovative Technology Solutions That Drive Business Growth and Security</p>
+            </h3>
+
+            <div id="products-slider" class="position-relative d-flex flex-nowrap justify-content-center align-items-center mx-xl-5 px-xl-5 my-2">
+                <button id="products-btn-prev" class="slider-btn btn-prev border-0">
+                    <i class="bi bi-chevron-left fs-3"></i>
+                </button>
+
+                <div id="slider-container" class="lcl-systems position-relative row d-flex flex-nowrap justify-content-start align-items-center overflow-x-auto px-xl-5 mx-xl-5 px-1 mx-1">
+
+                    <div class="col-6 col-xl-2 p-3">
+                        <a href="/products?system=fdas">
+                            <div class="card p-3 rounded-5 mx-2">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/systems/fdas.png' %}" alt="FDAS" class="img-fluid">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-5 fw-bold mt-3">FDAS</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+
+                    <div class="col-6 col-xl-2 p-3">
+                        <a href="/products?system=afss">
+                            <div class="card p-3 rounded-5">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/systems/afss.png' %}" alt="AFSS">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-5 fw-bold mt-3">AFSS</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-6 col-xl-2 p-3">
+                        <a href="/products?system=cctv">
+                            <div class="card p-3 rounded-5">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/systems/cctv.png' %}" alt="CCTV">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-5 fw-bold mt-3">CCTV</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-6 col-xl-2">
+                        <a href="/products?system=access-control">
+                            <div class="card p-3 rounded-5">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/systems/access-control.png' %}" alt="ACCESS CONTROL">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-5 fw-bold mt-3">Access Control</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-6 col-xl-2 p-3">
+                        <a href="/products?system=burglar-alarm">
+                            <div class="card p-3 rounded-5">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/systems/burglar-alarm.png' %}" alt="BURGLAR ALARM">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-5 fw-bold mt-3">Burglar Alarm</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-6 col-xl-2 p-3">
+                        <a href="/products?system=intercom-paging">
+                            <div class="card p-3 rounded-5">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/systems/paging-system.png' %}" alt="INTERCOM AND PAGING">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-5 fw-bold mt-3">Intercom and Paging</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-6 col-xl-2 p-3">
+                        <a href="/products?system=walkthrough-metal-detectors">
+                            <div class="card p-3 rounded-5">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/systems/metal-detectors.png' %}" alt="WALKTHROUGH / HANDHELD METAL DETECTORS">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-5 fw-bold mt-3">Walkthrough/ Handheld Metal Detectors</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-6 col-xl-2 p-3">
+                        <a href="/products?system=gate-barriers">
+                            <div class="card p-3 rounded-5">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/systems/gate-barrier.png' %}" alt="GATE BARRIER">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-5 fw-bold mt-3">Gate Barriers</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-6 col-xl-2 p-3">
+                        <a href="/products?system=room-alert">
+                            <div class="card p-3 rounded-5">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/systems/room-alert.png' %}" alt="ROOM ALERT">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-5 fw-bold mt-3">Room Alert</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-6 col-xl-2 p-3">
+                        <a href="/products?system=xray-baggage-scanners">
+                            <div class="card p-3 rounded-5">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/systems/x-ray-scanner.png' %}" alt="XRAY BAGGAGE SCANNERS">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-5 fw-bold mt-3">X-ray Baggage Scanners</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-6 col-xl-2 p-3">
+                        <a href="/products?system=eas">
+                            <div class="card p-3 rounded-5">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/systems/eas.png' %}" alt="EAS">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-5 fw-bold mt-3">EAS</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-6 col-xl-2 p-3">
+                        <a href="/products?system=led">
+                            <div class="card p-3 rounded-5">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/systems/led.png' %}" alt="LED DISPLAYS">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-5 fw-bold mt-3">LED Displays</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-6 col-xl-2 p-3">
+                        <a href="/products?system=robots">
+                            <div class="card p-3 rounded-5">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/systems/robots.png' %}" alt="LED DISPLAYS">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-5 fw-bold mt-3">Smart Robots</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-6 col-xl-2 p-3">
+                        <a href="/products?system=erp">
+                            <div class="card p-3 rounded-5">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/systems/a2k.png' %}" alt="LED DISPLAYS">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-5 fw-bold mt-3">ERP Systems</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- <div class="col-6 col-xl-2 p-3">
+                        <a href="/products?system=led">
+                            <div class="card p-3 rounded-5">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/aa2000_icon.png' %}" alt="LED DISPLAYS">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-5 fw-bold mt-3">LED Displays</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-6 col-xl-2 p-3">
+                        <a href="/products?system=led">
+                            <div class="card p-3 rounded-5">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/aa2000_icon.png' %}" alt="LED DISPLAYS">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-5 fw-bold mt-3">LED Displays</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div> -->
+                    
+
+
+                </div>
+
+                <button id="products-btn-next" class="slider-btn btn-next border-0">
+                    <i class="bi bi-chevron-right fs-3"></i>
+                </button>
+
+            </div>
+        </div>
+    </section>
+
+
+    <section id="product-display">
+        <div class="container-fluid my-5">
+            <div class="row justify-content-center align-items-start">
+                <div class="col-8 col-xl-2 mx-1 py-5">
+                <form action="{% url 'users:products' %}" method="GET">
+                    <div class="search-area my-3">
+                        <h5 class="fs-3">Search</h5>
+                        <div class="input-group">
+                            <input type="text" name="search_product" id="search_product" class="form-control" placeholder="Enter Product Name">                        
+                            <span class="input-group-text"><i class="bi bi-search"></i></span>
+                        </div>
+                    </div>
+                    <div class="sort-by-area my-3">
+                        <h5 class="fs-3">Sort by</h5>
+                        <select class="form-control" name="sort_by" id="sort_by">
+                            <option value="name-up" selected>Product Name Ascending</option>
+                            <option value="name-down">Product Name Descending</option>
+                        </select>
+                    </div>
+                    
+                    {% if formatted_system %}
+                    <div class="filter-by-area my-4">
+                        <h5 class="fs-3">Filter By</h5>
+                        
+                        {% if categories %}  
+                        <div class="filter-by-category-area my-3 mx-4">
+                            <h5>Category</h5>
+                                
+                            {% for category in categories %}
+                              <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="category_{{ category.id }}" name="category" value="{{ category.id }}">
+                                <label class="form-check-label" for="category">
+                                  {{ category.category_name }}
+                                </label>
+                              </div>                                 
+                            {% endfor %}
+                                    
+
+                        </div>
+                        {% endif %}
+                        
+                        {% if brands %}      
+                        <div class="filter-by-brand-area my-3 mx-4">
+                            <h5>Brand</h5>
+                            
+                            {% for brand in brands %}
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="brand_{{ brand.id }}" name="brand" value="{{ brand.id }}">
+                                <label class="form-check-label" for="brand">
+                                  {{ brand.brand_name }}
+                                </label>
+                              </div>                      
+                            {% endfor %}
+                        </div>
+                   
+                        {% endif %}
+                      
+                    </div>
+                    {% endif %}
+                    <div class="text-center">
+                        <button type="submit" style="width: 100%" class="btn btn-primary rounded-3 fs-medium py-3 fs-3">Apply Search</button>
+                        <br><span class="text-muted fst-italic">or clear search</span>
+                    </div>
+                </form>
+                </div>
+
+                {% comment %} product content area {% endcomment %}
+                <div class="col-8 col-xl-9">
+                    <hr>
+                    
+                    {% if products %}
+
+                        <div id="product-display-container" class="row justify-content-center align-items-start overflow-y-auto">
+                        
+                        {% for product in products %}
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 my-2">
+                            <div class="card product-card rounded-4">
+                                <img src="/media/{{ product.product_photos.first.product_image }}" 
+                                     class="product-image mx-auto py-1 card-img-top" 
+                                     alt="{{ product.product_name }}">
+                                <div class="card-body px-3 d-flex flex-column">
+                                    <h6 class="d-flex justify-content-between align-items-start">
+                                        <span style="font-size: 0.8rem;" class="product-category p-2 rounded-3 custom-outline-primary text-white">
+                                            {{ product.brand.brand_name|slice:":13" }}{% if product.brand.brand_name|length > 10 %}...{% endif %}
+                                        </span>
+
+                                    </h6>
+                                    <h6 class="d-flex justify-content-between align-items-start">
+                                    <span style="font-size: 0.8rem;" class="product-category p-2 rounded-3 {{ product.category.category_name }}">
+                                        {{ product.category.category_name|slice:":13" }}{% if product.category.category_name|length > 10 %}...{% endif %}
+                                    </span>
+                                    </h6>
+                                    <h5 class="card-title mt-2">
+                                        <span class="product-name fs-5">{{ product.product_name }}</span>
+                                    </h5>
+                                    <p class="card-text mb-auto fs-6">{{ product.short_description|striptags|slice:":100" }}</p>
+                                    <div class="text-center mt-2">
+                                        <a href="{% url 'users:product_overview' product.product_slug %}" class="btn btn-outline-primary">View Product</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    
+                    {% else %}
+                    <h5 class="text-center">No products found.</h5>
+                    {% endif %}
+                        
+
+                    <!-- <ul class="pagination justify-content-center">
+                        {% if page_obj.has_previous %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo; Previous</span>
+                                </a>
+                            </li>
+                        {% else %}
+                            <li class="page-item disabled">
+                                <a class="page-link">Previous</a>
+                            </li>
+                        {% endif %}
+                
+                        {% for num in page_obj.paginator.page_range %}
+                            {% if page_obj.number == num %}
+                                <li class="page-item active" aria-current="page">
+                                    <a class="page-link">{{ num }}</a>
+                                </li>
+                            {% else %}
+                                <li class="page-item">
+                                    <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                
+                        {% if page_obj.has_next %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+                                    <span aria-hidden="true">Next &raquo;</span>
+                                </a>
+                            </li>
+                        {% else %}
+                            <li class="page-item disabled">
+                                <a class="page-link">Next</a>
+                            </li>
+                        {% endif %}
+                    </ul> -->
+                </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

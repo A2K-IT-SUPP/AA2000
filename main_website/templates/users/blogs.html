@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Blogs
+{% endblock %}
+
+
+
+{% block scripts %}
+    <script src="{% static 'js/blogs.js' %}"></script>
+{% endblock %}
+
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/blogs.css' %}">
+{% endblock %}
+
+
+{% block content %}
+    <section id="banner-area">
+
+    </section>
+
+    <section id="hero-banner">
+        <div class="container-fluid">
+            <div class="row justify-content-center align-items-center mx-3 my-5 px-xl-5">
+                <div class="col-lg-5 text-center text-xl-start">
+                    <h4 class="text-uppercase">Our Articles</h4>
+                    <h1 class="fw-bolder display-2 text-primary text-uppercase">AA2000 All Blogs and Articles</h1>
+                </div>
+                <div class="col-lg-5 fs-lg-5 d-none d-xl-block text-center text-xl-start">
+                    <p class="text-justify">Stay informed with AA2000 Security and Technology Solutions Inc.’s blogs and articles, where we share expert insights, industry trends, and practical guides on security and technology solutions. From in-depth product reviews to best practices in surveillance, access control, and fire safety, our content is designed to help businesses and individuals make informed decisions. We also cover innovations in building management, energy optimization, and infrastructure solutions, ensuring you stay ahead in an ever-evolving industry. Whether you're a professional, a business owner, or a tech enthusiast, our articles provide valuable knowledge to enhance security, efficiency, and reliability.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="all-blogs">
+        <div class="container-fluid my-5" id="all-blogs-banner">
+            <hr>
+            
+            {% if articles %}
+                
+                
+            <div id="all-blogs-container" class="row justify-content-center align-items-center mx-3 mt-5 overflow-y-auto">
+
+                
+                
+                {% for article in articles %}
+                    <div class="card lcl-blog-card-body col-3 mx-2 mt-3 py-3" style="width: 20rem;">
+                        <img src="/media/{{ article.article_cover }}" class="card-img-top" alt="...">
+                        <div class="card-body mt-4">
+                            
+                            <h3 class="card-subtitle text-align-start fw-bold">{{ article.article_title }}</h3>
+                            <h6 class="fst-italic fw-lighter">Written by: {{ article.article_author.author_name }}</h6>
+                            <h6 class="fw-light px-3 py-1 rounded-5 bg-primary text-white my-3">Tags: {{ article.keywords }}</h6>
+                            {% comment %} <p class="card-text">{{ article.article_content.content|safe|slice:":20" }}</p> {% endcomment %}
+                            <h6 class="fst-italic fw-lighter text-muted my-2">{{ article.modified_at }}</h6>
+                            <a href="{% url 'users:articles_view' article.article_slug %}" class="btn btn-primary mt-4">Read Now</a>
+                        </div>
+                    </div>
+                {% endfor %}
+                    
+            </div>
+            <div aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                    {% if page_obj.has_previous %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+                                <span aria-hidden="true">&laquo; Previous</span>
+                            </a>
+                        </li>
+                    {% else %}
+                        <li class="page-item disabled">
+                            <a class="page-link">Previous</a>
+                        </li>
+                    {% endif %}
+            
+                    {% for num in page_obj.paginator.page_range %}
+                        {% if page_obj.number == num %}
+                            <li class="page-item active" aria-current="page">
+                                <a class="page-link">{{ num }}</a>
+                            </li>
+                        {% else %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+            
+                    {% if page_obj.has_next %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+                                <span aria-hidden="true">Next &raquo;</span>
+                            </a>
+                        </li>
+                    {% else %}
+                        <li class="page-item disabled">
+                            <a class="page-link">Next</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+
+
+            {% else %}
+            <p>No Articles found.</p>
+            {% endif %}
+        </div>
+    </section>
+
+{% endblock %}

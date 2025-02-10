@@ -1,0 +1,367 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    LED Display Systems
+{% endblock %}
+
+
+
+{% block scripts %}
+    <script src="{% static 'js/systems-selected.js' %}"></script>
+{% endblock %}
+
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/systems-selected.css' %}">
+{% endblock %}
+
+
+
+
+{% block content %}
+    <section id="banner-area">
+        
+    </section>
+
+    <section id="hero-banner">
+        <div class="container-fluid">
+            <div class="row justify-content-center align-items-center mx-3 my-5 px-xl-5">
+                <div class="col-lg-5 text-center text-xl-start">
+                    <h4 class="text-uppercase">Integrating System</h4>
+                    <h1 class="fw-bolder display-2 text-primary text-uppercase">Light Emitting Diode Display Systems</h1>
+                </div>
+                <div class="col-lg-5 fs-lg-5 d-none d-xl-block text-center text-xl-start">
+                    <p class="text-justify">LED Display Brands specialize in providing advanced, high-quality digital signage solutions that are widely used in various industries, including retail, transportation, advertising, education, and entertainment. These brands offer cutting-edge LED display technology that ensures vibrant, dynamic, and eye-catching visuals, whether in indoor or outdoor settings. With a focus on durability, energy efficiency, and superior visual performance, LED Display Brands deliver solutions that help businesses and organizations enhance communication, marketing, and customer engagement through vivid and interactive displays. </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="systems-overview">
+        <div class="container-fluid my-5" id="systems-overview-banner">
+
+            <div class="row justify-content-center align-items-start mx-5 px-xl-5 mt-xl-5 px-1 mt-3 mb-5">
+                <div class="col-xl-4 mx-lg-5 mx-1 mt-lg-5 mt-1 d-none d-lg-block text-xl-end">
+                    <img src="{% static 'images/main-bg-1.png' %}" class="mt-3" alt="">
+                    <img src="{% static 'images/main-bg-2.png' %}" class="mt-3" alt="">
+                </div>
+                <div class="col-xl-5 mx-lg-5 mx-1 mt-lg-5 mt-1 text-justify text-xl-start">
+                    <h2 class="display-5 mb-3">What is Light Emitting Diode Display Systems?</h2>
+                    <p class="text-justify">An LED Display is a flat panel display technology that uses Light Emitting Diodes (LEDs) to create bright, high-resolution images, videos, and graphics. These displays are known for their energy efficiency, long lifespan, and superior brightness, making them ideal for both indoor and outdoor environments. LED displays are often used in digital signage, billboards, information boards, retail displays, and video walls.</p>
+                    <p class="text-justify">LED displays are available in various types, including Full Color Displays, Monochrome Displays, and Transparent Displays, and can be configured to meet the specific needs of different applications. They can be customized in size, shape, and design, offering flexible installation options. Additionally, LED technology ensures clear visibility even in bright lighting conditions, making these displays suitable for use in high-traffic or well-lit environments.</p>
+                </div>
+            </div>
+            <div class="px-xl-5 mt-xl-5 px-1 mt-3 mb-5 text-justify text-xl-start mx-3 mx-xl-5">
+                <p class="text-justify">LED Display Brands lead the market by offering advanced, high-performance digital signage solutions that enable businesses and organizations to communicate effectively with their audience. With a strong emphasis on visual quality, energy efficiency, and versatility, these brands provide customizable display solutions that cater to a wide range of industries. Whether used for advertising, information dissemination, or entertainment, LED displays offer an engaging and dynamic way to captivate audiences and enhance brand visibility.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="systems-products">
+        <div class="container-fluid my-5" id="systems-products-banner">
+            <h3 class="text-center mt-3 mb-5 pt-5 mx-3">
+                <div class="display-lg-2 display-6 mb-1 fw-bold">Light Emitting Diode Display Products</div>
+                <p class="lead text-muted  fs-6 fs-lg-2">Explore Our Wide Range of LED Display Solutions</p>
+            </h3>
+
+            <div id="systems-products-slider" class="position-relative d-flex flex-nowrap justify-content-center align-items-center mx-xl-5 px-xl-5 my-2">
+                <button id="products-btn-prev" class="slider-btn btn-prev border-0">
+                    <i class="bi bi-chevron-left fs-3"></i>
+                </button>
+
+                <div id="slider-container" class="lcl-systems row d-flex flex-nowrap justify-content-start align-items-start overflow-x-auto px-xl-5 mx-xl-5 px-1 mx-1" >
+
+                    <div class="col-8 col-md-4 col-xl-3 p-xl-3 p-2">
+                        <a href="/products?search_product=&sort_by=name-up&category=100">
+                            <div class="card p-3 rounded-5 mx-2">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/aa2000_icon.png' %}" alt="Brand 1" class="img-fluid">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-6 mt-3">Led Modules Panels</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+
+                    <div class="col-6 col-xl-3 p-3">
+                        <a href="/products?search_product=&sort_by=name-up&category=101">
+                            <div class="card p-3 rounded-5 mx-2">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/aa2000_icon.png' %}" alt="Brand 1">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-6 mt-3">Controller</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-6 col-xl-3 p-3">
+                        <a href="/products?search_product=&sort_by=name-up&category=102">
+                            <div class="card p-3 rounded-5 mx-2">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/aa2000_icon.png' %}" alt="Brand 1">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-6 mt-3">Power Supply Units</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-6 col-xl-3 p-3">
+                        <a href="/products?search_product=&sort_by=name-up&category=103">
+                            <div class="card p-3 rounded-5 mx-2">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/aa2000_icon.png' %}" alt="Brand 1">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-6 mt-3">Display Casing Enclosure</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-6 col-xl-3 p-3">
+                        <a href="/products?search_product=&sort_by=name-up&category=104">
+                            <div class="card p-3 rounded-5 mx-2">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/aa2000_icon.png' %}" alt="Brand 1">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-6 mt-3">Mounting Brackets</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-6 col-xl-3 p-3">
+                        <a href="/products?search_product=&sort_by=name-up&category=105">
+                            <div class="card p-3 rounded-5 mx-2">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/aa2000_icon.png' %}" alt="Brand 1">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-6 mt-3">Content Management Software</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-6 col-xl-3 p-3">
+                        <a href="/products?search_product=&sort_by=name-up&category=106">
+                            <div class="card p-3 rounded-5 mx-2">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/aa2000_icon.png' %}" alt="Brand 1">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-6 mt-3">Video Processor</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-6 col-xl-3 p-3">
+                        <a href="/products?search_product=&sort_by=name-up&category=107">
+                            <div class="card p-3 rounded-5 mx-2">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/aa2000_icon.png' %}" alt="Brand 1">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-6 mt-3">Cooling System</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-6 col-xl-3 p-3">
+                        <a href="/products?search_product=&sort_by=name-up&category=108">
+                            <div class="card p-3 rounded-5 mx-2">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/aa2000_icon.png' %}" alt="Brand 1">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-6 mt-3">Brightness Sensors</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-6 col-xl-3 p-3">
+                        <a href="/products?search_product=&sort_by=name-up&category=109">
+                            <div class="card p-3 rounded-5 mx-2">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/aa2000_icon.png' %}" alt="Brand 1">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-6 mt-3">Remote Control Unit</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+
+                </div>
+
+                <button id="products-btn-next" class="slider-btn btn-next border-0">
+                    <i class="bi bi-chevron-right fs-3"></i>
+                </button>
+
+            </div>
+
+            <div class="justify-content-center align-items-center text-center mt-5 ">
+                <a href="/products?system=led" class="btn btn-primary rounded-3 p-3">View all Light Emitting Diode Display Products</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="systems-services">
+        <div class="container-fluid my-5" id="systems-services-banner">
+
+            <div class="row justify-content-center align-items-start">
+                <div class="col-xl-4">
+                    <img src="{% static 'images/main-bg-1.png' %}" alt="">
+                </div>
+                <div class="col-xl-5">
+                    <h3 class="text-start mt-3 mb-5 mx-3">
+                        <div class="display-lg-2 display-6 mb-1 fw-bold">Our Light Emitting Diode Display Services</div>
+                        <p class="lead text-muted  fs-6 fs-lg-2">Comprehensive Services for LED Display Installation & Maintenance</p>
+                    </h3>
+
+                    <div id="systems-services-container" class="row lcl-systems justify-content-center align-items-center">
+
+                        <div class="col-xl-5 col-5 m-1">
+                            <a href="/services/supply" class="text-decoration-none">
+                                <div class="card rounded-4 shadow">
+                                    <div class="card-body d-flex fs-1 justify-content-start align-items-center pl-3">
+                                        <i class="bi bi-cart-fill mx-xl-3"></i>
+                                        <p class="fs-6 mt-3 fs-3 display-3 mx-1 mx-xl-3 ">Supply</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="col-xl-5 col-5 m-1">
+                            <a href="/services/installation" class="text-decoration-none">
+                                <div class="card rounded-4 shadow">
+                                    <div class="card-body d-flex fs-1 justify-content-start align-items-center pl-3">
+                                        <i class="bi bi-tools mx-xl-3"></i>
+                                        <p class="fs-6 mt-3 fs-3 display-3 mx-1 mx-xl-3 ">Installation</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="col-xl-5 col-5 m-1">
+                            <a href="/services/maintenance" class="text-decoration-none">
+                                <div class="card rounded-4 shadow">
+                                    <div class="card-body d-flex fs-1 justify-content-start align-items-center pl-3">
+                                        <i class="bi bi-battery-half  mx-xl-3"></i>
+                                        <p class="fs-6 mt-3 fs-3 display-3 mx-1 mx-xl-3 ">Maintenance</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+
+                        <div class="col-xl-5 col-5 m-1">
+                            <a href="/services/troubleshooting" class="text-decoration-none">
+                                <div class="card rounded-4 shadow">
+                                    <div class="card-body d-flex fs-1 justify-content-start align-items-center pl-3">
+                                        <i class="bi bi-gear-fill mx-xl-3"></i>
+                                        <p class="fs-4 mt-3 mx-1 mx-xl-3 ">Troubleshooting</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+
+                        <div class="col-xl-5 col-5 m-1">
+                            <a href="/services/design" class="text-decoration-none">
+                                <div class="card rounded-4 shadow">
+                                    <div class="card-body d-flex fs-1 justify-content-start align-items-center pl-3">
+                                        <i class="bi bi-rulers mx-xl-3"></i>
+                                        <p class="fs-6 mt-3 fs-3 display-3 mx-1 mx-xl-3 ">Design</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+
+                        <div class="col-xl-5 col-5 m-1">
+                            <a href="/services/inspection" class="text-decoration-none">
+                                <div class="card rounded-4 shadow">
+                                    <div class="card-body d-flex fs-1 justify-content-start align-items-center pl-3">
+                                        <i class="bi bi-search mx-xl-3"></i>
+                                        <p class="fs-6 mt-3 fs-3 display-3 mx-1 mx-xl-3 ">Inspection</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+
+                        <div class="col-xl-5 col-5 m-1">
+                            <a href="/services/consultation" class="text-decoration-none">
+                                <div class="card rounded-4 shadow">
+                                    <div class="card-body d-flex fs-1 justify-content-start align-items-center pl-3">
+                                        <i class="bi bi-chat-left-quote-fill mx-xl-3"></i>
+                                        <p class="fs-6 mt-3 fs-3 display-3 mx-xl-3 mx-1 ">Consultation</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+
+                        <div class="col-xl-5 col-5 m-1">
+                            <a href="/services/training" class="text-decoration-none">
+                                <div class="card rounded-4 shadow">
+                                    <div class="card-body d-flex fs-1 justify-content-start align-items-center pl-3">
+                                        <i class="bi bi-bar-chart-fill mx-xl-3"></i>
+                                        <p class="fs-6 mt-3 fs-3 display-3 mx-xl-3 mx-1 ">Training</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="systems-brands">
+        <div class="container-fluid my-5" id="systems-brands-banner">
+            <h3 class="text-center mt-3 mb-5 pt-5 mx-3">
+                <div class="display-lg-2 display-6 mb-1 fw-bold">Light Emitting Diode Display Brands</div>
+                <p class="lead text-muted  fs-6 fs-lg-2">Trusted Brands for High-Quality LED Display Solutions</p>
+            </h3>
+            {% if brands %}
+            <div id="system-brands-container" class="row justify-content-center align-items-center">
+                
+                {% for brand in brands %}
+                <div class="col-xl-1 col-4">
+                    <a href="{% url 'users:brands_overview' brand.brand_slug%}">
+                        <card class="p-1 rounded-5">
+                            <div class="card-body text-center p-1">
+                                <div class="card-title">
+                                    <img src="/media/{{ brand.brand_logo }}" alt="">
+                                </div>
+                            </div>
+                        </card>
+                    </a>
+                </div>
+                {% endfor %}
+                
+            </div>
+            {% else %}
+            <p class="text-center fs-6 fs-lg-2">No brands available</p
+            {% endif %}
+        </div>
+    </section>
+{% endblock %}
+    

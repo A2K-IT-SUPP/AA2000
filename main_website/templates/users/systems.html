@@ -1,0 +1,285 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Systems
+{% endblock %}
+
+
+
+{% block scripts %}
+    <script src="{% static 'js/systems.js' %}"></script>
+{% endblock %}
+
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/systems.css' %}">
+{% endblock %}
+
+
+
+
+{% block content %}
+    <section id="banner-area">
+        <div class="justify-content-start align-items-start">
+            <img src="{% static 'images/josh-model1.png' %}" alt="" style="transform: scale(0.7) translate(0,70px);">
+        </div>
+    </section>
+
+    <section id="hero-banner">
+        <div class="container-fluid">
+            <div class="row justify-content-center align-items-center mx-3 my-5 px-xl-5">
+                <div class="col-lg-5 text-center text-xl-start">
+                    <h4 class="text-uppercase">Introducing our</h4>
+                    <h1 class="fw-bolder display-2 text-primary text-uppercase">AA2000 Integration Systems</h1>
+                </div>
+                <div class="col-lg-5 fs-lg-5 d-none d-xl-block text-center text-xl-start">
+                    <p class="text-justify">AA2000 Integration Systems is your all-in-one solution for seamlessly connecting and optimizing advanced security and technology systems. Designed to unify various components such as CCTV surveillance, biometric access control, FDAS, AFSS, intercoms, paging systems and many more, our integration services ensure a streamlined and efficient operation tailored to your needs. By centralizing these systems under one platform, AA2000 enhances operational efficiency, reduces complexity, and provides you with full control and visibility. Whether for small-scale installations or large-scale enterprises, our expertise in system integration ensures that every component works harmoniously, delivering maximum performance and reliability. With AA2000 Integration Systems, you gain not just interconnected solutions but a partner committed to simplifying and enhancing your security infrastructure.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="systems-overview">
+        <div class="container-fluid my-5" id="systems-overview-banner">
+
+            <h3 class="text-center mt-3 mb-5 pt-5 mx-3">
+                <div class="display-lg-2 display-6 mb-1 fw-bold">We provide integrations to various Systems</div>
+                <p class="lead text-muted fs-6 fs-lg-2">Seamless Integration with Multiple Systems for Enhanced Efficiency</p>
+            </h3>
+
+            <div class="lcl-systems  d-lg-flex row justify-content-center my-3 mt-5 px-5 text-decoration-none">
+
+                <div class="col-6 col-lg-2 p-3">
+                    <a href="/systems/fdas">
+                        <div class="card p-3 rounded-5 shadow system-card">
+                            <div class="card-body text-center p-1">
+                                <div class="card-title m-2">
+                                    <img src="{% static 'images/systems/fdas.png' %}" alt="AA2000 | FDAS">
+                                </div>
+                                <div class="card-subtitle">
+                                    <p class="lead pt-3 fs-5">Fire Detection and Alarm Systems</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-6 col-lg-2 p-3">
+                    <a href="/systems/cctv">
+                        <div class="card p-3 rounded-5 shadow system-card">
+                            <div class="card-body text-center p-1">
+                                <div class="card-title m-2">
+                                    <img src="{% static 'images/systems/cctv.png' %}" alt="AA2000 | CCTV">
+                                </div>
+                                <div class="card-subtitle">
+                                    <p class="lead pt-3 fs-5">CCTV Systems</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="col-6 col-lg-2 p-3">
+                    <a href="/systems/afss">
+                        <div class="card p-3 rounded-5 shadow system-card">
+                            <div class="card-body text-center p-1">
+                                <div class="card-title m-2">
+                                    <img src="{% static 'images/systems/afss.png' %}" alt="AA200 | AFSS">
+                                </div>
+                                <div class="card-subtitle">
+                                    <p class="lead pt-3 fs-5">Automatic Fire Suppression Systems</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-6 col-lg-2 p-3">
+                    <a href="/systems/access-control">
+                        <div class="card p-3 rounded-5 shadow system-card">
+                            <div class="card-body text-center p-1">
+                                <div class="card-title m-2">
+                                    <img src="{% static 'images/systems/access-control.png' %}" alt="AA2000 | Access Control">
+                                </div>
+                                <div class="card-subtitle">
+                                    <p class="lead pt-3 fs-5">Access Control Systems</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-6 col-lg-2 p-3">
+                    <a href="/systems/burglar-alarm">
+                        <div class="card p-3 rounded-5 shadow system-card">
+                            <div class="card-body text-center p-1">
+                                <div class="card-title m-2">
+                                    <img src="{% static 'images/systems/burglar-alarm.png' %}" alt="AA2000 | Burglar Alarm">
+                                </div>
+                                <div class="card-subtitle">
+                                    <p class="lead pt-3 fs-5">Burglar Alarm Systems</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-6 col-lg-2 p-3">
+                    <a href="/systems/paging">
+                        <div class="card p-3 rounded-5 shadow system-card">
+                            <div class="card-body text-center p-1">
+                                <div class="card-title m-2">
+                                    <img src="{% static 'images/systems/paging-system.png' %}" alt="AA2000 | Paging Systems">
+                                </div>
+                                <div class="card-subtitle">
+                                    <p class="lead pt-3 fs-5">Paging Systems</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-6 col-lg-2 p-3">
+                    <a href="/systems/walkthrough-metal-detectors">
+                        <div class="card p-3 rounded-5 shadow system-card">
+                            <div class="card-body text-center p-1">
+                                <div class="card-title m-2">
+                                    <img src="{% static 'images/systems/metal-detectors.png' %}" alt="AA2000 | Walkthrough/ Metal Detectors">
+                                </div>
+                                <div class="card-subtitle">
+                                    <p class="lead pt-3 fs-5">Walkthrough/ Handheld Metal Detectors Systems</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-6 col-lg-2 p-3">
+                    <a href="/systems/gate-barriers">
+                        <div class="card p-3 rounded-5 shadow system-card">
+                            <div class="card-body text-center p-1">
+                                <div class="card-title m-2">
+                                    <img src="{% static 'images/systems/gate-barrier.png' %}" alt="AA2000 | Gate Barrier Systems">
+                                </div>
+                                <div class="card-subtitle">
+                                    <p class="lead pt-3 fs-5">Gate Barrier Systems</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-6 col-lg-2 p-3">
+                    <a href="/systems/eas">
+                        <div class="card p-3 rounded-5 shadow system-card">
+                            <div class="card-body text-center p-1">
+                                <div class="card-title m-2">
+                                    <img src="{% static 'images/systems/eas.png' %}" alt="AA2000 | EAS">
+                                </div>
+                                <div class="card-subtitle">
+                                    <p class="lead pt-3 fs-5">Electronic Article Suveillance Systems</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="col-6 col-lg-2 p-3">
+                    <a href="/systems/room-alert">
+                        <div class="card p-3 rounded-5 shadow system-card">
+                            <div class="card-body text-center p-1">
+                                <div class="card-title m-2">
+                                    <img src="{% static 'images/systems/room-alert.png' %}" alt="AA2000 | Room Alert">
+                                </div>
+                                <div class="card-subtitle">
+                                    <p class="lead pt-3 fs-5">Room Alert Systems</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="col-6 col-lg-2 p-3">
+                    <a href="/systems/xray-scanners">
+                        <div class="card p-3 rounded-5 shadow system-card">
+                            <div class="card-body text-center p-1">
+                                <div class="card-title m-2">
+                                    <img src="{% static 'images/systems/x-ray-scanner.png' %}" alt="AA2000 | X-ray Baggage Scanners">
+                                </div>
+                                <div class="card-subtitle">
+                                    <p class="lead pt-3 fs-5">X-Ray Baggage Scanner Systems</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="col-6 col-lg-2 p-3">
+                    <a href="/systems/led">
+                        <div class="card p-3 rounded-5 shadow system-card">
+                            <div class="card-body text-center p-1">
+                                <div class="card-title m-2">
+                                    <img src="{% static 'images/systems/led.png' %}" alt="AA2000 | LED Display Systems">
+                                </div>
+                                <div class="card-subtitle">
+                                    <p class="lead pt-3 fs-5">LED Display Systems</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-6 col-lg-2 p-3">
+                    <a href="/systems/robots">
+                        <div class="card p-3 rounded-5 shadow system-card">
+                            <div class="card-body text-center p-1">
+                                <div class="card-title m-2">
+                                    <img src="{% static 'images/systems/robots.png' %}" alt="AA2000 | Robots Systems" style="transform: scale(0.3)">
+                                </div>
+                                <div class="card-subtitle">
+                                    <p class="lead pt-3 fs-5">Robots Systems</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+
+                <!-- <div class="col-4 col-lg-2 p-3">
+                    <a href="/systems/robots">
+                        <div class="card p-3 rounded-5 shadow">
+                            <div class="card-body text-center p-1">
+                                <div class="card-title m-2">
+                                    <img src="{% static 'images/systems/robots.png' %}" alt="AA2000 | Robots Systems">
+                                </div>
+                                <div class="card-subtitle">
+                                    <p class="lead pt-3">Robots Systems</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div> -->
+
+
+                <div class="col-6 col-lg-2 p-3">
+                    <a href="/systems/erp">
+                        <div class="card p-3 rounded-5 shadow system-card">
+                            <div class="card-body text-center p-1">
+                                <div class="card-title m-2 pt-4">
+                                    <img src="{% static 'images/systems/a2k.png' %}" alt="AA2000 | ERP Softwares">
+                                </div>
+                                <div class="card-subtitle">
+                                    <p class="lead pt-3 fs-5">ERP Softwares</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+{% endblock %}
+    

@@ -1,0 +1,369 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Access Control Systems
+{% endblock %}
+
+
+
+{% block scripts %}
+    <script src="{% static 'js/systems-selected.js' %}"></script>
+{% endblock %}
+
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/systems-selected.css' %}">
+{% endblock %}
+
+
+
+
+{% block content %}
+    <section id="banner-area">
+        
+    </section>
+
+    <section id="hero-banner">
+        <div class="container-fluid">
+            <div class="row justify-content-center align-items-center mx-3 my-5 px-xl-5">
+                <div class="col-lg-5 text-center text-xl-start">
+                    <h4 class="text-uppercase">Integrating System</h4>
+                    <h1 class="fw-bolder display-2 text-primary text-uppercase">Access Control Systems</h1>
+                </div>
+                <div class="col-lg-5 fs-lg-5 d-none d-xl-block text-center text-xl-start">
+                    <p class="text-justify">Access Control Brands are trusted providers of advanced security solutions designed to regulate and monitor entry into facilities, ensuring only authorized individuals gain access. These brands specialize in innovative technologies such as biometric authentication, RFID card systems, PIN code access, and mobile-enabled entry solutions. With a strong focus on reliability, scalability, and ease of integration, Access Control Brands cater to businesses, institutions, and residential properties looking to enhance security and operational efficiency.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="systems-overview">
+        <div class="container-fluid my-5" id="systems-overview-banner">
+
+            <div class="row justify-content-center align-items-start mx-5 px-xl-5 mt-xl-5 px-1 mt-3 mb-5">
+                <div class="col-xl-4 mx-lg-5 mx-1 mt-lg-5 mt-1 d-none d-lg-block text-xl-end">
+                    <img src="{% static 'images/picture28.png' %}" class="mt-3" alt="">
+                    <img src="{% static 'images/picture29.png' %}" class="mt-3" alt="">
+                </div>
+                <div class="col-xl-5 mx-lg-5 mx-1 mt-lg-5 mt-1 text-justify text-xl-start">
+                    <h2 class="display-5 mb-3">What is Access Control Systems?</h2>
+                    <p class="text-justify">An Access Control System is a security solution that manages and restricts access to physical or digital spaces based on predefined permissions. This system identifies, authenticates, and authorizes individuals using credentials such as keycards, PIN codes, biometrics (fingerprints, facial recognition), or mobile devices. Once verified, the system grants or denies entry, ensuring only authorized personnel can access secure areas.</p>
+                    <p class="text-justify">Access Control Systems play a vital role in enhancing security for various facilities, such as offices, schools, hospitals, and residential complexes. Modern systems often feature centralized control, allowing administrators to manage multiple access points from a single platform. Additionally, many systems integrate with other security technologies, such as CCTV and fire alarms, to provide a comprehensive and seamless security infrastructure.</p>
+                </div>
+            </div>
+            <div class="px-xl-5 mt-xl-5 px-1 mt-3 mb-5 text-justify text-xl-start mx-3 mx-xl-5">
+                <p class="text-justify">Access Control Brands provide state-of-the-art solutions for regulating entry, ensuring safety, and streamlining operations in diverse environments. By combining cutting-edge technology with user-friendly designs, these brands help organizations protect their assets, enhance accountability, and improve overall security. Trusted globally, Access Control Brands continue to lead the industry with innovative and dependable access management systems.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="systems-products">
+        <div class="container-fluid my-5" id="systems-products-banner">
+            <h3 class="text-center mt-3 mb-5 pt-5 mx-3">
+                <div class="display-lg-2 display-6 mb-1 fw-bold">Access Control Products</div>
+                <p class="lead text-muted  fs-6 fs-lg-2">Cutting-Edge Technology for Streamlined Security Operations</p>
+            </h3>
+
+            <div id="systems-products-slider" class="position-relative d-flex flex-nowrap justify-content-center align-items-center mx-xl-5 px-xl-5 my-2">
+                <button id="products-btn-prev" class="slider-btn btn-prev border-0">
+                    <i class="bi bi-chevron-left fs-3"></i>
+                </button>
+
+                <div id="slider-container" class="lcl-systems row d-flex flex-nowrap justify-content-start align-items-center overflow-x-auto px-xl-5 mx-xl-5 px-1 mx-1" >
+
+                    <div class="col-8 col-md-4 col-xl-3 p-xl-3 p-2">
+                        <a href="/products?search_product=&sort_by=name-up&category=31">
+                            <div class="card p-3 rounded-5 mx-2">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/aa2000_icon.png' %}" alt="Brand 1" class="img-fluid">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-6 mt-3">Control Panel</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+
+                    <div class="col-6 col-xl-3 p-3">
+                        <a href="/products?search_product=&sort_by=name-up&category=32">
+                            <div class="card p-3 rounded-5 mx-2">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/aa2000_icon.png' %}" alt="Brand 1">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-6 mt-3">Card Readers</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-6 col-xl-3 p-3">
+                        <a href="/products?search_product=&sort_by=name-up&category=33">
+                            <div class="card p-3 rounded-5 mx-2">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/aa2000_icon.png' %}" alt="Brand 1">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-6 mt-3">Biometric Readers</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-6 col-xl-3 p-3">
+                        <a href="/products?search_product=&sort_by=name-up&category=34">
+                            <div class="card p-3 rounded-5 mx-2">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/pro20.png' %}" alt="Brand 1">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-6 mt-3">Keypads</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-6 col-xl-3 p-3">
+                        <a href="/products?search_product=&sort_by=name-up&category=35">
+                            <div class="card p-3 rounded-5 mx-2">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/pro21.png' %}" alt="Brand 1">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-6 mt-3">Electric Strikes Magnetic Locks</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-6 col-xl-3 p-3">
+                        <a href="/products?search_product=&sort_by=name-up&category=36">
+                            <div class="card p-3 rounded-5 mx-2">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/pro22.png' %}" alt="Brand 1">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-6 mt-3">RFID Tags Cards</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-6 col-xl-3 p-3">
+                        <a href="/products?search_product=&sort_by=name-up&category=37">
+                            <div class="card p-3 rounded-5 mx-2">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/pro23.png' %}" alt="Brand 1">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-6 mt-3">Intercom Integration</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-6 col-xl-3 p-3">
+                        <a href="/products?search_product=&sort_by=name-up&category=38">
+                            <div class="card p-3 rounded-5 mx-2">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/pro24.png' %}" alt="Brand 1">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-6 mt-3">Exit Buttons</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-6 col-xl-3 p-3">
+                        <a href="/products?search_product=&sort_by=name-up&category=39">
+                            <div class="card p-3 rounded-5 mx-2">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/pro25.png' %}" alt="Brand 1">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-6 mt-3">Access Management Software</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-6 col-xl-3 p-3">
+                        <a href="/products?search_product=&sort_by=name-up&category=40">
+                            <div class="card p-3 rounded-5 mx-2">
+                                <div class="card-body text-center p-1">                                        
+                                    <img src="{% static 'images/pro26.png' %}" alt="Brand 1">
+                                </div>
+                                <div class="card-title m-2 text-center">
+                                    <p class="fs-6 mt-3">Credentials Management System</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+
+                </div>
+
+                <button id="products-btn-next" class="slider-btn btn-next border-0">
+                    <i class="bi bi-chevron-right fs-3"></i>
+                </button>
+
+            </div>
+
+            <div class="justify-content-center align-items-center text-center mt-5 ">
+                <a href="/products?system=access-control" class="btn btn-primary rounded-3 p-3">View all Access Control Products</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="systems-services">
+        <div class="container-fluid my-5" id="systems-services-banner">
+
+            <div class="row justify-content-center align-items-start">
+                <div class="col-xl-4">
+                    <img src="{% static 'images/picture30.png' %}" alt="">
+                </div>
+                <div class="col-xl-5">
+                    <h3 class="text-start mt-3 mb-5 mx-3">
+                        <div class="display-lg-2 display-6 mb-1 fw-bold">Our Access Control Services</div>
+                        <p class="lead text-muted  fs-6 fs-lg-2">Comprehensive Solutions for Secure and Efficient Access Management</p>
+                    </h3>
+
+                    <div id="systems-services-container" class="row lcl-systems justify-content-center align-items-center">
+
+                        <div class="col-xl-5 col-5 m-1">
+                            <a href="/services/supply" class="text-decoration-none">
+                                <div class="card rounded-4 shadow">
+                                    <div class="card-body d-flex fs-1 justify-content-start align-items-center pl-3">
+                                        <i class="bi bi-cart-fill mx-xl-3"></i>
+                                        <p class="fs-6 mt-3 fs-3 display-3 mx-1 mx-xl-3 ">Supply</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="col-xl-5 col-5 m-1">
+                            <a href="/services/installation" class="text-decoration-none">
+                                <div class="card rounded-4 shadow">
+                                    <div class="card-body d-flex fs-1 justify-content-start align-items-center pl-3">
+                                        <i class="bi bi-tools mx-xl-3"></i>
+                                        <p class="fs-6 mt-3 fs-3 display-3 mx-1 mx-xl-3 ">Installation</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="col-xl-5 col-5 m-1">
+                            <a href="/services/maintenance" class="text-decoration-none">
+                                <div class="card rounded-4 shadow">
+                                    <div class="card-body d-flex fs-1 justify-content-start align-items-center pl-3">
+                                        <i class="bi bi-battery-half  mx-xl-3"></i>
+                                        <p class="fs-6 mt-3 fs-3 display-3 mx-1 mx-xl-3 ">Maintenance</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+
+                        <div class="col-xl-5 col-5 m-1">
+                            <a href="/services/troublshooting" class="text-decoration-none">
+                                <div class="card rounded-4 shadow">
+                                    <div class="card-body d-flex fs-1 justify-content-start align-items-center pl-3">
+                                        <i class="bi bi-gear-fill mx-xl-3"></i>
+                                        <p class="fs-4 mt-3 mx-1 mx-xl-3 ">Troubleshooting</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+
+                        <div class="col-xl-5 col-5 m-1">
+                            <a href="/services/design" class="text-decoration-none">
+                                <div class="card rounded-4 shadow">
+                                    <div class="card-body d-flex fs-1 justify-content-start align-items-center pl-3">
+                                        <i class="bi bi-rulers mx-xl-3"></i>
+                                        <p class="fs-6 mt-3 fs-3 display-3 mx-1 mx-xl-3 ">Design</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+
+                        <div class="col-xl-5 col-5 m-1">
+                            <a href="" class="text-decoration-none">
+                                <div class="card rounded-4 shadow">
+                                    <div class="card-body d-flex fs-1 justify-content-start align-items-center pl-3">
+                                        <i class="bi bi-search mx-xl-3"></i>
+                                        <p class="fs-6 mt-3 fs-3 display-3 mx-1 mx-xl-3 ">Inspection</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+
+                        <div class="col-xl-5 col-5 m-1">
+                            <a href="/services/consultation" class="text-decoration-none">
+                                <div class="card rounded-4 shadow">
+                                    <div class="card-body d-flex fs-1 justify-content-start align-items-center pl-3">
+                                        <i class="bi bi-chat-left-quote-fill mx-xl-3"></i>
+                                        <p class="fs-6 mt-3 fs-3 display-3 mx-xl-3 mx-1 ">Consultation</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+
+                        <div class="col-xl-5 col-5 m-1">
+                            <a href="/services/training" class="text-decoration-none">
+                                <div class="card rounded-4 shadow">
+                                    <div class="card-body d-flex fs-1 justify-content-start align-items-center pl-3">
+                                        <i class="bi bi-bar-chart-fill mx-xl-3"></i>
+                                        <p class="fs-6 mt-3 fs-3 display-3 mx-xl-3 mx-1 ">Training</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <section id="systems-brands">
+        <div class="container-fluid my-5" id="systems-brands-banner">
+            <h3 class="text-center mt-3 mb-5 pt-5 mx-3">
+                <div class="display-lg-2 display-6 mb-1 fw-bold">Access Control Brands</div>
+                <p class="lead text-muted  fs-6 fs-lg-2">Trusted and Reliable Brands for Optimal Access Control Solutions</p>
+            </h3>
+            {% if brands %}
+            <div id="system-brands-container" class="row justify-content-center align-items-center">
+                
+                {% for brand in brands %}
+                <div class="col-xl-1 col-4">
+                    <a href="{% url 'users:brands_overview' brand.brand_slug%}">
+                        <card class="p-1 rounded-5">
+                            <div class="card-body text-center p-1">
+                                <div class="card-title">
+                                    <img src="/media/{{ brand.brand_logo }}" alt="">
+                                </div>
+                            </div>
+                        </card>
+                    </a>
+                </div>
+                {% endfor %}
+                
+            </div>
+            {% else %}
+            <p class="text-center fs-6 fs-lg-2">No brands available</p
+            {% endif %}
+        </div>
+    </section>
+
+{% endblock %}
+    

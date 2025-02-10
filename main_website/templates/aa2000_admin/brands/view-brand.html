@@ -1,0 +1,180 @@
+{% extends 'admin_base.html' %}
+{% load static %}
+
+{% block title %}
+    View Brand
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'js/admin_brands.js' %}"></script>
+{% endblock %}
+
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/admin_brands.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+<div id="view-new-brand-container" class="mt-3 p-2 bg-white rounded-5 shadow-lg mh-50 overflow-y-auto overflow-x-hidden">
+    <div class="text=start m-3 px-2">
+        <a href="/admin/brands" class="btn btn-outline-secondary"><i class="bi bi-chevron-left"></i> Back</a>
+    </div>
+    <form action="{% url 'aa2000_admin:edit_brand' brandData.brand_slug %}" method="POST" enctype="multipart/form-data" class="py-2">
+        {% csrf_token %}
+        <div class="row justify-content-center align-items-start pt-3">
+            <div class="col-10 mx-3 my-3 text-center">
+                <h2 class="display-6 fw-bold text-primary text-uppercase">Brand Details</h2>
+                <hr>
+            </div>
+            <div class="col-xl-5 col-12 mx-3 mb-3">
+                <div id="brand-name-area" class="mb-3 form-group">
+                    <label for="brandName" class="form-label fs-3 fw-medium">Brand Name</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="brand-name-addon"><i class="bi bi-bookmark"></i></span>
+                        <input type="text" name="brandName" id="brandName" class="form-control" value="{{ brandData.brand_name }}" disabled placeholder="Enter Brand Name" aria-label="brand-name" aria-describedby="brand-name-addon" required>
+                    </div>
+                    <div class="form-text mx-2" id="brand-name-help">Make Sure to use the proper capitalization of the Brand Name</div>
+                </div>
+                <div id="brand-system-type" class="form-group">
+                    <label for="brandSystem" class="form-label fs-3 fw-medium">Type of System</label>
+                    <select name="brandSystem" id="brandSystem" class="form-select" disabled>
+                        <option value="1" {% if brandData.system_id == 1 %}selected{% endif %} selected>FDAS</option>
+                        <option value="3" {% if brandData.system_id == 3 %}selected{% endif %}>CCTV</option>
+                        <option value="2" {% if brandData.system_id == 2 %}selected{% endif %}>AFSS</option>
+                        <option value="4" {% if brandData.system_id == 4 %}selected{% endif %}>Access Control</option>
+                        <option value="5" {% if brandData.system_id == 5 %}selected{% endif %}>Burglar Alarm</option>
+                        <option value="6" {% if brandData.system_id == 6 %}selected{% endif %}>Intercom & Paging</option>
+                        <option value="7" {% if brandData.system_id == 7 %}selected{% endif %}>Walkthrough/ Handheld Metal Detectors</option>
+                        <option value="8" {% if brandData.system_id == 8 %}selected{% endif %}>Gate Barriers</option>
+                        <option value="9" {% if brandData.system_id == 9 %}selected{% endif %}>EAS</option>
+                        <option value="10" {% if brandData.system_id == 10 %}selected{% endif %}>X-Ray Baggage Scanners</option>
+                        <option value="11" {% if brandData.system_id == 11 %}selected{% endif %}>LED Display</option>
+                        <option value="12" {% if brandData.system_id == 12 %}selected{% endif %}>Room Alert</option>
+                    </select>
+                    <div class="form-text mx-2" id="brand-system-help">Choose which system does the Brand belong</div>
+                </div>
+                <div id="brand-slug-area" class="mb-3 form-group">
+                    <label for="brandSlug" class="form-label fs-3 fw-medium">URL Name</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="brand-slug-addon"><i class="bi bi-bookmark"></i></span>
+                        <input type="text" name="brandSlug"  id="brandSlug" class="form-control" value="{{ brandData.brand_slug }}" disabled placeholder="Enter Brand Name" aria-label="brand-name" aria-describedby="brand-name-addon" required>
+                    </div>
+                    <div class="form-text mx-2" id="brand-slug-help">Make it unique, this will be used for URLs. Do not add any spaces, instead, use - (ex.smoke-detector-1)</div>
+                </div>
+            </div>
+
+            <div class="col-xl-5 col-12 mx-3 mb-3">
+                <div class="form-group">
+                    <label for="brandLogoUpload" class="form-label fs-3 fw-medium">Brand Logo</label>
+                    <input type="file" name="brandLogoUpload" id="brandLogoUpload" disabled class="form-control" accept="image/">
+                    <div class="form-text mx-2" id="brand-logo-help">Please upload a logo in png,jpg,gif format only, preferred height is 300px</div>
+                </div>
+                <div id="previewContainer" class="">
+                    <div class="card">
+                        <img id="brandImagePreview" src="/media/{{ brandData.brand_logo }}" alt="{{ brandData.brand_name }} logo">
+                    </div>
+                </div>
+            </div>
+            <div class="col-10 mx-3 my-3 text-center text-uppercase">
+                <h2 class="display-6 fw-bold text-primary">Brand Description</h2>
+                <hr>
+            </div>
+        
+            <div class="col-xl-5 col-12 mx-3 my-3">
+                <div id="brand-description-1-area" id="form-group">
+                    <label for="brandDescription_1" class="form-label fs-3 fw-medium">Brand Description 1</label>
+                    <textarea name="brandDescription_1" id="brandDescription_1" class="text-area form-control" disabled rows="10">{{ brandDetails.brand_description_1 }}</textarea>
+                </div>
+            </div>
+
+
+            <div class="col-xl-5 col-12 mx-3 my-3">
+                <div class="form-group">
+                    <label for="brandDescImg1Upload" class="form-label fs-3 fw-medium">Brand Description Image 1</label>
+                    <input type="file" name="brandDescImg1Upload" id="brandDescImg1Upload"  disabled class="form-control" accept="image/" >
+                    <div class="form-text mx-2" id="brand-logo-help">Please upload a logo in png,jpg,gif format only, preferred height is 300px</div>
+                </div>
+                <div id="brandDescImg1PreviewContainer" class="">
+                    <div class="card">
+                        <img id="brandDescImg1Preview" src="/media/{{ brandDetails.brand_image_1 }}" alt="Image Preview">
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-5 col-12 mx-3 my-3">
+                <div id="brand-description-2-area" id="form-group">
+                    <label for="brandDescription_2" class="form-label fs-3 fw-medium">Brand Description 2</label>
+                    <textarea name="brandDescription_2" id="brandDescription_2" class="text-area form-control" disabled rows="10">{{ brandDetails.brand_description_2 }}</textarea>
+                </div>
+            </div>
+
+
+            <div class="col-xl-5 col-12 mx-3 my-3">
+                <div class="form-group">
+                    <label for="brandDescImg2Upload" class="form-label fs-3 fw-medium">Brand Description Image 2</label>
+                    <input type="file" name="brandDescImg2Upload" id="brandDescImg2Upload" class="form-control" disabled accept="image/">
+                    <div class="form-text mx-2" id="brand-logo-help">Please upload a logo in png,jpg,gif format only, preferred height is 300px</div>
+                </div>
+                <div id="brandDescImg2PreviewContainer" class="">
+                    <div class="card">
+                        <img id="brandDescImg2Preview" src="/media/{{ brandDetails.brand_image_2 }}" alt="Image Preview">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-10 col-12 mx-3 my-3">
+                <hr>
+                <div id="brand-other-description-area" id="form-group">
+                    <label for="brandOtherDescription" class="form-label fs-3 fw-medium">Other Description</label>
+                    <textarea name="brandOtherDescription" value="{{ brandOtherDescription|default:'' }}" id="brandOtherDescription" class="text-area form-control" rows="10" disabled>{{ brandDetails.other_details }}</textarea>
+                </div>
+            </div>
+            
+
+            <div class="col-10 mx-3 my-3 border-top py-3">
+
+                <div id="edit-btns-area" class="d-flex justify-content-center align-items-center mx-auto">
+                    {% if session_admin.level.admin_level_name != 'DEFAULT' %}
+                    <button type="button" id="brand-edit-btn" class="btn btn-primary fs-5 py-2 px-3 rounded-3 mx-2">Edit</button>
+                    {% endif %}
+                    <a href="/admin/brands" class="btn btn-secondary fs-5 py-2 px-3 rounded-3 mx-2">Return</a>
+                </div>
+                <div id="edit-active-btns-area" class="d-flex d-none justify-content-center align-items-center mx-auto">
+                    <button type="submit" class="btn btn-primary fs-5 py-2 px-3 rounded-3 mx-2">Save</button>
+                    <button type="button" class="btn btn-danger fs-5 py-2 px-3 rounded-3 mx-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                        Delete
+                      </button>
+                    <button id="cancel-edit-btn" type="button" class="btn btn-secondary fs-5 py-2 px-3 rounded-3 mx-2">Cancel</button>
+                </div>
+            </div>
+
+
+        </div>
+    </form>
+</div>
+
+
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Confirm Delete</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            Are you sure you want to delete this item? This action cannot be undone.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <form action="{% url 'aa2000_admin:delete_brand' brandData.brand_slug %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Delete</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

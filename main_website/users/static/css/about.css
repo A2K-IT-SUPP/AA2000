@@ -1,0 +1,141 @@
+:root {
+    --primary-color: #4c7df9; 
+    --secondary-color: #6c757d; 
+    --light-bg: #f8f9fa;
+    --dark-bg: #343a40;
+
+    --main-bg: #ecf2ff;
+    --light-blue: #4c7df9;
+    --black: #202020;
+    --mid-blue: #1f4cff;
+    --dark-blue: #0a2fbf;
+    --gray: #d6d6d8;
+    --img-bg-blue: rgba(58, 120, 253, 0.65);
+    --gradient-bg: linear-gradient(to bottom, var(--light-blue) 0%, var(--mid-blue) 100%);
+}
+
+
+#banner-area {
+    position: relative;
+    top: 0px;
+    background-image: url('../images/picture15.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 45vh;
+    display: flex; 
+    align-items: center;
+    color: var(--main-bg); 
+    padding: 0 20px;
+    overflow: hidden;
+}
+
+
+#banner-area::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--img-bg-blue); /* Blue overlay */
+    opacity: 0.5; /* Adjust the overlay opacity here */
+    z-index: 0;
+}
+
+#banner-area > * {
+    position: relative;
+    z-index: 1; /* Bring content above overlay */
+}
+
+#company-overview-banner {
+    position: relative;
+}
+
+#company-overview-banner img , #mission-banner img, #vision-banner img{
+    max-width: 100%;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+
+.timeline {
+    position: relative;
+    margin: 0 0 30px 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  .timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    background-color: #dee2e6;
+  }
+  
+  .timeline-item {
+    position: relative;
+    margin: 0;
+    padding: 20px 0;
+  }
+  
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    background-color: #0d6efd;
+    border-radius: 50%;
+    top: 15px;
+    z-index: 1;
+  }
+  
+  .timeline-item-left {
+    text-align: right;
+  }
+  
+  .timeline-item-left::before {
+    left: calc(50% - 10px);
+  }
+  
+  .timeline-item-right {
+    text-align: left;
+  }
+  
+  .timeline-item-right::before {
+    left: calc(50% + 10px);
+  }
+  
+  .timeline-item h5 {
+    font-size: 1.25rem;
+  }
+  
+  .timeline-item p {
+    margin: 0;
+  }
+  
+  .timeline-content {
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+  }
+  
+  .timeline-item-left .timeline-content {
+    margin-right: 50%;
+  }
+  
+  .timeline-item-right .timeline-content {
+    margin-left: 50%;
+  }
+
+
+  #leaders-banner img {
+    max-width: 100%;
+  }

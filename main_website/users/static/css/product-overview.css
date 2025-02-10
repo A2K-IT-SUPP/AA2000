@@ -1,0 +1,396 @@
+:root {
+    --primary-color: #4c7df9; 
+    --secondary-color: #6c757d; 
+    --light-bg: #f8f9fa;
+    --dark-bg: #343a40;
+    --hover-bg: rgba(0, 123, 255, 0.1);
+    --hover-color: #0056b3; 
+
+
+    --main-bg: #ecf2ff;
+    --light-blue: #4c7df9;
+    --black: #202020;
+    --mid-blue: #1f4cff;
+    --dark-blue: #0a2fbf;
+    --gray: #d6d6d8;
+
+    --system1: #f9f871;
+    --system2: #ffc861;
+    --system3: #ff9580;
+    --system4: #ff72b2;
+    --system5: #d970e2;
+    --system6: #22c197;
+    --system7: #796fe5;
+    --system8: #b0b5ed;
+    --system9: #eee8a9;
+    --system10: #3a7371;
+    --system11: #dbefee;
+    --system12: #6dfacd;
+}
+
+
+/* Main image styling */
+#product-main-image-slider {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+}
+
+.product-main-slide {
+    display: none;
+    width: 100%;
+}
+
+.product-main-slide.active {
+    display: block;
+    transition: 1s;
+}
+
+.product-main-slide img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px; 
+}
+
+/* Thumbnails styling */
+#product-icon-image-slider {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.product-icon-slide {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.product-icon-slide img {
+    width: 60px; /* Adjust as needed */
+    height: auto;
+    border: 2px solid transparent;
+}
+
+.product-icon-slide.active img {
+    border-color: #333; /* Border for active thumbnail */
+}
+
+.product-icon-slide:hover img {
+    border-color: #999; /* Hover effect */
+}
+
+
+/* .product-brand-area {
+    background-color: var(--light-blue);
+} */
+
+.product-brand-area img {
+    height: 100px;
+    width: auto;
+}
+
+.product-tag-area {
+    background-color: var(--light-blue);
+    color: var(--main-bg);
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.tab-pane img {
+    width: 100%;
+    height: auto;
+}
+
+
+.product-name {
+    font-weight: bold;
+}
+
+.product-category {
+    background-color: var(--light-blue);
+    color: var(--main-bg);
+}
+
+
+
+
+.product-card {
+    width: 18em;
+    min-height: 25em; /* Ensures consistent card height */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Prevents content overflow */
+}
+
+.product-image {
+    width: 100%;
+    height: 200px;      /* Ensures consistent image height */
+    object-fit: cover;  /* Crops images uniformly without stretching */
+    border-radius: 8px 8px 0 0;
+}
+
+.card-body {
+    flex-grow: 1; /* Allows card content to take up remaining space */
+}
+
+.product-name {
+    font-weight: bold;
+}
+
+.product-category {
+    background-color: var(--light-blue);
+    color: var(--main-bg);
+}
+
+
+
+.custom-outline-primary {
+    color: #0d6efd; /* Primary color */
+    border: 1px solid #0d6efd;
+    padding: 0.25rem 0.5rem; /* Adjust padding as needed */
+    border-radius: 0.25rem; /* Matches button's border-radius */
+    display: inline-block;
+    text-decoration: none;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+
+.custom-outline-primary:hover {
+    color: #fff;
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+
+
+
+.FDAS {
+    background-color: var(--system1);
+}
+.FACP {
+    background-color: var(--system2);
+}
+.SD {
+    background-color: var(--system3);
+}
+.HD {
+    background-color: var(--system4);
+}
+.MPS {
+    background-color: var(--system5);
+}
+.MCP {
+    background-color: var(--system6);
+}
+.BELL {
+    background-color: var(--system7);
+}
+.HORN_STROBE {
+    background-color: var(--system8);
+}
+.SLC {
+    background-color: var(--system9);
+}
+.ISOLATOR_MODULES {
+    background-color: var(--system10);
+}
+.POWER_SUPPLY_BATTERY {
+    background-color: var(--system11);
+}
+.RELAYS_OUTPUT_MODULES {
+    background-color: var(--system12);
+}
+
+.AFSS {
+    background-color: var(--system2);
+}
+.CONTROL_PANEL {
+    background-color: var(--system4);
+}
+.GAS_SUPPRESSION_AGENT {
+    background-color: var(--system6);
+}
+.CYLINDER_ASSEMBLY {
+    background-color: var(--system8);
+}
+.MANUAL_RELEASE_STATIONS {
+    background-color: var(--system10);
+}
+.NOZZLES {
+    background-color: var(--system12);
+}
+.PIPE_NETWORK {
+    background-color: var(--system1);
+}
+.PRESSURE_GAUGES {
+    background-color: var(--system3);
+}
+.AUTOMATIC_RELEASE_MECHANISM {
+    background-color: var(--system5);
+}
+.DISCHARGE_PRESSURE_SWITCH {
+    background-color: var(--system7);
+}
+.ALARM_ALERT_SYSTEM {
+    background-color: var(--system9);
+}
+
+.CCTV {
+    background-color: var(--system3);
+}
+.DVR_NVR {
+    background-color: var(--system5);
+}
+.IP_CAMERA {
+    background-color: var(--system7);
+}
+.ANALOG_CAMERA {
+    background-color: var(--system9);
+}
+.PTZ_CAMERA {
+    background-color: var(--system11);
+}
+.IR_CAMERA {
+    background-color: var(--system1);
+}
+.BULLET_CAMERA {
+    background-color: var(--system4);
+}
+.COME_CAMERA {
+    background-color: var(--system6);
+}
+.MONITOR_DISPLAY {
+    background-color: var(--system8);
+}
+.VIDEO_MANAGEMENT_SOFTWARE {
+    background-color: var(--system10);
+}
+.POWER_SUPPLY_UPS {
+    background-color: var(--system12);
+}
+
+.ACCESS_CONTROL {
+    background-color: var(--system4);
+}
+.ACCESS_READER {
+    background-color: var(--system7);
+}
+.ACCESS_CONTROLLER {
+    background-color: var(--system9);
+}
+.ELECTRIC_STRIKE {
+    background-color: var(--system12);
+}
+.EM_LOCK {
+    background-color: var(--system2);
+}
+.DOOR_CLOSER {
+    background-color: var(--system5);
+}
+.REX_SENSOR {
+    background-color: var(--system8);
+}
+.BIO_READER {
+    background-color: var(--system10);
+}
+
+.BURGLAR_ALARM {
+    background-color: var(--system11);
+}
+.PIR_SENSOR {
+    background-color: var(--system1);
+}
+.GLASS_BREAK_SENSOR {
+    background-color: var(--system3);
+}
+.VIBRATION_SENSOR {
+    background-color: var(--system5);
+}
+.ALARM_PANEL {
+    background-color: var(--system7);
+}
+.SIREN {
+    background-color: var(--system9);
+}
+
+.INTERCOM_PAGING {
+    background-color: var(--system6);
+}
+.INTERCOM_MASTER {
+    background-color: var(--system8);
+}
+.INTERCOM_SUBSTATION {
+    background-color: var(--system10);
+}
+.PAGING_MIC {
+    background-color: var(--system2);
+}
+.PAGING_SPEAKER {
+    background-color: var(--system4);
+}
+
+.WALKTHROUGH_HANDHELD_METAL_DETECTOR {
+    background-color: var(--system12);
+}
+.WALKTHROUGH_DETECTOR {
+    background-color: var(--system1);
+}
+.HANDHELD_DETECTOR {
+    background-color: var(--system3);
+}
+
+.GATE_BARRIERS {
+    background-color: var(--system5);
+}
+.BARRIER_GATE {
+    background-color: var(--system7);
+}
+.BOLLARDS {
+    background-color: var(--system9);
+}
+.TIRE_KILLER {
+    background-color: var(--system11);
+}
+
+.EAS {
+    background-color: var(--system10);
+}
+.ANTI_THEFT_GATE {
+    background-color: var(--system1);
+}
+.DEACTIVATOR {
+    background-color: var(--system2);
+}
+.LABELS_TAGS {
+    background-color: var(--system3);
+}
+
+.XRAY_BAGGAGE_SCANNER {
+    background-color: var(--system8);
+}
+.XRAY_MACHINE {
+    background-color: var(--system6);
+}
+.CONVEYOR_BELT {
+    background-color: var(--system4);
+}
+
+.LED_DISPLAY {
+    background-color: var(--system7);
+}
+.DISPLAY_PANEL {
+    background-color: var(--system9);
+}
+.CONTROLLER {
+    background-color: var(--system11);
+}
+
+.ROOM_ALERT {
+    background-color: var(--system12);
+}
+.SENSOR_MODULE {
+    background-color: var(--system2);
+}
+.ALERT_PANEL {
+    background-color: var(--system4);
+}

@@ -1,0 +1,78 @@
+<!-- templates/ticket_email.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Ticket ID</title>
+    <!-- Include a CDN link for Bootstrap (inline styling will still be needed for email compatibility) -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Inline styles for better email compatibility */
+        .email-container {
+            max-width: 600px;
+            margin: auto;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+        }
+        .email-header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .email-body {
+            padding: 20px;
+            color: #333;
+        }
+        .email-footer {
+            background-color: #f8f9fa;
+            color: #6c757d;
+            padding: 10px;
+            text-align: center;
+            font-size: 0.9em;
+        }
+        .btn-check-status {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            color: white;
+            background-color: #007bff;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .btn-check-status:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body style="background-color: #f2f2f2; padding: 20px;">
+
+    <div class="email-container">
+        <!-- Email Header -->
+        <div class="email-header">
+            <h2>Your Support Ticket</h2>
+        </div>
+
+        <!-- Email Body -->
+        <div class="email-body">
+            <p>Hello <strong>{{ user.fname }}</strong>,</p>
+            <p>Thank you for reaching out to us! We’ve received your inquiry and our team is working to address it as quickly as possible.</p>
+
+            <p>Your ticket ID is:</p>
+            <p style="font-size: 1.5em; font-weight: bold; color: #007bff;">{{ ticket_id }}</p>
+
+            <p>You can check the status of your ticket by clicking the button below:</p>
+            <a href="{{ status_link }}" class="btn-check-status">Check Ticket Status</a>
+        </div>
+
+        <!-- Email Footer -->
+        <div class="email-footer">
+            <p>Best regards,<br>Your Support Team</p>
+            <p style="margin-top: 10px;">&copy; {{ current_year }} AA2000 Security and Technology Solutions Inc | All rights reserved</p>
+        </div>
+    </div>
+</body>
+</html>

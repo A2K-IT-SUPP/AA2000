@@ -1,0 +1,104 @@
+:root {
+    --primary-color: #4c7df9; 
+    --secondary-color: #6c757d; 
+    --light-bg: #f8f9fa;
+    --dark-bg: #343a40;
+
+    --main-bg: #ecf2ff;
+    --light-blue: #4c7df9;
+    --black: #202020;
+    --mid-blue: #1f4cff;
+    --dark-blue: #0a2fbf;
+    --gray: #d6d6d8;
+    --img-bg-blue: rgba(58, 120, 253, 0.65);
+    --gradient-bg: linear-gradient(to bottom, var(--light-blue) 0%, var(--mid-blue) 100%);
+}
+
+
+#banner-area {
+    position: relative;
+    top: 0px;
+    background-image: url('../images/picture12.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 45vh;
+    display: flex; 
+    align-items: center;
+    color: var(--main-bg); 
+    padding: 0 20px;
+    overflow: hidden;
+}
+
+
+#banner-area::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--img-bg-blue); /* Blue overlay */
+    opacity: 0.5; /* Adjust the overlay opacity here */
+    z-index: 0;
+}
+
+#banner-area > * {
+    position: relative;
+    z-index: 1; /* Bring content above overlay */
+}
+
+
+/* .lcl-systems button{
+    text-decoration: none;
+    color: var(--black)
+}
+
+.lcl-systems button:hover .card {
+    background: var(--gradient-bg);
+    color: var(--main-bg);
+    border: none;
+    font-weight: bolder;
+}
+ */
+
+#brands-systems-slider-container {
+    width: 100em;
+
+}
+
+.brand-category-btn {
+    text-decoration: none;
+    color: var(--main-bg);
+}
+
+.brand-category-btn:hover .card {
+    background: var(--gradient-bg);
+    color: var(--main-bg);
+    font-style: bold;
+}
+
+
+.card {
+    height: 100%; /* Makes sure all cards are equal height */
+}
+
+.card-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px; /* Adjust height according to your design */
+}
+
+.card-body img {
+    height: 100px; /* Set fixed height */
+    object-fit: contain; /* Ensures the image keeps its aspect ratio */
+}
+
+.card-title {
+    min-height: 80px; /* Ensure consistency for text height */
+}
+
+.brand-category-btn {
+    width: 100%; /* Ensure button spans full width */
+}

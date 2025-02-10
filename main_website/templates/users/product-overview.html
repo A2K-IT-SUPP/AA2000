@@ -1,0 +1,267 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Product Overview
+{% endblock %}
+
+
+
+{% block scripts %}
+    <script src="{% static 'js/product-overview.js' %}"></script>
+{% endblock %}
+
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/product-overview.css' %}">
+{% endblock %}
+
+
+
+
+{% block content %}
+
+    <section id="product-overview">
+        <div class="container-fluid my-5" id="product-overview-banner">
+            <div class="row justify-content-center align-items-center">
+
+                <div id="product-image-container" class="col-lg-5 position-relative d-flex flex-column justify-content-start align-items-center">
+                    
+
+                    <div id="product-main-image-slider" class="w-100 mb-3">
+                        {% for photo in productPhotos %}
+                        <div class="product-main-slide {% if forloop.first %}active{% endif %} ">
+                            <img src="/media/{{ photo.product_image }}" alt="{{ productData.product_name }}">
+                        </div>
+                        {% endfor %}
+                    </div> 
+
+                        
+
+
+                    <div id="product-icon-image-slider" class="row d-flex justify-content-center">
+                        {% for photo in productPhotos %}
+                        <div class="product-icon-slide col-3 mx-2 p-2 active">
+                            <img src="/media/{{ photo.product_image }}" class="m-1" alt="{{ productData.product_name }}">
+                        </div>
+                        {% endfor %}
+                        {% comment %} <div class="product-icon-slide col-3 mx-2 p-2 active">
+                            <img src="/media/{{ productPhotos.product_image[:1] }}" class="m-1" alt="">
+                        </div> {% endcomment %}
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-6 text-center text-lg-start mt-5 mt-lg-1 mx-1 mx-lg-2">
+                    <div class="product-brand-area p-2 rounded-3 mb-4 text-center text-lg-start">
+                        <img src="/media/{{ productData.brand.brand_logo }}" alt="{{ productData.brand.brand_name }}">
+                    </div>
+                    <div class="my-1 my-lg-3 px-3" id="product-overview-details">
+                        <h2 class="display-4 fw-bolder mb-4">{{ productData.product_name }}</h2>
+                        <div class="my-lg-2 my-1">
+                            <span class="product-tag-area py-2 px-4 rounded-4 {{ productData.category.category_name }} ">{{ productData.category.category_name }}</span>
+                        </div>
+                        <p class="my-3 mt-5 px-3">{{ productData.short_description|safe }}</p>
+                        <a href="/contact" class="btn btn-outline-primary">Request for Quotation</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="product-details">
+        <div class="container-fluid my-5" id="product-details-banner">
+
+            <hr>
+
+            <div class="col-10 mx-auto">
+                <div class="nav nav-tabs  justify-content-xl-center" id="nav-tab" role="tablist">
+                    <button class="nav-link active" id="nav-product-description-tab" data-bs-toggle="tab" data-bs-target="#nav-product-description" type="button" role="tab" aria-controls="nav-product-description" aria-selected="true">Product Description</button>
+    
+                    <button class="nav-link" id="nav-technical-specifications-tab" data-bs-toggle="tab" data-bs-target="#nav-technical-specifications" type="button" role="tab" aria-controls="nav-technical-specifications" aria-selected="false">Technical Specifications</button>
+    
+                    <button class="nav-link" id="nav-key-features-tab" data-bs-toggle="tab" data-bs-target="#nav-key-features" type="button" role="tab" aria-controls="nav-key-features" aria-selected="false">Key Features</button>
+                </div>
+            </div>
+            <div class="tab-content col-10 mx-auto" id="nav-tabContent">
+    
+                <div class="tab-pane fade show active p-3" id="nav-product-description" role="tabpanel" aria-labelledby="nav-product-description-tab">
+                    <h5 class="display-5 fw-bold text-center">Product Description</h5>
+                    <div class="row justify-content-center align-items-center mt-1 mt-lg-5">
+                        
+                        {% if productDescriptions %}                            
+                        {% for description in productDescriptions %}
+                        <div class="col-12 col-xl-5">
+                            <p class="text-justify px-1">{{ description.product_description|safe }}</p>
+                        </div>
+                        <div class="d-none d-xl-block col-lg-4">
+                            <img src="/media/{{ description.product_image }}" class="m-1" alt="{{ productData.product_name }}">                           
+                        </div> 
+                        {% endfor %}
+                        {% else %}
+                        <p class="text-justify px-1">No product description available.</p>
+                        {% endif %}
+                    </div>
+                </div>
+    
+                <div class="tab-pane fade p-3" id="nav-technical-specifications" role="tabpanel" aria-labelledby="nav-technical-specifications-tab">
+                    <h4 class="display-5 fw-bold text-center">Technical Specifications</h5>
+                    <div class="row justify-content-center align-items-center mt-1 mt-lg-5">
+                        <div class="col-12 col-xl-10">
+                            
+                            {% if productTechSpecs %}
+                            {% for tech_spec in productTechSpecs %}
+                                <div id="tech-specs" class="my-3">
+                                    <h5 class="fs-3 mb-2">{{ tech_spec.tech_spec }}</h5>
+                                    <div class="row my-3">
+                                        {% if tech_spec.tech_spec_details %}
+                                            {% for details in tech_spec.tech_spec_details.all %}
+                                                <div class="col-4 col-lg-2">
+                                                    <h6 class="fs-5">{{ details.tech_spec_name }}</h6>
+                                                    <p class="fs-6">{{ details.tech_spec_value }}</p>
+                                                </div>
+                                            {% endfor %}
+                                        {% else %}
+                                            <p class="fs-6">No details available.</p>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        {% else %}
+                            <p class="text-justify px-1">No technical specifications available.</p>
+                        {% endif %}
+                        
+                                
+
+                            
+                        </div>
+                    </div>    
+                </div>
+    
+    
+                <div class="tab-pane fade p-3" id="nav-key-features" role="tabpanel" aria-labelledby="nav-key-features-tab">
+                    <h5 class="display-5 fw-bold text-center">Key Features</h5>
+                    <div class="row justify-content-center align-items-center mt-1 mt-lg-5">
+                        {% if productKeyFeatures %}                            
+                        {% for key_feature in productKeyFeatures %}
+                        <div class="d-none d-xl-block col-lg-4">
+                            <img src="/media/{{ key_feature.key_feature_image }}" class="m-1" alt="{{ productData.product_name }}">                           
+                        </div> 
+                        <div class="col-12 col-xl-5">
+                            <p class="text-justify px-1">{{ key_feature.key_feature|safe }}</p>
+                        </div>
+                        {% endfor %}
+                        {% else %}
+                        <p class="text-justify px-1">No product key features available.</p>
+                        {% endif %}
+
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+    </section>
+
+
+    <section id="similar-products">
+        <div class="container-fluid my-5" id="similar-products-banner">
+            <h3 class="text-center mt-3 mb-5 pt-5 systems-banner-title mx-3">
+                <div class="display-lg-2 display-6 mb-1 fw-bold">Similar Products</div>
+                <p class="lead text-muted  fs-6 fs-lg-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, quo!</p>
+            </h3>
+
+            
+            {% if similarProducts %}
+            <div id="similar-products-slider" class="products-slider position-relative d-flex flex-nowrap justify-content-center align-items-center mx-xl-5 px-xl-5 my-2">
+                <button type="button" id="similar-products-btn-prev" class="slider-btn btn-prev border-0">
+                    <i class="bi bi-chevron-left fs-3"></i>
+                </button>
+
+                <div id="similar-products-slider-container" class="position-relative row d-flex flex-nowrap justify-content-start align-items-center overflow-x-auto px-xl-5 mx-xl-5 px-1 mx-1">
+                    
+                    {% for product in similarProducts %}
+                    <div class="card product-card col-11 col-lg-5 col-xl-2 rounded-4 m-1 p-2">
+                        <img src="/media/{{ product.product_photos.first.product_image }}" class="product-image mx-auto py-1 card-img-top" alt="{{ product.product_name }}">
+                        <div class="card-body px-3">
+                            <h6 class="d-flex justify-content-between align-items-start">
+                              <span style="font-size: 0.8rem;" class="product-category p-2 rounded-3 custom-outline-primary text-white">{{ product.brand.brand_name }}</span>
+                            </h6>
+                            <h6 class="d-flex justify-content-between align-items-start">
+                              <span style="font-size: 0.8rem;" class="product-category p-2 rounded-3 {{ product.category.category_name }}">{{ product.category.category_name }}</span>
+                            </h6>
+                            <h5 class="card-title mt-2">
+                              <span class="product-name fs-3">{{ product.product_name }}</span>
+                            </h5>
+                            <p class="card-text">{{ product.short_description|striptags|slice:":100" }}</p>
+                            <div class="text-center">
+                                <a href="{% url 'users:product_overview' product.product_slug %}" class="btn btn-outline-primary">View Product</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                </div>
+
+                <button type="button" id="similar-products-btn-next" class="slider-btn btn-next border-0">
+                    <i class="bi bi-chevron-right fs-3"></i>
+                </button>
+            </div>
+            {% else %}
+            <div class="text-center my-5">
+                <p>No similar products found.</p>
+            </div>
+            {% endif %}
+                
+        </div>
+    </section>
+
+    <section id="same-brands">
+        <div class="container-fluid my-5" id="same-brands-banner">
+            <h3 class="text-center mt-3 mb-5 pt-5 systems-banner-title mx-3">
+                <div class="display-lg-2 display-6 mb-1 fw-bold">From the Same Brand</div>
+                <p class="lead text-muted  fs-6 fs-lg-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, quo!</p>
+            </h3>
+
+            
+            {% if similarBrand %}
+            <div id="same-brand-products-slider" class="products-slider position-relative d-flex flex-nowrap justify-content-center align-items-center mx-xl-5 px-xl-5 my-2">
+                <button type="button" id="same-brand-products-btn-prev" class="slider-btn btn-prev border-0">
+                    <i class="bi bi-chevron-left fs-3"></i>
+                </button>
+
+                <div id="same-brand-products-slider-container" class="position-relative row d-flex flex-nowrap justify-content-start align-items-center overflow-x-auto px-xl-5 mx-xl-5 px-1 mx-1">
+
+                    {% for product in similarBrand %}
+                    <div class="card product-card col-11 col-lg-5 col-xl-2 rounded-4 m-1 p-2">
+                        <img src="/media/{{ product.product_photos.first.product_image }}" class="product-image mx-auto py-1 card-img-top" alt="{{ product.product_name }}">
+                        <div class="card-body px-3">
+                            <h6 class="d-flex justify-content-between align-items-start">
+                              <span style="font-size: 0.8rem;" class="product-category p-2 rounded-3 custom-outline-primary text-white">{{ product.brand.brand_name }}</span>
+                            </h6>
+                            <h6 class="d-flex justify-content-between align-items-start">
+                              <span style="font-size: 0.8rem;" class="product-category p-2 rounded-3 {{ product.category.category_name }}">{{ product.category.category_name }}</span>
+                            </h6>
+                            <h5 class="card-title mt-2">
+                              <span class="product-name fs-3">{{ product.product_name }}</span>
+                            </h5>
+                            <p class="card-text">{{ product.short_description|striptags|slice:":100" }}</p>
+                            <div class="text-center">
+                                <a href="{% url 'users:product_overview' product.product_slug %}" class="btn btn-outline-primary">View Product</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                </div>
+
+                <button type="button" id="same-brand-products-btn-next" class="slider-btn btn-next border-0">
+                    <i class="bi bi-chevron-right fs-3"></i>
+                </button>
+            </div>
+            {% endif %}
+                
+        </div>
+    </section>
+{% endblock %}

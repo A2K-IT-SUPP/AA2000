@@ -1,0 +1,363 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Services
+{% endblock %}
+
+
+
+{% block scripts %}
+    <script src="{% static 'js/services.js' %}"></script>
+{% endblock %}
+
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/services.css' %}">
+{% endblock %}
+
+
+
+
+{% block content %}
+    <section id="banner-area">
+        <div class="justify-content-start align-items-start">
+            <img src="{% static 'images/kurt1.png' %}" alt="" style="transform: scale(0.8) translate(0,60px);">
+        </div>
+
+    </section>
+
+    <section id="hero-banner">
+        <div class="container-fluid">
+            <div class="row justify-content-center align-items-center mx-3 my-5 px-xl-5">
+                <div class="col-lg-5 text-center text-xl-start">
+                    <h4 class="text-uppercase">Our Services</h4>
+                    <h1 class="fw-bolder display-2 text-primary text-uppercase">All AA2000 Services</h1>
+                </div>
+                <div class="col-lg-5 fs-lg-5 d-none d-xl-block text-center text-xl-start">
+                    <p class="text-justify">AA2000 Security and Technology Solutions Inc. offers a comprehensive range of services designed to enhance security, efficiency, and infrastructure management. Our expertise includes advanced surveillance systems, access control, fire alarm and safety solutions, and building management systems. We also provide expert electrical, mechanical, and plumbing engineering services, as well as fit-out solutions tailored to client needs. From elevator and escalator maintenance to energy auditing and data cabling installations, we ensure reliable, high-quality solutions for commercial, industrial, and residential applications. With a commitment to innovation and excellence, we deliver technology-driven services that meet the highest industry standards.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section id="services-offered">
+        <div class="container-fluid my-5" id="services-offered-banner">
+            <h3 class="text-center mt-3 mb-5 pt-5 mx-3">
+                <div class="display-lg-2 display-6 mb-1 fw-bold">Services Offered</div>
+                <p class="lead text-muted fs-6 fs-lg-2">Comprehensive security, technology, and engineering solutions for safer and smarter infrastructure.</p>
+            </h3>
+
+            {% comment %} first part {% endcomment %}
+            <div class="row justify-content-center align-items-center">
+                <div class="col-xl-4 col-4 d-none d-xl-block">
+                    <img src="{% static 'images/aa2000-model-1.png' %}" alt="">
+                </div>
+                <div class="lcl-services col-xl-5 col-10 mx-lg-5 mx-1 justify-content-center align-items-center text-center">
+
+                    <div class="col-lg-12 my-3">
+                        <a href="/services/supply" class="text-decoration-none">
+                            <div class="card px-5 py-1 rounded-5 shadow">
+                                <div class="card-body row justify-content-between align-items-center" >
+                                    <div class="service-icon d-none d-lg-block col-1 display-4 fw-bold"><i class="bi bi-cart-fill"></i></div>
+                                    <div class="service-details col-lg-8 col-10 d-flex flex-column justify-content-center align-items-start">
+                                        <h4 class="display-6 fw-bold d-flex"><i class="d-block d-lg-none bi bi-cart-fill mx-1"></i> Supply</h4>
+                                        <p class="text-start">Providing high-quality technology products tailored to your specific needs.</p>
+                                    </div>
+                                    <div class="check-service-btn col-1 display-6 fw-bold"><i class="bi bi-arrow-right-circle"></i></div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-12 my-3">
+                        <a href="/services/installation" class="text-decoration-none">
+                            <div class="card px-5 py-1 rounded-5 shadow">
+                                <div class="card-body row justify-content-between align-items-center" >
+                                    <div class="service-icon d-none d-lg-block col-1 display-4 fw-bold"><i class="bi bi-tools"></i></div>
+                                    <div class="service-details col-lg-8 col-10 d-flex flex-column justify-content-center align-items-start">
+                                        <h4 class="display-6 fw-bold d-flex"><i class="d-block d-lg-none bi bi-tools mx-1"></i> Installation</h4>
+                                        <p class="text-start">Expertly setting up and configuring your systems to ensure seamless integration and optimal performance.</p>
+                                    </div>
+                                    <div class="check-service-btn col-1 display-6 fw-bold"><i class="bi bi-arrow-right-circle"></i></div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-12 my-3">
+                        <a href="/services/maintenance" class="text-decoration-none">
+                            <div class="card px-5 py-1 rounded-5 shadow">
+                                <div class="card-body row justify-content-between align-items-center" >
+                                    <div class="service-icon d-none d-lg-block col-1 display-4 fw-bold"><i class="bi bi-battery-half"></i></div>
+                                    <div class="service-details col-lg-8 col-10 d-flex flex-column justify-content-center align-items-start">
+                                        <h4 class="display-6 fw-bold d-flex"><i class="d-block d-lg-none bi bi-battery-half mx-1"></i> Maintenance</h4>
+                                        <p class="text-start">Routine checks and proactive care to keep your systems running smoothly and prevent issues.</p>
+                                    </div>
+                                    <div class="check-service-btn col-1 display-6 fw-bold"><i class="bi bi-arrow-right-circle"></i></div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-12 my-3">
+                        <a href="/services/troubleshooting" class="text-decoration-none">
+                            <div class="card px-5 py-1 rounded-5 shadow">
+                                <div class="card-body row justify-content-between align-items-center" >
+                                    <div class="service-icon d-none d-lg-block col-1 display-4 fw-bold"><i class="bi bi-gear-fill"></i></div>
+                                    <div class="service-details col-lg-8 col-10 d-flex flex-column justify-content-center align-items-start">
+                                        <h4 class="display-6 fw-bold d-flex"><i class="d-block d-lg-none bi bi-gear-fill mx-1"></i> Troubleshooting</h4>
+                                        <p class="text-start">Quickly diagnosing and resolving technical problems to minimize downtime and restore functionality.</p>
+                                    </div>
+                                    <div class="check-service-btn col-1 display-6 fw-bold"><i class="bi bi-arrow-right-circle"></i></div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+
+                {% comment %} second part {% endcomment %}
+            <div class="row justify-content-center align-items-center">
+                <div class="lcl-services col-xl-5 col-10 mx-lg-5 mx-1 justify-content-center align-items-center text-center">
+
+                    <div class="col-lg-12 my-3">
+                        <a href="/services/design" class="text-decoration-none">
+                            <div class="card px-5 py-1 rounded-5 shadow">
+                                <div class="card-body row justify-content-between align-items-center" >
+                                    <div class="service-icon d-none d-lg-block col-1 display-4 fw-bold"><i class="bi bi-rulers"></i></div>
+                                    <div class="service-details col-lg-8 col-10 d-flex flex-column justify-content-center align-items-start">
+                                        <h4 class="display-6 fw-bold d-flex"><i class="d-block d-lg-none bi bi-rulers mx-1"></i> Design</h4>
+                                        <p class="text-start">Crafting customized solutions and layouts to meet your unique business requirements and objectives.</p>
+                                    </div>
+                                    <div class="check-service-btn col-1 display-6 fw-bold"><i class="bi bi-arrow-right-circle"></i></div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+    
+                    <div class="col-lg-12 my-3">
+                        <a href="/services/inspection" class="text-decoration-none">
+                            <div class="card px-5 py-1 rounded-5 shadow">
+                                <div class="card-body row justify-content-between align-items-center" >
+                                    <div class="service-icon d-none d-lg-block col-1 display-4 fw-bold"><i class="bi bi-search"></i></div>
+                                    <div class="service-details col-lg-8 col-10 d-flex flex-column justify-content-center align-items-start">
+                                        <h4 class="display-6 fw-bold d-flex"><i class="d-block d-lg-none bi bi-search mx-1"></i> Inspection</h4>
+                                        <p class="text-start">Thorough evaluations of your systems to ensure compliance, safety, and efficiency.</p>
+                                    </div>
+                                    <div class="check-service-btn col-1 display-6 fw-bold"><i class="bi bi-arrow-right-circle"></i></div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+    
+                    <div class="col-lg-12 my-3">
+                        <a href="/services/consultation" class="text-decoration-none">
+                            <div class="card px-5 py-1 rounded-5 shadow">
+                                <div class="card-body row justify-content-between align-items-center" >
+                                    <div class="service-icon d-none d-lg-block col-1 display-4 fw-bold"><i class="bi bi-chat-left-heart-fill"></i></div>
+                                    <div class="service-details col-lg-8 col-10 d-flex flex-column justify-content-center align-items-start">
+                                        <h4 class="display-6 fw-bold d-flex"><i class="d-block d-lg-none bi bi-chat-left-heart-fill mx-1"></i> Consultation</h4>
+                                        <p class="text-start">Offering expert advice to help you choose the best technology solutions and strategies for your business.</p>
+                                    </div>
+                                    <div class="check-service-btn col-1 display-6 fw-bold"><i class="bi bi-arrow-right-circle"></i></div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+    
+                    <div class="col-lg-12 my-3">
+                        <a href="/services/training" class="text-decoration-none">
+                            <div class="card px-5 py-1 rounded-5 shadow">
+                                <div class="card-body row justify-content-between align-items-center" >
+                                    <div class="service-icon d-none d-lg-block col-1 display-4 fw-bold"><i class="bi bi-bar-chart-fill"></i></div>
+                                    <div class="service-details col-lg-8 col-10 d-flex flex-column justify-content-center align-items-start">
+                                        <h4 class="display-6 fw-bold d-flex"><i class="d-block d-lg-none bi bi-bar-chart-fill mx-1"></i> Training</h4>
+                                        <p class="text-start">Equipping your team with the knowledge and skills needed to effectively manage and utilize your technology.</p>
+                                    </div>
+                                    <div class="check-service-btn col-1 display-6 fw-bold"><i class="bi bi-arrow-right-circle"></i></div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-4 d-none d-xl-block">
+                     <img src="{% static 'images/jack-model.png' %}" alt="">
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container-fluid my-5 pt-5" id="services-offered-banner-2">
+            <h3 class="text-center mt-3 mb-5 pt-5 mx-3">
+                <div class="display-lg-2 display-6 mb-1 fw-bold">Specialized Services Offered</div>
+                <p class="lead text-muted fs-6 fs-lg-2">We offer Specialized Engineering Services for various needs</p>
+                <!-- <hr> -->
+            </h3>
+            
+            <div class="lcl-services row justify-content-center align-items-center">
+
+                <div class="col-lg-3 col-6 my-3">
+                    <a href="/services/electrical" class="text-decoration-none">
+                        <div class="card px-5 py-1 rounded-5 shadow">
+                            <div class="card-body row justify-content-between align-items-center" >
+                                <div class="service-icon d-none d-lg-block col-1 display-4 fw-bold"><i class="bi bi-lightning-charge-fill"></i></div>
+                                <div class="service-details col-lg-8 col-10 d-flex flex-column justify-content-center align-items-start">
+                                    <h4 class="display-6 fw-bold d-flex"><i class="d-block d-lg-none bi bi-bar-chart-fill mx-1"></i> Electrical Engineering Services</h4>
+                                    <p class="text-start">Designing and maintaining electrical systems for all types of buildings.</p>
+                                </div>
+                                <div class="check-service-btn col-1 display-6 fw-bold"><i class="bi bi-arrow-right-circle"></i></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-lg-3 col-6 my-3">
+                    <a href="/services/mechanical" class="text-decoration-none">
+                        <div class="card px-5 py-1 rounded-5 shadow">
+                            <div class="card-body row justify-content-between align-items-center" >
+                                <div class="service-icon d-none d-lg-block col-1 display-4 fw-bold"><i class="bi bi-wrench-adjustable"></i></div>
+                                <div class="service-details col-lg-8 col-10 d-flex flex-column justify-content-center align-items-start">
+                                    <h4 class="display-6 fw-bold d-flex"><i class="d-block d-lg-none bi bi-bar-chart-fill mx-1"></i> Mechanical Engineering Services</h4>
+                                    <p class="text-start">Providing solutions for HVAC, piping, and mechanical systems.</p>
+                                </div>
+                                <div class="check-service-btn col-1 display-6 fw-bold"><i class="bi bi-arrow-right-circle"></i></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-lg-3 col-6 my-3">
+                    <a href="/services/plumbing" class="text-decoration-none">
+                        <div class="card px-5 py-1 rounded-5 shadow">
+                            <div class="card-body row justify-content-between align-items-center" >
+                                <div class="service-icon d-none d-lg-block col-1 display-4 fw-bold"><i class="bi bi-droplet-fill"></i></div>
+                                <div class="service-details col-lg-8 col-10 d-flex flex-column justify-content-center align-items-start">
+                                    <h4 class="display-6 fw-bold d-flex"><i class="d-block d-lg-none bi bi-bar-chart-fill mx-1"></i> Plumbing Services</h4>
+                                    <p class="text-start">Installing and maintaining plumbing systems for residential and commercial use.</p>
+                                </div>
+                                <div class="check-service-btn col-1 display-6 fw-bold"><i class="bi bi-arrow-right-circle"></i></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-lg-3 col-6 my-3">
+                    <a href="/services/fitout" class="text-decoration-none">
+                        <div class="card px-5 py-1 rounded-5 shadow">
+                            <div class="card-body row justify-content-between align-items-center" >
+                                <div class="service-icon d-none d-lg-block col-1 display-4 fw-bold"><i class="bi bi-palette-fill"></i></div>
+                                <div class="service-details col-lg-8 col-10 d-flex flex-column justify-content-center align-items-start">
+                                    <h4 class="display-6 fw-bold d-flex"><i class="d-block d-lg-none bi bi-bar-chart-fill mx-1"></i> Fitout Services</h4>
+                                    <p class="text-start">Designing and executing interior spaces with customized fixtures and finishes.</p>
+                                </div>
+                                <div class="check-service-btn col-1 display-6 fw-bold"><i class="bi bi-arrow-right-circle"></i></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-lg-3 col-6 my-3">
+                    <a href="/services/aircon" class="text-decoration-none">
+                        <div class="card px-5 py-1 rounded-5 shadow">
+                            <div class="card-body row justify-content-between align-items-center" >
+                                <div class="service-icon d-none d-lg-block col-1 display-4 fw-bold"><i class="bi bi-fan"></i></div>
+                                <div class="service-details col-lg-8 col-10 d-flex flex-column justify-content-center align-items-start">
+                                    <h4 class="display-6 fw-bold d-flex"><i class="d-block d-lg-none bi bi-bar-chart-fill mx-1"></i> Air Conditioning Services</h4>
+                                    <p class="text-start">Installing and maintaining air conditioning and HVAC systems.</p>
+                                </div>
+                                <div class="check-service-btn col-1 display-6 fw-bold"><i class="bi bi-arrow-right-circle"></i></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-lg-3 col-6 my-3">
+                    <a href="/services/fire-safety" class="text-decoration-none">
+                        <div class="card px-5 py-1 rounded-5 shadow">
+                            <div class="card-body row justify-content-between align-items-center" >
+                                <div class="service-icon d-none d-lg-block col-1 display-4 fw-bold"><i class="bi bi-fire"></i></div>
+                                <div class="service-details col-lg-8 col-10 d-flex flex-column justify-content-center align-items-start">
+                                    <h4 class="display-6 fw-bold d-flex"><i class="d-block d-lg-none bi bi-bar-chart-fill mx-1"></i> Fire Alarm & Safety Services</h4>
+                                    <p class="text-start">Installing and maintaining fire alarm and safety systems.</p>
+                                </div>
+                                <div class="check-service-btn col-1 display-6 fw-bold"><i class="bi bi-arrow-right-circle"></i></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-lg-3 col-6 my-3">
+                    <a href="/services/bms" class="text-decoration-none">
+                        <div class="card px-5 py-1 rounded-5 shadow">
+                            <div class="card-body row justify-content-between align-items-center" >
+                                <div class="service-icon d-none d-lg-block col-1 display-4 fw-bold"><i class="bi bi-building-fill"></i></div>
+                                <div class="service-details col-lg-8 col-10 d-flex flex-column justify-content-center align-items-start">
+                                    <h4 class="display-6 fw-bold d-flex"><i class="d-block d-lg-none bi bi-bar-chart-fill mx-1"></i> Building Management Services</h4>
+                                    <p class="text-start">Managing building systems for energy efficiency, security, and operations.</p>
+                                </div>
+                                <div class="check-service-btn col-1 display-6 fw-bold"><i class="bi bi-arrow-right-circle"></i></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-xl-3 col-6 my-3">
+                    <a href="/services/elevator" class="text-decoration-none">
+                        <div class="card px-5 py-1 rounded-5 shadow">
+                            <div class="card-body row justify-content-between align-items-center" >
+                                <div class="service-icon d-none d-lg-block col-1 display-4 fw-bold"><i class="bi bi-arrow-down-up"></i></div>
+                                <div class="service-details col-lg-8 col-10 d-flex flex-column justify-content-center align-items-start">
+                                    <h4 class="display-6 fw-bold d-flex"><i class="d-block d-lg-none bi bi-bar-chart-fill mx-1"></i> Elevator & Escalator Services</h4>
+                                    <p class="text-start">Installing and maintaining elevators and escalators for smooth transportation.</p>
+                                </div>
+                                <div class="check-service-btn col-1 display-6 fw-bold"><i class="bi bi-arrow-right-circle"></i></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-xl-3 col-6 my-3">
+                    <a href="/services/energy" class="text-decoration-none">
+                        <div class="card px-5 py-1 rounded-5 shadow">
+                            <div class="card-body row justify-content-between align-items-center" >
+                                <div class="service-icon d-none d-lg-block col-1 display-4 fw-bold"><i class="bi bi-battery-charging"></i></div>
+                                <div class="service-details col-lg-8 col-10 d-flex flex-column justify-content-center align-items-start">
+                                    <h4 class="display-6 fw-bold d-flex"><i class="d-block d-lg-none bi bi-bar-chart-fill mx-1"></i> Energy Auditing & Management</h4>
+                                    <p class="text-start">Auditing energy usage and optimizing systems for efficiency.</p>
+                                </div>
+                                <div class="check-service-btn col-1 display-6 fw-bold"><i class="bi bi-arrow-right-circle"></i></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-xl-3 col-6 my-3">
+                    <a href="/services/data-cabling" class="text-decoration-none">
+                        <div class="card px-5 py-1 rounded-5 shadow">
+                            <div class="card-body row justify-content-between align-items-center" >
+                                <div class="service-icon d-none d-lg-block col-1 display-4 fw-bold"><i class="bi bi-router-fill"></i></div>
+                                <div class="service-details col-lg-8 col-10 d-flex flex-column justify-content-center align-items-start">
+                                    <h4 class="display-6 fw-bold d-flex"><i class="d-block d-lg-none bi bi-bar-chart-fill mx-1"></i> Data Cabling Services</h4>
+                                    <p class="text-start">Installing and maintaining reliable data cabling systems for networks.</p>
+                                </div>
+                                <div class="check-service-btn col-1 display-6 fw-bold"><i class="bi bi-arrow-right-circle"></i></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+
+
+                
+            </div>
+        </div>
+
+    </div>
+    </section>
+
+{% endblock %}

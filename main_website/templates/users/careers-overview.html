@@ -1,0 +1,206 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Careers
+{% endblock %}
+
+
+
+{% block scripts %}
+    <script src="{% static 'js/careers-overview.js' %}"></script>
+{% endblock %}
+
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/careers-overview.css' %}">
+{% endblock %}
+
+
+{% block content %}
+    <section id="banner-area">
+
+    </section>
+
+    {% if jobData %}
+    <section id="hero-banner">
+        <div class="container-fluid">
+            <div class="row justify-content-center align-items-center mx-3 my-5 px-xl-5">
+                <div class="col-lg-6 col-xl-5 text-center text-xl-start">
+                    <h4 class="text-uppercase">Career Opportunities</h4>
+                    <h1 class="fw-bolder display-2 text-primary text-uppercase">Introducing {{ jobData.job_title }}</h1>
+                </div>
+                <div class="col-lg-6 col-xl-5 text-center">
+                    <img src="{% static 'images/aa2000_icon.png' %}" alt="">
+                </div>                         
+            </div>
+        </div>
+    </section>
+    
+
+    <section id="job-description">
+        <div class="container-fluid my-5" id="job-description-banner">
+
+            <div class="row justify-content-center align-items-center">
+                <div class="col-lg-5 col-8 px-5 text-center">
+                    <img style="width: 75%; height: 75%;" src="/media/{{ jobData.job_image }}" alt="">
+                </div>
+                <div class="col-lg-5 col-8">
+                    <h4 class="display-6 fw-bold">What is {{ jobData.job_title }}</h4>
+                    <p class="text-justify">{{ jobData.job_description.short_description|safe }}</p>
+                    <p class="text-justify">{{ jobData.job_description.long_description|safe }}</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="key-responsibilities">
+        <div class="container-fluid my-5" id="key-responsibilities-banner">
+            <div class="text-center">
+                <h4 class="display-6 fw-bold">Key Responsibilities</h4> 
+            </div>
+            <div class="row justify-content-center align-items-center mt-5">
+    
+                {% if jobData.job_responsibilities.all %}
+                    {% for jobkey in jobData.job_responsibilities.all %}
+                        <div class="col-lg-5 col-8 px-5 text-center">
+                            {{ jobkey.job_responsibility|safe }}
+                        </div>
+                    {% endfor %}
+                {% else %}
+                <p>No indicated Key responsibilities</p>
+                {% endif %}
+                
+            </div>
+        </div>
+    </section>
+    
+    
+    <section id="qualifications">
+        <div class="container-fluid my-5" id="qualifications-banner">
+            <div class="text-center">
+                <h4 class="display-6 fw-bold">Qualifications</h4>
+            </div>
+            <div class="row justify-content-center align-items-center mt-5">
+
+                
+                {% if jobData.job_qualifications.all %}
+                
+                    {% for qual in jobData.job_qualifications.all %}
+                        <div class="col-lg-5 col-8 px-5 text-center">
+                            {{ qual.job_qualification|safe }}
+                        </div>
+                    {% endfor %}
+                {% else %}
+                <p>No Qualifications indicated</p>
+                {% endif %}
+                    
+
+            </div>
+        </div>
+    </section>
+
+    <section id="preffered-skills">
+        <div class="container-fluid my-5" id="preffered-skills-banner">
+            <div class="text-center">
+                <h4 class="display-6 fw-bold">Preffered Skills</h4>
+            </div>
+            <div class="row justify-content-center align-items-center mt-5">
+                
+                {% if jobData.job_preferred_skills.all %}
+
+                    
+                    {% for skill in jobData.job_preferred_skills.all %}
+                        <div class="col-lg-5 col-8 px-5 text-center">
+                            {{ skill.job_preferred_skill|safe }}
+                        </div>
+                    {% endfor %}
+                        
+                {% else %}
+                <p>No preferred skills indicated</p>
+                {% endif %}
+                    
+
+            </div>
+        </div>
+    </section>
+
+    <section id="compensation-benefits">
+        <div class="container-fluid my-5" id="compensation-benefits-banner">
+            <div class="text-center">
+                <h4 class="display-6 fw-bold">Compensations and Benefits</h4>
+            </div>
+            <div class="row justify-content-center align-items-center mt-5">
+
+                
+                {% if jobData.job_compensation_benefits %}
+                    
+                <div class="col-lg-5 col-8 px-5 text-center">
+                    {{ jobData.job_compensation_benefits.compensation|safe }}
+                </div>
+                    
+                <div class="col-lg-5 col-8 px-5 text-center">
+                    {{ jobData.job_compensation_benefits.benefits|safe }}
+                </div>
+
+                {% endif %}
+                    
+
+            </div>
+        </div>
+    </section>
+
+    <section id="how-to-apply">
+        <div class="container-fluid my-5" id="how-to-apply-banner">
+
+            <div class="row justify-content-center align-items-center mt-5">
+                <div class="col-lg-5 col-8 px-5">
+                    <h4 class="display-6 fw-bold">How to Apply?</h4>
+                    <p class="text-justify">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque id iusto quae accusamus atque, deleniti veniam? Aperiam atque labore fugit iusto obcaecati saepe perspiciatis sed distinctio adipisci commodi, temporibus eligendi iste cumque similique ex sunt quod nam delectus nulla porro. Praesentium, dignissimos nostrum. Quae cumque vero esse hic ipsa veritatis ullam omnis tempore a deserunt odio dolor, quam, excepturi ut corporis totam eos est tempora exercitationem rerum, nobis illo. Dignissimos, odio quos. Neque veniam, ut vero facilis dicta at nisi unde obcaecati quaerat adipisci suscipit necessitatibus perferendis sit. Ab porro saepe dolores alias velit. Quod quos odio hic sint autem!</p>    
+                </div>
+                <div class="col-lg-5 col-8">
+                    <ul>
+                        <li><p>
+                            <span class="fw-bold">Step 1:</span>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae, explicabo!
+                        </p></li>
+                        <li><p>
+                            <span class="fw-bold">Step 2:</span>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae, explicabo!
+                        </p></li>
+                        <li><p>
+                            <span class="fw-bold">Step 3:</span>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae, explicabo!
+                        </p></li>
+                        <li><p>
+                            <span class="fw-bold">Step 4:</span>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae, explicabo!
+                        </p></li>
+                        <li><p>
+                            <span class="fw-bold">Step 5:</span>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae, explicabo!
+                        </p></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cta">
+        <div class="container-fluid my-5" id="cta-banner">
+            <h3 class="text-center mt-3 mb-5 pt-5 systems-banner-title mx-3">
+                <div class="display-lg-2 display-6 mb-1 fw-bold">Interested to Apply?</div>
+                <p class="lead text-muted  fs-6 fs-lg-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, quo!</p>
+            </h3>
+
+            <div class="text-center">
+                <h4 class="display-6 my-1">Email us at</h4>
+                <h3 class="display-5 my-4"><span class="px-5 py-3 rounded-5">sample@email.com</span></h3>
+            </div>
+        </div>
+    </section>
+    {% endif %}
+    
+
+{% endblock %}

@@ -1,0 +1,126 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif; 
+    background-color: #ecf2ff;
+}
+
+
+/* for scroll bar styles */
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--main-bg);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--mid-blue);
+    border-radius: 10px;
+    border: 3px solid var(--main-bg);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--dark-blue); /* Darker color on hover */
+}
+
+        /* Define color palettes */
+
+:root {
+    --primary-color: #4c7df9; 
+    --secondary-color: #6c757d; 
+    --light-bg: #f8f9fa;
+    --dark-bg: #343a40;
+    --hover-bg: rgba(0, 123, 255, 0.1);
+    --hover-color: #0056b3; 
+
+
+    --main-bg: #ecf2ff;
+    --light-blue: #4c7df9;
+    --black: #202020;
+    --mid-blue: #1f4cff;
+    --dark-blue: #0a2fbf;
+    --gray: #d6d6d8;
+    --img-bg-blue: rgba(58, 120, 253, 0.65);
+    --gradient-bg: linear-gradient(to bottom, var(--light-blue) 0%, var(--mid-blue) 100%);
+
+    --system1: #f9f871;
+    --system2: #ffc861;
+    --system3: #ff9580;
+    --system4: #ff72b2;
+    --system5: #d970e2;
+    --system6: #22c197;
+    --system7: #796fe5;
+    --system8: #b0b5ed;
+    --system9: #eee8a9;
+    --system10: #3a7371;
+    --system11: #dbefee;
+    --system12: #6dfacd;
+}
+
+
+.text-justify {
+    text-align: justify;
+}
+
+#sidebar {
+    height:100vh;
+    margin-left: 1%;
+}
+
+#sidebar-area {
+    height: 95vh;
+}
+
+/* sidebar */
+#sidebar-area img {
+    width: 100%;
+    height: auto;
+}
+
+.dropdown-menu {
+    display: none;
+    opacity: 0; /* Start with 0 opacity */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition */
+    transform: translateY(-10px); /* Slight upward position for effect */
+}
+
+.dropdown-item:hover {
+    background-color: var(--mid-blue);
+    color: var(--main-bg);
+}
+
+.dropdown-menu.show {
+    display: block; /* Show the dropdown when active */
+    opacity: 1; /* Fade in effect */
+    transform: translateY(0); /* Move to original position */
+}
+
+
+/* Hide the default dropdown icon */
+.dropdown-toggle::after {
+    display: none;
+}
+
+#navbar-icon {
+    width: 30%;
+    height: auto;
+}
+
+#navbar-menu-icon {
+    width: 60%;
+    height: auto;
+}
+
+
+.circle-img {
+    width: 60px; 
+    height: 60px; 
+    border-radius: 50%; 
+    object-fit: cover;
+}

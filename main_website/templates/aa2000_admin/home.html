@@ -1,0 +1,234 @@
+{% extends 'admin_base.html' %}
+{% load static %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'js/admin_home.js' %}"></script>
+{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/admin_home.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+<div class="row justify-content-center">
+    <div class="col-lg-6 col-12">
+        <div class="row justify-content-center align-items-center">
+            
+            <div class="col-11 col-lg-6 mt-2">
+                <div class="card main-card-1 rounded-5 shadow-lg px-1">
+                    <div class="card-body">
+                        <div class="">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="rounded-circle bg-white px-3 py-2">
+                                    <i class="bi bi-cart text-muted fs-5"></i>
+                                </div>
+                                 <div class="percent-container-main px-3 py-1 rounded-5">
+                                    <span class="" id="product_percent"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-3 border-0">
+                            <div class="d-flex mt-0 align-items-center px-3">
+                                <h2 class="fw-medium display-2 mx-2" id="total_products">140</h2>
+                                <span class="fs-6 fst-light">Total Number of Products</span>
+                            </div>
+                            <div class="d-flex mt-0 justify-content-end align-items-center text-end">                        
+                                <p class="fs-6 fst-light fst-italic">Added <span class="fw-bold underline" id="change_products"></span> from the past 7 days</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-11 col-lg-6 mt-2">
+                <div class="card main-card-1 rounded-5 shadow-lg px-1">
+                    <div class="card-body">
+                        <div class="">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="rounded-circle bg-white px-3 py-2">
+                                    <i class="bi bi-bookmark text-muted fs-5"></i>
+                                </div>
+                                <div class="percent-container-main px-3 py-1 rounded-5">
+                                    <span class="" id="brand_percent"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-3 border-0">
+                            {% comment %} <p class="fw-light fs-6">Total Number of Products</p> {% endcomment %}
+                            <div class="d-flex mt-0 align-items-center px-3">
+                                <h2 class="fw-medium display-2 mx-2" id="total_brands">50</h2>
+                                <span>Total Number of Brands</span>
+                            </div>
+                            <div class="d-flex mt-0 justify-content-end align-items-center text-end">                        
+                                <p class="fs-6 fst-light fst-italic">Added <span class="fw-bold underline" id="change_brands"></span> from the past 7 days</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-11 col-lg-6 mt-2">
+                <div class="card main-card-2 rounded-5 shadow-lg px-1">
+                    <div class="card-body">
+                        <div class="">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="rounded-circle bg-primary  px-3 py-2">
+                                    <i class="bi bi-chat-left-dots text-white fs-5"></i>
+                                </div>
+                            </div>
+                        </div> 
+                        <div class="mt-3 border-0">
+                            <div class="d-flex mt-0 align-items-center px-3">
+                                <h2 class="fw-medium display-2 mx-2" id="total_inquiry"></h2>
+                                <span class="fs-6 fst-light">Total Number of Inquiries</span>
+                            </div>
+                            <div class="d-flex mt-0 justify-content-end align-items-center text-end">                        
+                                <p class="fs-6 fst-light fst-italic">Received <span class="fw-bold underline" id="change_inquiry"></span> inquiries from the past 7 days</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-11 col-lg-6 mt-2">
+                <div class="card main-card-2 rounded-5 shadow-lg">
+                    <div class="card-body text-center">
+                        <div>
+                            <canvas id="total_count_status_inquiry"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div style="" class="col-lg-6 col-12 mt-2 d-flex justify-content-center align-items-center">
+        <div class="col-12">
+            <div class="card main-card rounded-5 shadow-lg p-2">
+                <div class="card-body">
+                    <div class="nav nav-tabs  justify-content-xl-center" id="nav-tab" role="tablist">
+                        <button class="nav-link active" id="nav-general-view-tab" data-bs-toggle="tab" data-bs-target="#nav-general-view" type="button" role="tab" aria-controls="nav-general-view" aria-selected="true">General Page Visits</button>
+                        <button class="nav-link" id="nav-product-view-tab" data-bs-toggle="tab" data-bs-target="#nav-product-view" type="button" role="tab" aria-controls="nav-product-view" aria-selected="false">Product Views</button>
+                        <button class="nav-link" id="nav-brand-view-tab" data-bs-toggle="tab" data-bs-target="#nav-brand-view" type="button" role="tab" aria-controls="nav-brand-view" aria-selected="false">Brand Views</button>
+                    </div>
+
+                    <div class="tab-content mt-3">
+
+                        <div class="tab-pane fade show active px-1" id="nav-general-view" role="tabpanel" aria-labelledby="nav-general-view-tab">
+                            <div class="text-center">
+                                <h4 class="fs-2 ">Total Number of Page Visitors</h4>
+                                <canvas id="general_visitors_chart" width="400" height="100"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade px-1" id="nav-product-view" role="tabpanel" aria-labelledby="nav-product-view-tab">
+                            <div class="text-center">
+                                <h4 class="fs-2 ">Most Visited Products for this week</h4>
+                                <canvas id="products_views_chart" width="400" height="100"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade px-1" id="nav-brand-view" role="tabpanel" aria-labelledby="nav-brand-view-tab">
+                            <div class="text-center">
+                                <h4 class="fs-2 ">Most Visited Brands for this week</h4>
+                                <canvas id="brands_views_chart" width="400" height="100"></canvas>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="col-12">
+        <div class="row justify-content-center align-items-center">
+
+            <div class="col-11 col-lg-6 mt-2">
+                <div class="card main-card rounded-5 shadow-lg p-3">
+                    <div class="card-body">
+                        <div class="row justify-content-between align-items-center">
+                            <div class="col-6">
+                                <div class="">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="rounded-circle bg-primary  px-3 py-2">
+                                            <i class="bi bi-send text-white fs-5"></i>
+                                        </div>
+                                    </div>
+                                </div> 
+                                <div class="mt-3 border-0">
+                                    <div class="d-flex mt-0 align-items-center px-3">
+                                        <h2 class="fw-medium display-2 mx-2" id="total_article"></h2>
+                                        <span class="fs-6 fst-light">Total Number of Articles</span>
+                                    </div>
+                                    <div class="d-flex mt-0 justify-content-end align-items-center text-end">                        
+                                        <p class="fs-6 fst-light fst-italic">Created <span class="fw-bold underline" id="change_article"></span> articles from the past 7 days</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <h6 class="fs-5">Top 5 Most Viewed Articles</h6>
+                                <hr>
+                                <ul class="" id="top_five_articles">
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-11 col-lg-3 mt-2">
+                <div class="card main-card rounded-5 shadow-lg p-2">
+                    <div class="card-body">
+                        <div class="">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="rounded-circle bg-primary px-3 py-2">
+                                    <i class="bi bi-suitcase-lg text-white fs-5"></i>
+                                </div>
+                                <div class="percent-container-main px-3 py-1 rounded-5">
+                                    <span class="" id="job_percent"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-5 border-0">
+                            {% comment %} <h6 class="fw-light fs-6">Total Number of Job Openings</h6> {% endcomment %}
+                            <div class="d-flex align-items-center px-3">
+                                <h2 class="fw-medium display-2 mx-2" id="total_jobs"></h2>
+                                <span>Total Number of Job Openings</span>
+                            </div>
+                            <div class="d-flex mt-0 justify-content-end align-items-center text-end">                        
+                                <p class="fs-6 fst-light fst-italic">Added <span id="change_jobs"></span> from the past 7 days</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-11 col-lg-3 mt-2">
+                <a href="/admin/reports" id="view_reports" class="text-decoration-none">
+                    <div class="card main-card rounded-5 shadow-lg p-3">
+                        <div class="card-body">
+                            <h4 class="display-4 fw-medium p-1">View more details <i class="bi bi-arrow-right"></i></h4>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+
+        </div>
+    </div>
+
+
+</div>
+
+{% endblock %}

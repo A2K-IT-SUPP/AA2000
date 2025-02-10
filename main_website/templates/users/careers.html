@@ -1,0 +1,210 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Careers
+{% endblock %}
+
+
+
+{% block scripts %}
+    <script src="{% static 'js/careers.js' %}"></script>
+{% endblock %}
+
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/careers.css' %}">
+{% endblock %}
+
+
+{% block content %}
+    <section id="banner-area">
+
+    </section>
+
+    <section id="hero-banner">
+        <div class="container-fluid">
+            <div class="row justify-content-center align-items-center mx-3 my-5 px-xl-5">
+                <div class="col-xl-5 text-center">
+                    <h4 class="text-uppercase">Career Opportunities</h4>
+                    <h1 class="fw-bolder display-2 text-primary text-uppercase">Join our team and shape the future of technology</h1>
+                </div>              
+            </div>
+        </div>
+    </section>
+
+    <section id="why-aa2000">
+        <div class="container-fluid my-5" id="why-aa2000-banner">
+            <div class="row justify-content-center align-items-center mt-5">
+                <div class="col-lg-4 col-10 text-center mt-5">
+                    <img src="{% static 'images/picture19.png' %}" alt="">
+                </div> 
+                <div class="col-lg-6 col-10 text-start mt-5">
+                    <h4 class="text-uppercase display-4 fw-bold">Why work at AA2000?</h4>
+                    <p class="text-justify">At AA2000 Security and Technology Solution Inc., we offer a dynamic and growth-driven work environment where employees gain hands-on experience with cutting-edge security and technology solutions, receive continuous training, and build rewarding careers in a supportive and innovative team.</p>
+                    <ul>
+                        <li><p class="text-justify">
+                            <span class="fw-bold">Innovation-Driven Culture:</span>
+                            Work on cutting-edge technologies and transformative projects.
+                        </p></li>
+                        <li><p class="text-justify">
+                            <span class="fw-bold">Career Growth:</span>
+                            Opportunities for professional development and career advancement.
+                        </p></li>
+                        <li><p class="text-justify">
+                            <span class="fw-bold">Inclusive Environment:</span>
+                            A workplace that values diversity, collaboration, and mutual respect.
+                        </p></li>
+                        <li><p class="text-justify">
+                            <span class="fw-bold">Competitive Benefits:</span>
+                            Comprehensive benefits package and work-life balance.
+                        </p></li>
+                    </ul>
+                </div> 
+            </div>
+        </div>
+    </section>
+
+    <section id="career-job-openings">
+        <div class="container-fluid my-5" id="career-job-openings-banner">
+            <hr>
+            <h3 class="text-center mt-3 mb-5 pt-5 systems-banner-title mx-3">
+                <div class="display-lg-2 display-6 mb-1 fw-bold">Current Job Openings</div>
+                <p class="lead text-muted  fs-6 fs-lg-2">Join our team of professionals dedicated to delivering top-tier security and technology solutions.</p>
+            </h3>
+
+            
+            {% if jobs %}
+            <div class="row col-md justify-content-center">
+                
+                {% for job in jobs %}
+                <div class="col-xl-2 col-lg-4 col-8 m-2 p-3 card rounded shadow">
+                    <div class="card-body p-2">
+                        <h5 class="card-title fw-bold fs-3">{{ job.job_title }}</h5>
+                        <div class="card-text text-muted mt-4">{{ job.job_description.short_description|safe }}</div>
+                        <a href="{% url 'users:careers_overview' job.job_slug %}" class="btn btn-primary px-3 py-1">view</a>
+                    </div>
+                </div>
+                {% endfor %}
+                    
+
+
+            </div>
+            {% else %}
+            <div class="row col-md justify-content-center align-items-center">
+                <div class="col-md-6 text-center">
+                    <h2 class="display-4 fw-bold">No job openings available</h2>
+                </div>
+            </div>
+            {% endif %}
+
+
+                
+
+        </div>
+    </section>
+
+    <section id="application-process">
+        <div class="container-fluid my-5" id="application-process-banner">
+            <h3 class="text-center mt-3 mb-5 pt-5 systems-banner-title mx-3">
+                <div class="display-lg-2 display-6 mb-1 fw-bold">How to Apply?</div>
+                <p class="lead text-muted  fs-6 fs-lg-2">Contact us via phone, email, or visit our office to discuss your requirements</p>
+            </h3>
+
+            <div class="row justify-content-center align-items-start">
+                <div class="col-lg-4 col-8">
+                    <p class="text-justify">Joining AA2000 Security and Technology Solution Inc. is a straightforward process designed to ensure we find the right talent for our team. Interested applicants can submit their updated resume and application letter via email or visit our office for in-person submissions. Our hiring team carefully reviews all applications, and shortlisted candidates will go through an evaluation process to determine the best fit for the role.</p>
+                    <p class="text-justify"> Candidates who meet the qualifications will be contacted for an initial interview to assess their skills and experience. Depending on the position, additional tests or assessments may be required to evaluate technical capabilities. Once the selection process is complete, successful applicants will receive a formal job offer and begin their onboarding journey with AA2000.</p>
+                </div>
+                <div class="col-lg-4 col-8">
+                    <ul>
+                        <li><p>
+                            <span class="fw-bold">Step 1:</span>
+                            Submit Your Application – Send your resume and application letter via email or deliver it to our office.
+                        </p></li>
+                        <li><p>
+                            <span class="fw-bold">Step 2:</span>
+                            Initial Screening – Our HR team reviews applications and shortlists candidates based on qualifications.
+                        </p></li>
+                        <li><p>
+                            <span class="fw-bold">Step 3:</span>
+                            Interview Process – Shortlisted applicants are invited for an interview to assess skills, experience, and cultural fit.
+                        </p></li>
+                        <li><p>
+                            <span class="fw-bold">Step 4:</span>
+                            Skills Assessment (If Applicable) – Depending on the role, a technical test or hands-on assessment may be required.
+                        </p></li>
+                        <li><p>
+                            <span class="fw-bold">Step 5:</span>
+                            Final Selection & Job Offer – Successful candidates receive a job offer and proceed with onboarding.
+                        </p></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="benefits-perks">
+        <div class="container-fluid my-5" id="benefits-perks-banner">
+            <h3 class="text-center mt-3 mb-5 pt-5 systems-banner-title mx-3">
+                <div class="display-lg-2 display-6 mb-1 fw-bold">Benefits and Perks</div>
+                <p class="lead text-muted  fs-6 fs-lg-2">Maximizing Efficiency and Reliability: The Benefits and Perks of Choosing AA2000</p>
+            </h3>
+
+            <div class="row justify-content-center">
+
+                <div class="col-xl-2 col-lg-4 col-8 card m-1 p-3 text-center border-0">
+                    <div class="card-body">
+                        <div class="card-title text-primary">
+                            <i class="bi bi-star-fill display-1 fw-bolder"></i>
+                        </div>
+                        <div class="card-subtitle display-6 fw-bold">Career Growth Opportunities</div>
+                        <div class="card-text mt-3">We provide continuous learning and development programs to help employees enhance their skills and advance in their careers.</div>
+                    </div>
+                </div>
+
+                <div class="col-xl-2 col-lg-4 col-8 card m-1 p-3 text-center border-0">
+                    <div class="card-body">
+                        <div class="card-title text-primary">
+                            <i class="bi bi-star-fill display-1 fw-bolder"></i>
+                        </div>
+                        <div class="card-subtitle display-6 fw-bold">Competitive Compensation & Incentives</div>
+                        <div class="card-text mt-3">Employees receive fair salaries along with performance-based incentives and bonuses to reward hard work and dedication.</div>
+                    </div>
+                </div>
+
+                <div class="col-xl-2 col-lg-4 col-8 card m-1 p-3 text-center border-0">
+                    <div class="card-body">
+                        <div class="card-title text-primary">
+                            <i class="bi bi-star-fill display-1 fw-bolder"></i>
+                        </div>
+                        <div class="card-subtitle display-6 fw-bold">Supportive Work Environment</div>
+                        <div class="card-text mt-3">We foster a collaborative and inclusive workplace where team members can thrive and contribute to meaningful projects.</div>
+                    </div>
+                </div>
+
+                <div class="col-xl-2 col-lg-4 col-8 card m-1 p-3 text-center border-0">
+                    <div class="card-body">
+                        <div class="card-title text-primary">
+                            <i class="bi bi-star-fill display-1 fw-bolder"></i>
+                        </div>
+                        <div class="card-subtitle display-6 fw-bold">Hands-On Experience with Industry-Leading Technology</div>
+                        <div class="card-text mt-3">Employees gain valuable experience working with top security and technology brands</div>
+                    </div>
+                </div>
+
+                <div class="col-xl-2 col-lg-4 col-8 card m-1 p-3 text-center border-0">
+                    <div class="card-body">
+                        <div class="card-title text-primary">
+                            <i class="bi bi-star-fill display-1 fw-bolder"></i>
+                        </div>
+                        <div class="card-subtitle display-6 fw-bold">Job Stability & Long-Term Growth</div>
+                        <div class="card-text mt-3"> As a trusted security and technology solutions provider, we offer stable career opportunities in a growing and in-demand industry.</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

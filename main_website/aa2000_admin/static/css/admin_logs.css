@@ -1,0 +1,78 @@
+
+:root {
+    --primary-color: #4c7df9; 
+    --secondary-color: #6c757d; 
+    --light-bg: #f8f9fa;
+    --dark-bg: #343a40;
+    --hover-bg: rgba(0, 123, 255, 0.1);
+    --hover-color: #0056b3; 
+
+
+    --main-bg: #ecf2ff;
+    --light-blue: #4c7df9;
+    --black: #202020;
+    --mid-blue: #1f4cff;
+    --dark-blue: #0a2fbf;
+    --gray: #d6d6d8;
+    --img-bg-blue: rgba(58, 120, 253, 0.65);
+    --gradient-bg: linear-gradient(to bottom, var(--light-blue) 0%, var(--mid-blue) 100%);
+
+
+    --system1: #f9f871;
+    --system2: #ffc861;
+    --system3: #ff9580;
+    --system4: #ff72b2;
+    --system5: #d970e2;
+    --system6: #22c197;
+    --system7: #796fe5;
+    --system8: #b0b5ed;
+    --system9: #eee8a9;
+    --system10: #3a7371;
+    --system11: #dbefee;
+    --system12: #6dfacd;
+}
+
+
+.SUPERADMIN, .CREATE, .Session {
+    background-color: var(--system1);
+}
+
+.TECHADMIN, .READ, .Inquiries {
+    background-color: var(--system2);
+}
+
+.MANAGER, .UPDATE, .Brands {
+    background-color: var(--system3);
+}
+
+.DEFAULT, .DELETE, .Products {
+    background-color: var(--system4);
+}
+
+.ACTIVATE, .Articles {
+    background-color: var(--system5);
+}
+
+.DEACTIVATE, .Jobs {
+    background-color: var(--system6);
+}
+
+.LOGIN, .Admins {
+    background-color: var(--system7);
+}
+
+.LOGOUT, .Reports {
+    background-color: var(--system8);
+}
+
+.ASSIGN, .Settings {
+    background-color: var(--system9);
+}
+
+.REVOKE {
+    background-color: var(--system10);
+}
+
+.OTHER {
+    background-color: var(--system11);
+}

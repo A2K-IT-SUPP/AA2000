@@ -1,0 +1,88 @@
+
+:root {
+    --primary-color: #4c7df9; 
+    --secondary-color: #6c757d; 
+    --light-bg: #f8f9fa;
+    --dark-bg: #343a40;
+    --hover-bg: rgba(0, 123, 255, 0.1);
+    --hover-color: #0056b3; 
+
+
+    --main-bg: #ecf2ff;
+    --light-blue: #4c7df9;
+    --black: #202020;
+    --mid-blue: #1f4cff;
+    --dark-blue: #0a2fbf;
+    --gray: #d6d6d8;
+    --img-bg-blue: rgba(58, 120, 253, 0.65);
+    --gradient-bg: linear-gradient(to bottom, var(--light-blue) 0%, var(--mid-blue) 100%);
+
+    --NEW: #eee8a9;
+    --PENDING: #ff72b2;
+    --IN_PROGRESS: #4c7df9;
+    --DONE: #22c197;
+}
+
+
+#contact {
+    position: relative;
+    top: 0px;
+    background-image: url('../images/main-bg-1.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 90vh;
+    display: flex; 
+    align-items: center;
+    color: var(--main-bg); 
+    padding: 0 20px;
+    overflow: hidden;
+}
+
+#contact::before, #inquire::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--img-bg-blue); /* Blue overlay */
+    opacity: 0.5; /* Adjust the overlay opacity here */
+    z-index: 0;
+}
+
+#contact > * ,#inquire > *{
+    position: relative;
+    z-index: 1; /* Bring content above overlay */
+}
+
+#contact-info-container, #inquire-container {
+    background-color: var(--main-bg);
+}
+
+
+#inquire {
+    position: relative;
+    background-image: url('../images/main-bg-2.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    color: var(--main-bg);
+    padding: 20px;
+    overflow: hidden;
+  }
+
+.NEW {
+    background-color: var(--NEW);
+}
+.PENDING {
+    background-color: var(--PENDING);
+}
+.IN_PROGRESS {
+    background-color: var(--IN_PROGRESS);
+}
+.DONE {
+    background-color: var(--DONE);
+}

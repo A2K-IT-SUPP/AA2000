@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Brands
+{% endblock %}
+
+
+
+{% block scripts %}
+    <script src="{% static 'js/brands-overview.js' %}"></script>
+{% endblock %}
+
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/brands-overview.css' %}">
+{% endblock %}
+
+
+{% block content %}
+    {% comment %} <section id="banner-area">
+
+    </section> {% endcomment %}
+
+    <section id="hero-banner">
+        <div class="container-fluid">
+            <div class="row justify-content-center align-items-center mx-3 my-5 px-xl-5">
+                <div class="col-lg-6 col-xl-5 text-center text-xl-start">
+                    <h4 class="text-uppercase">Introducing</h4>
+                    <h1 class="fw-bolder display-2 text-primary text-uppercase">{{ brand.brand_name }}</h1>
+                </div>
+                <div class="col-lg-6 col-xl-5 text-center">
+                    <img src="/media/{{ brand.brand_logo }}" alt="">
+                </div>                
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container-fluid my-5" id="about-banner">
+            <div class="row mt-5 justify-content-center align-items-start">
+                <div class="col-4 m-5 p-1">
+                    <img src="/media/{{ brand.brand_details.brand_image_1 }}" alt="">
+                </div>
+                <div class="col-4 m-5 p-1">
+                    <h2 class="display-4 fw-bold">About the Brand</h2>
+                    <p class="text-justify">{{ brand.brand_details.brand_description_1|safe }}</p>
+                </div>
+                <div class="col-4 m-5 p-1">
+                    <p class="text-justify">{{ brand.brand_details.brand_description_2|safe }}</p>
+                </div>
+                <div class="col-4 m-5 p-1">
+                    <img src="/media/{{ brand.brand_details.brand_image_2 }}" alt="">
+                </div>
+                <div id="other_details" class="col-10 m-5 p-1">
+                    {{ brand.brand_details.other_details|safe }}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="brand-products">
+        <div class="container-fluid my-5">
+            <h3 class="text-center mt-3 mb-5 pt-5 systems-banner-title mx-3">
+                <div class="display-lg-2 display-6 mb-1 fw-bold">Products from the Same Brand</div>
+                <p class="lead text-muted  fs-6 fs-lg-2">Explore more with various brands we offer!</p>
+            </h3>
+
+            
+            {% if products %}
+
+            <div id="same-brand-products-slider" class="products-slider position-relative d-flex flex-nowrap justify-content-center align-items-center mx-xl-5 px-xl-5 my-2">
+                <button type="button" id="same-brand-products-btn-prev" class="slider-btn btn-prev border-0">
+                    <i class="bi bi-chevron-left fs-3"></i>
+                </button>
+
+                <div id="same-brand-products-slider-container" class="position-relative row d-flex flex-nowrap justify-content-start align-items-center overflow-x-auto px-xl-5 mx-xl-5 px-1 mx-1">
+                    
+                  {% for product in products %}
+                  <div class="card product-card col-11 col-lg-5 col-xl-2 rounded-4 m-1 p-2">
+                      <img src="/media/{{ product.product_photos.first.product_image }}" class="product-image mx-auto py-1 card-img-top" alt="{{ product.product_name }}">
+                      <div class="card-body px-3">
+                          <h6 class="d-flex justify-content-between align-items-start">
+                            <span style="font-size: 0.8rem;" class="product-category p-2 rounded-3 custom-outline-primary text-white">{{ product.brand.brand_name }}</span>
+                            <span style="font-size: 0.8rem;" class="product-category p-2 rounded-3 {{ product.category.category_name }}">{{ product.category.category_name }}</span>
+                          </h6>
+                          <h5 class="card-title mt-2">
+                            <span class="product-name fs-3">{{ product.product_name }}</span>
+                          </h5>
+                          <p class="card-text">{{ product.short_description|safe|slice:":30" }}</p>
+                          <div class="text-center">
+                              <a href="{% url 'users:product_overview' product.product_slug %}" class="btn btn-outline-primary">View Product</a>
+                          </div>
+                      </div>
+                  </div>
+                  {% endfor %}
+                  
+                      
+
+                </div>
+
+                <button type="button" id="same-brand-products-btn-next" class="slider-btn btn-next border-0">
+                    <i class="bi bi-chevron-right fs-3"></i>
+                </button>
+            </div>
+            <div class="mt-5 text-center">
+              <a href="/products?brand={{brand.brand_slug}}" class="btn btn-primary px-5 py-3 rounded-5">view all products</a>
+            </div>
+            {% else %}
+            <div class="text-center mt-5">
+              <p>No products found</p>
+            </div>            
+            {% endif %}
+              
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,155 @@
+{% load static %}
+
+<nav class="lcl-nav navbar navbar-expand-xl navbar-light sticky-top">
+    <div class="container-fluid px-5 py-1 container-md-px-1">
+        <a href="/" class="navbar-brand">
+            <span>
+                <img src="{% static 'images/AA2000-LOGO-2.png' %}" height="50px" alt="AA2000 Logo">
+            </span>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end align-center" id="main-nav">
+            <ul class="navbar-nav">
+                <!-- About Dropdown -->
+                <li class="nav-item dropdown mx-2">
+                    <a href="/about" class="nav-link dropdown-toggle" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About</a>
+                    <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
+                        <li class="my-1"><a href="/about" class="dropdown-item">Overview</a></li>
+                        <li class="my-1"><a href="/about#mission" class="dropdown-item">Mission</a></li>
+                        <li class="my-1"><a href="/about#vision" class="dropdown-item">Vision</a></li>
+                        <li class="my-1"><a href="/about#goals" class="dropdown-item">Goals</a></li>
+                        <li class="my-1"><a href="/careers" class="dropdown-item">Careers</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown mx-2">
+                    <a href="/systems" class="nav-link dropdown-toggle" id="systemsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Systems</a>
+                    <ul class="dropdown-menu" aria-labelledby="systemsDropdown">
+                        <li class="my-1"><a href="/systems" class="dropdown-item">View all Systems</a></li>
+                        <li class="my-1"><a href="/systems/fdas" class="dropdown-item">Fire Detection and Alarm Systems</a></li>
+                        <li class="my-1"><a href="/systems/afss" class="dropdown-item">Automatic Fire Suppression Systems</a></li>
+                        <li class="my-1"><a href="/systems/cctv" class="dropdown-item">CCTV Systems</a></li>
+                        <li class="my-1"><a href="/systems/access-control" class="dropdown-item">Access Control Systems</a></li>
+                        <li class="my-1"><a href="/systems/burglar-alarm" class="dropdown-item">Burglar Alarm Systems</a></li>
+                        <li class="my-1"><a href="/systems/intercom-paging" class="dropdown-item">Paging Systems</a></li>
+                        <li class="my-1"><a href="/systems/walkthrough-metal-detectors" class="dropdown-item">Walkthrough/ Handheld Metal Detectors</a></li>
+                        <li class="my-1"><a href="/systems/gate-barriers" class="dropdown-item">Gate Barrier Systems</a></li>
+                        <li class="my-1"><a href="/systems/room-alert" class="dropdown-item">Room Alert Systems</a></li>
+                        <li class="my-1"><a href="/systems/xray-baggage-scanners" class="dropdown-item">X-ray Baggage Scanner Systems</a></li>
+                        <li class="my-1"><a href="/systems/eas" class="dropdown-item">Electronic Article Surveillance Systems</a></li>
+                        <li class="my-1"><a href="/systems/led" class="dropdown-item">LED Displays Systems</a></li>
+                        <li class="my-1"><a href="/systems/robots" class="dropdown-item">Robots Systems</a></li>
+                        <li class="my-1"><a href="/systems/erp" class="dropdown-item">ERP Softwares</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown mx-2">
+                    <a href="/products" class="nav-link dropdown-toggle" id="productsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Products</a>
+                    <ul class="dropdown-menu" aria-labelledby="productsDropdown">
+                        <li class="my-1"><a href="/products" class="dropdown-item">View all Products</a></li>
+                        <li class="my-1"><a href="/products?system=fdas" class="dropdown-item">FDAS Products</a></li>
+                        <li class="my-1"><a href="/products?system=afss" class="dropdown-item">AFSS Products</a></li>
+                        <li class="my-1"><a href="/products?system=cctv" class="dropdown-item">CCTV Products</a></li>
+                        <li class="my-1"><a href="/products?system=access-control" class="dropdown-item">Access Control Products</a></li>
+                        <li class="my-1"><a href="/products?system=burglar-alarm" class="dropdown-item">Burglar Alarm Products</a></li>
+                        <li class="my-1"><a href="/products?system=intercom-paging" class="dropdown-item">Paging Systems Products</a></li>
+                        <li class="my-1"><a href="/products?system=walkthrough-metal-detectors" class="dropdown-item">Walkthrough/ Handheld Metal Detectors Products</a></li>
+                        <li class="my-1"><a href="/products?system=gate-barriers" class="dropdown-item">Gate Barrier Systems Products</a></li>
+                        <li class="my-1"><a href="/products?system=room-alert" class="dropdown-item">Room Alert Systems Products</a></li>
+                        <li class="my-1"><a href="/products?system=xray-baggage-scanners" class="dropdown-item">X-ray Baggage Scanner Systems Products</a></li>
+                        <li class="my-1"><a href="/products?system=eas" class="dropdown-item">EAS Products</a></li>
+                        <li class="my-1"><a href="/products?system=led" class="dropdown-item">LED Displays Products</a></li>
+                        <li class="my-1"><a href="/products?system=robots" class="dropdown-item">Robots Products</a></li>
+                        <li class="my-1"><a href="/products?system=erp" class="dropdown-item">ERP Software Products</a></li>
+                    </ul>
+                </li>
+
+
+                <li class="nav-item dropdown mx-2">
+                    <a href="/services" class="nav-link dropdown-toggle" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
+                    <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                        <li class="my-1"><a href="/services" class="dropdown-item">View all Services</a></li>
+                        <li class="my-1"><a href="/services/supply" class="dropdown-item">Supply</a></li>
+                        <li class="my-1"><a href="/services/installation" class="dropdown-item">Installation</a></li>
+                        <li class="my-1"><a href="/services/maintenance" class="dropdown-item">Maintenance</a></li>
+                        <li class="my-1"><a href="/services/troubleshooting" class="dropdown-item">Troubleshooting</a></li>
+                        <li class="my-1"><a href="/services/design" class="dropdown-item">Design</a></li>
+                        <li class="my-1"><a href="/services/inspection" class="dropdown-item">Inspection</a></li>
+                        <li class="my-1"><a href="/services/consultation" class="dropdown-item">Consultations</a></li>
+                        <li class="my-1"><a href="/services/training" class="dropdown-item">Training</a></li>
+                        <li class="my-1"><a href="/services/electrical" class="dropdown-item">Electrical Engineering</a></li>
+                        <li class="my-1"><a href="/services/mechanical" class="dropdown-item">Mechanical Engineering</a></li>
+                        <li class="my-1"><a href="/services/plumbing" class="dropdown-item">Plumbing Services</a></li>
+                        <li class="my-1"><a href="/services/fitout" class="dropdown-item">Fitout Services</a></li>
+                        <li class="my-1"><a href="/services/aircon" class="dropdown-item">Air Condition Services</a></li>
+                        <li class="my-1"><a href="/services/fire-safety" class="dropdown-item">Fire Alarm & Safety Systems </a></li>
+                        <li class="my-1"><a href="/services/bms" class="dropdown-item">BMS Integration</a></li>
+                        <li class="my-1"><a href="/services/elevator" class="dropdown-item">Elevator & Escalator Installation</a></li>
+                        <li class="my-1"><a href="/services/energy" class="dropdown-item">Energy Auditing & Optimization</a></li>
+                        <li class="my-1"><a href="/services/data-cabling" class="dropdown-item">Data Cabling Solutions</a></li>
+
+
+
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown mx-2">
+                    <a href="/brands" class="nav-link dropdown-toggle" id="brandsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Brands</a>
+                    <ul class="dropdown-menu" aria-labelledby="brandsDropdown">
+                        <li class="my-1"><a href="/brands" class="dropdown-item">View all Brands</a></li>
+                        <li class="my-1"><a href="/brands?system=fdas" class="dropdown-item">FDAS Brands</a></li>
+                        <li class="my-1"><a href="/brands?system=afss" class="dropdown-item">AFSS Brands</a></li>
+                        <li class="my-1"><a href="/brands?system=cctv" class="dropdown-item">CCTV Brands</a></li>
+                        <li class="my-1"><a href="/brands?system=access-control" class="dropdown-item">Access Control Brands</a></li>
+                        <li class="my-1"><a href="/brands?system=burglar-alarm" class="dropdown-item">Burglar Alarm Brands</a></li>
+                        <li class="my-1"><a href="/brands?system=intercom-paging" class="dropdown-item">Paging Systems Brands</a></li>
+                        <li class="my-1"><a href="/brands?system=walkthrough-metal-detectors" class="dropdown-item">Walkthrough/ Handheld Metal Detectors Brands</a></li>
+                        <li class="my-1"><a href="/brands?system=gate-barriers" class="dropdown-item">Gate Barrier Systems Brands</a></li>
+                        <li class="my-1"><a href="/brands?system=room-alert" class="dropdown-item">Room Alert Systems Brands</a></li>
+                        <li class="my-1"><a href="/brands?system=xray-baggage-scanners" class="dropdown-item">X-ray Baggage Scanner Systems Brands</a></li>
+                        <li class="my-1"><a href="/brands?system=eas" class="dropdown-item">EAS Brands</a></li>
+                        <li class="my-1"><a href="/brands?system=led" class="dropdown-item">LED Displays Brands</a></li>
+                        <li class="my-1"><a href="/brands?system=robots" class="dropdown-item">Robots Brands</a></li>
+                        <li class="my-1"><a href="/brands?system=erp" class="dropdown-item">ERP Brands</a></li>
+                    </ul>
+                </li>
+
+                
+                <li class="nav-item dropdown mx-2">
+                    <a href="/articles" class="nav-link dropdown-toggle" id="blogsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Articles</a>
+                    <ul class="dropdown-menu" aria-labelledby="blogsDropdown">
+                        <li class="my-1"><a href="/articles" class="dropdown-item">View all Articles</a></li>
+                        <li class="my-1"><a href="/articles/all" class="dropdown-item">Blogs</a></li>
+                        <li class="my-1"><a href="/policy" class="dropdown-item">Policies</a></li>
+                        <li class="my-1"><a href="/faqs" class="dropdown-item">General FAQs</a></li>
+                    </ul>
+                </li>             
+         
+                <li class="nav-item mx-2">
+                    <a href="/contact" class="btn btn-primary"> <i class="bi bi-telephone-fill mx-2"></i> Contact Us</a>
+                </li>
+            </ul>
+
+            {% comment %} <script>
+                document.querySelectorAll('.nav-item.dropdown').forEach(function (element) {
+                    element.addEventListener('mouseover', function () {
+                        let dropdownToggle = element.querySelector('.dropdown-toggle');
+                        if (!dropdownToggle.classList.contains('show')) {
+                            bootstrap.Dropdown.getOrCreateInstance(dropdownToggle).show();
+                        }
+                    });
+                    element.addEventListener('mouseleave', function () {
+                        let dropdownToggle = element.querySelector('.dropdown-toggle');
+                        if (dropdownToggle.classList.contains('show')) {
+                            bootstrap.Dropdown.getOrCreateInstance(dropdownToggle).hide();
+                        }
+                    });
+                });
+            </script> {% endcomment %}
+        </div>
+    </div>
+</nav>

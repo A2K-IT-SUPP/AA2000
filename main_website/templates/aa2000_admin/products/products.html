@@ -1,0 +1,180 @@
+{% extends 'admin_base.html' %}
+{% load static %}
+
+{% block title %}
+    Products
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'js/products.js' %}"></script>
+{% endblock %}
+
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/admin_products.css' %}">
+{% endblock %}
+
+
+
+{% block content %}
+<div class="mt-3 p-2 bg-white rounded-5 shadow-lg">
+    <div class="row justify-content-between align-items-center pt-2">
+        <div class="col-xl-3">
+            <h2 class="text-lg-start text-center mx-xl-5 fs-3 fw-medium text-dark">All Products</h2>
+        </div>
+        <div class="col-xl-8 d-flex justify-content-center align-items-end">
+            {% if session_admin.level.admin_level_name != 'DEFAULT' %}
+            <div class="add-new-brand-area mx-2">
+                <a href="/admin/products/add" class="btn btn-primary px-3 py-2">Add new product</a>
+            </div>
+            {% endif %}
+            <form method="GET" action="{% url 'aa2000_admin:products' %}" class="d-flex align-items-center">
+            <div class="sort-area mx-2">
+                <h6 class="text-muted fs-6 fw-light">Sort by:</h6>
+                <select class="form-select px-1" id="sort-by" name="sort_by">
+                    <option value="id-up">ID Up</option>
+                    <option value="id-down">ID Down</option>
+                    <option value="name-up">Name Ascending</option>
+                    <option value="name-down">Name Descending</option>
+                    <option value="date-modified-up">Date Modified Ascending</option>                 
+                    <option value="date-modified-down">Date Modified Descending</option>
+                </select>
+            </div>
+            <div class="filter-area mx-2">
+                <h6 class="text-muted fs-6 fw-light">Filter Search by:</h6>
+                <select class="form-select px-1" id="filter-search-by" name="filter_search_by">
+                    <option value="id">ID</option>
+                    <option value="name">Name</option>
+                    <option value="system">System</option>
+                    <option value="category">Category</option>
+                    <option value="date-modified">Date Modified</option>    
+                </select>
+            </div>
+            <div class="search-area mx-2">
+                <h6 class="text-muted fs-6 fw-light">Search:</h6>
+                <div class="input-group">
+                    <input type="text" class="form-control" name="search" id="search" placeholder="search" aria-label="search-area" aria-describedby="search-addon">
+                    <span class="input-group-text" id="search-addon"><i class="bi bi-search"></i></span>
+                </div>
+            </div>
+            <div class="mx-2">
+                <button type="submit" class="btn btn-primary">Apply</button>
+            </div>
+        </form>
+        </div>
+    </div>
+    {% if page_obj %}
+    <div class="col-12 mt-5 px-4" style="max-height: 65vh; overflow-y: auto">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th></th>
+                        <th>Product Name</th>
+                        <th>Brand Name</th>
+                        <th>System</th>
+                        <th>Category</th>
+                        <th>Last Modified</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    {% comment %} <tr>
+                        <th scope="row">1</th>
+                        <td>
+                            <img src="media/aa2000_icon.png" class="product-logo" alt="">
+                        </td>
+                        <td>Product Name 1</td>
+                        <td>Brand Name 1</td>
+                        <td>
+                            <span>FDAS</span>
+                        </td>
+                        <td>
+                            <span>SD</span>
+                        </td>
+                        <td class="text-muted fs-6 fw-light">10/25/2024 10:00:00AM</td>
+                        <td>
+                            <a href="/admin/products/view" class="btn btn-primary rounded-5 px-4 py-1">view</a>
+                        </td>
+                    </tr> {% endcomment %}
+                    
+                    {% for product in page_obj %}
+                    <tr>
+                        <th scope="row">{{ product.id }}</th>
+                        <td>
+                        {% if product.first_photo %}
+                            <img class="product_img" src="{{ product.first_photo.0.product_image.url }}" alt="{{ product.product_name }}">
+                        {% else %}
+                            <img class="product_img" src="products/aa2000_icon.png" alt="No image available">
+                        {% endif %}
+                        </td>
+                        <td>{{ product.product_name }}</td>
+                        <td>{{ product.brand.brand_name }}</td>
+                        <td>
+                            <span class="{{ product.system.system_name }}">{{ product.system.system_name }}</span>
+                        </td>
+                        <td>
+                            <span class="{{ product.category.category_name }}">{{ product.category.category_name }}</span>
+                        </td>
+                        <td class="text-muted fs-6 fw-light">{{ product.modified_at }}</td>
+                        <td>
+                            <a href="{% url 'aa2000_admin:view_product' product.product_slug %}" class="btn btn-primary rounded-5 px-4 py-1">view</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- <div aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            {% if page_obj.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo; Previous</span>
+                    </a>
+                </li>
+            {% else %}
+                <li class="page-item disabled">
+                    <a class="page-link">Previous</a>
+                </li>
+            {% endif %}
+    
+            {% for num in page_obj.paginator.page_range %}
+                {% if page_obj.number == num %}
+                    <li class="page-item active" aria-current="page">
+                        <a class="page-link">{{ num }}</a>
+                    </li>
+                {% else %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+    
+            {% if page_obj.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+                        <span aria-hidden="true">Next &raquo;</span>
+                    </a>
+                </li>
+            {% else %}
+                <li class="page-item disabled">
+                    <a class="page-link">Next</a>
+                </li>
+            {% endif %}
+        </ul>
+    </div> -->
+    {% else %}
+    <div class="col-10">
+        <hr>
+        <p class="mx-5">No Products found.</p>
+    </div>
+    {% endif %}
+
+</div>
+{% endblock %}

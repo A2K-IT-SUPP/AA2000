@@ -1,0 +1,33 @@
+<!-- templates/reply_email.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Response to Your Ticket</title>
+    <style>
+        /* Inline styling for compatibility */
+        .email-container { max-width: 600px; margin: auto; padding: 20px; }
+        .email-header { background-color: #007bff; color: white; padding: 20px; text-align: center; }
+        .email-body { padding: 20px; color: #333; }
+        .email-footer { background-color: #f8f9fa; color: #6c757d; padding: 10px; text-align: center; }
+    </style>
+</head>
+<body style="background-color: #f2f2f2; padding: 20px;">
+
+    <div class="email-container">
+        <div class="email-header">
+            <h2>Response to Your Support Ticket</h2>
+        </div>
+        <div class="email-body">
+            <p>Hello <strong>{{ user.fname }}</strong>,</p>
+            <p>We have reviewed your ticket (ID: <strong>{{ ticket_id }}</strong>) and have provided a response below:</p>
+            <p><strong>Message:</strong></p>
+            <p>{{ reply_message|safe }}</p>
+        </div>
+        <div class="email-footer">
+            <p>Best regards,<br>Your Support Team</p>
+            <p>&copy; {{ current_year }} AA2000 Security and Technology Solutions Inc | All rights reserved</p>
+        </div>
+    </div>
+</body>
+</html>
