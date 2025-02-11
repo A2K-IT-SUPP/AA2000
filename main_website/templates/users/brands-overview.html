@@ -87,7 +87,7 @@
                           <h5 class="card-title mt-2">
                             <span class="product-name fs-3">{{ product.product_name }}</span>
                           </h5>
-                          <p class="card-text">{{ product.short_description|safe|slice:":30" }}</p>
+                          <p class="card-text">{{ product.short_description|striptags|slice:":30" }}</p>
                           <div class="text-center">
                               <a href="{% url 'users:product_overview' product.product_slug %}" class="btn btn-outline-primary">View Product</a>
                           </div>
