@@ -103,7 +103,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'aa2000',
         'USER': 'root',
-        'PASSWORD': 'adminroot123',
+        'PASSWORD': 'AA2000-main-website',
         'PORT': 3306,
         'HOST': '127.0.0.1',
     }
